@@ -16,8 +16,7 @@ Quickipedia is an ambitious project aimed at creating a real-time online platfor
 - **Cloud Hosting and Services**: Utilizing Azure for reliable and scalable cloud hosting solutions.
 
 ## Team Members and Expertise
-- **Colin Nordmark and Marisa Pinheiro**: As full-stack developers, Colin and Marisa bring a comprehensive skill set to Quickipedia, encompassing both front-end and back-end development. Their combined expertise in Java, Spring Framework, and Next.js is instrumental in building a seamless, robust platform. Together, they navigate the complexities of software development, from crafting engaging user interfaces to engineering solid backend solutions.
-
+- **Colin Nordmark and Marisa Pinheiro**: As full-stack developers, Colin and Marisa bring a comprehensive skill set to Quickipedia, encompassing both front-end and back-end development. Their combined expertise in Java, Spring Framework, and Next.js is instrumental in building a seamless, robust platform.
 ## Contribution and Collaboration
 While Quickipedia is still in the planning phase, we welcome ideas, suggestions, and contributions from the community. Feel free to share your thoughts and stay tuned for updates on our progress.
 
