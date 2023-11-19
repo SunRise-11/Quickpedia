@@ -19,7 +19,7 @@ Quickipedia is an ambitious project aimed at creating a real-time online platfor
 
 #### Colin Nordmark - Full-Stack Developer:
 
-**Personal Note:** Residing in Stockholm, Sweden, Colin brings a creative and ambitious energy to the world of coding with a passion for media production and digital game design.
+**Personal Note:** Residing in Stockholm, Sweden, Colin brings a creative and ambitious energy to the world of coding with a background in media production and digital game design.
 
 #### Marisa Pinheiro - Full-Stack Developer:
 
