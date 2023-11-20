@@ -1,10 +1,4 @@
 
-import React from 'react'
-
-const Page = () => {
-  return (
-    <div></div>
-  )
-}
-
-export default Page;
+export default function About() {
+    return <div>About</div>
+} 
