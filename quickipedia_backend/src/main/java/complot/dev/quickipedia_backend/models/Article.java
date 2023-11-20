@@ -9,21 +9,21 @@ import java.util.UUID;
 public class Article {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDgenerator")
-    private String articleId;
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private UUID articleId;
     @Column
     private String topic;
     @Column
     private String question;
 
     public Article(){}
-    private Article(String topic, String question) {
-        this.articleId = UUID.randomUUID().toString();
+    private Article(UUID articleId,String topic, String question) {
+        this.articleId = articleId;
         this.topic = topic;
         this.question = question;
     }
 
-    public String getArticleId() {
+    public UUID getArticleId() {
         return articleId;
     }
 
