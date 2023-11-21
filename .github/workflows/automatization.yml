@@ -6,7 +6,8 @@ on:
       - quickipedia_backend #and here
     branches:
       - "main"
-  workflow_run: #added this
+  workflow_dispatch:
+  #added this
 
 
 jobs:
