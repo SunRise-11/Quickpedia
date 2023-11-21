@@ -18,6 +18,8 @@ public class Article {
     private String question;
     @Column
     private String answer;
+    @Column
+    private int rank;
 
     public Article(){}
     private Article(UUID articleId,String topic, String question) {
@@ -25,6 +27,14 @@ public class Article {
         this.topic = topic;
         this.question = question;
         this.answer = answer;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public int getRank() {
+        return rank;
     }
 
     public UUID getArticleId() {
