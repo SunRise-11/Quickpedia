@@ -13,9 +13,9 @@ jobs:
       - name: Create secrets.properties file
         #working-directory: $GITHUB_WORKSPACE/quickipedia_backend/src/main/resources
         run: |
-          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >>  quickipedia_backend/src/main/resources/secrets.properties
-          echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> quickipedia_backend/src/main/resources/secrets.properties
-          echo "quickipedia.datasource.password=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> quickipedia_backend/src/main/resources/secrets.properties
+          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >>  ./quickipedia_backend/src/main/resources/secrets.properties
+          echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> ./quickipedia_backend/src/main/resources/secrets.properties
+          echo "quickipedia.datasource.password=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> ./quickipedia_backend/src/main/resources/secrets.properties
         shell: bash
       - name: Checkout
         uses: actions/checkout@v2
