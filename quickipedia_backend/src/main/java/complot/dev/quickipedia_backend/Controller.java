@@ -26,7 +26,7 @@ public class Controller {
     @GetMapping("/articles")
     public ResponseEntity<List<ArticleResponseDto>> getAllArticles() {
 
-        return ResponseEntity.ok().body(tempList());
+        return ResponseEntity.ok().body(service.getAllArticles());
     }
 
     @GetMapping("/articles/top")
