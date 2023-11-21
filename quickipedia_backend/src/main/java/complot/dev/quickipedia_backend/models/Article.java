@@ -3,6 +3,7 @@ package complot.dev.quickipedia_backend.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -15,12 +16,15 @@ public class Article {
     private String topic;
     @Column
     private String question;
+    @Column
+    private String answer;
 
     public Article(){}
     private Article(UUID articleId,String topic, String question) {
         this.articleId = articleId;
         this.topic = topic;
         this.question = question;
+        this.answer = answer;
     }
 
     public UUID getArticleId() {
