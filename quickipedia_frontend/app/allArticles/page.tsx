@@ -41,11 +41,11 @@ const Page = () => {
       >
         <option value="all">Choose a topic</option>
         <option value="all">All</option>
-        <option value="technology">Technology</option>
-        <option value="food">Food</option>
-        <option value="geography">Geography</option>
-        <option value="animals">Animals</option>
-        <option value="pop-culture">Pop Culture</option>
+        <option value="Technology">Technology</option>
+        <option value="Food">Food</option>
+        <option value="Geography">Geography</option>
+        <option value="Animals">Animals</option>
+        <option value="Pop-culture">Pop Culture</option>
       </select>
       <ol>
         {articlesToShow &&
