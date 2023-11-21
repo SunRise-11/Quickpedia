@@ -16,7 +16,7 @@ public class Article {
     private String topic;
     @Column
     private String question;
-    @Column
+    @Column()
     private String answer;
     @Column
     private int rank;

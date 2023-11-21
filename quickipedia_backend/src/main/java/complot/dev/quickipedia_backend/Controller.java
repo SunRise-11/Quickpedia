@@ -32,7 +32,9 @@ public class Controller {
     @GetMapping("/articles/top")
     public ResponseEntity<List<ArticleResponseDto>> getTopArticles() {
 
-        List<ArticleResponseDto> sortedArticles = tempList().stream()
+        var articles = service.getAllArticles();
+
+        List<ArticleResponseDto> sortedArticles = articles.stream()
                 .sorted(Comparator.comparing(ArticleResponseDto::rank))
                 .limit(5)
                 .toList();
