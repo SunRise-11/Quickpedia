@@ -10,14 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Create secrets.properties file
+        working-directory: quickipedia_backend/src/main/resources
         run: |
-          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >> secrets.properties
+          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >>  secrets.properties
           echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> secrets.properties
           echo "quickipedia.datasource.password=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> secrets.properties
         shell: bash
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Setup Java JDK
         uses: actions/setup-java@v3.13.0
         with:
@@ -25,7 +26,7 @@ jobs:
           distribution: 'adopt'
       - name: Mvn Build
         run: mvn package -e
-        working-directory: ./quickipedia_backend
+        working-directory: quickipedia_backend
       - name: Run Tests
         run: mvn test -e
-        working-directory: ./quickipedia_backend
+        working-directory: quickipedia_backend
