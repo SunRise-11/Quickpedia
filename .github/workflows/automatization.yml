@@ -59,4 +59,4 @@ jobs:
           app-name: 'quickipedia'
           slot-name: 'production'
           package: '*.jar'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_de9ba9c5c7924291ab6d4235c7265a32 }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
