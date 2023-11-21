@@ -11,7 +11,7 @@ jobs:
     environment: production
     steps:
       - name: Create secrets.properties file
-        working-directory: quickipedia_backend/src/main/resources/
+        working-directory: $GITHUB_WORKSPACE/quickipedia_backend/src/main/resources
         run: |
           echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >> secrets.properties
           echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> secrets.properties
