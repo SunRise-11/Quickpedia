@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function Home() {
 
   const fetchHello = async () => {
-    const response = await axios.get("http://localhost:8080/api/hello");
+    const response = await axios.get("https://quickipedia.azurewebsites.net/api/hello");
     const hello = response.data;
     console.log(hello);
   }
