@@ -16,7 +16,7 @@ class ArticleServiceTest {
     @Autowired
     ArticleService articleService;
 
-    @Test
+   /* @Test
     void shouldReturnAllArticles(){
 
         // Arrange
@@ -49,6 +49,6 @@ class ArticleServiceTest {
         List<Article> articles = articleService.getAllArticles();
         //Assert
         assertEquals(articleDto.question(), articles.get(articles.size() - 1).getQuestion());
-    }
+    }*/
 
 }

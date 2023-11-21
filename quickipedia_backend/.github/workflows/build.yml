@@ -1,0 +1,25 @@
+name: Build & Test
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Mvn Build
+        run: mvn package
+        working-directory: ./quickipedia_backend
+      - name: Run Tests
+        run: mvn test
+        working-directory: ./quickipedia_backend
