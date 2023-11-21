@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Create secrets.properties file
+        run: |
+          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >> secrets.properties
+          echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> secrets.properties
+          echo "quickipedia.datasource.password=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> secrets.properties
+        shell: bash
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Java JDK
