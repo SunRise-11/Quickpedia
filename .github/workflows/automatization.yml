@@ -6,7 +6,9 @@ on:
       - quickipedia_backend #and here
     branches:
       - "main"
-#removed on dispatch
+  workflow_run: #added this
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
