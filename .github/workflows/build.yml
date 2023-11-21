@@ -15,9 +15,9 @@ jobs:
       - name: Create secrets.properties file
         working-directory: quickipedia_backend/src/main/resources
         run: |
-          echo "quickipedia.datasource.url=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >>  secrets.properties
-          echo "quickipedia.datasource.username=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> secrets.properties
-          echo "quickipedia.datasource.password=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> secrets.properties
+          echo "QUICKIPEDIA_DATASOURCE_URL=${{ secrets.QUICKIPEDIA_DATASOURCE_URL }}" >>  secrets.properties
+          echo "QUICKIPEDIA_DATASOURCE_USERNAME=${{ secrets.QUICKIPEDIA_DATASOURCE_USERNAME }}" >> secrets.properties
+          echo "QUICKIPEDIA_DATASOURCE_PASSWORD=${{ secrets.QUICKIPEDIA_DATASOURCE_PASSWORD }}" >> secrets.properties
         shell: bash
       - name: Setup Java JDK
         uses: actions/setup-java@v3.13.0
