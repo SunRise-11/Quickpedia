@@ -3,11 +3,10 @@ name: Build, Test & Deploy
 on:
   push:
     paths:
-      - "quickipedia_backend"
+      - quickipedia_backend #and here
     branches:
       - "main"
-  workflow_dispatch:
-
+#removed on dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}quickipedia_backend/target/*.jar'
+          path: '${{ github.workspace }}/quickipedia_backend/target/*.jar' #changes here
   deploy:
     runs-on: windows-latest
     needs: build
