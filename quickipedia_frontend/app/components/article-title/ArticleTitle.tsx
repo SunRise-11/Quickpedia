@@ -11,7 +11,6 @@ export const ArticleTitle = ({ question, answer, topic,rank }: Article) => {
     if (selectedArticle && selectedArticle.question === article.question) {
       setSelectedArticle(null);
       setSelected(false);
-      console.log("here");
     } else {
       setSelectedArticle(article);
       setSelected(true);
