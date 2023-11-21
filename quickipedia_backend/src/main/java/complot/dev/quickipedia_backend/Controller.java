@@ -6,12 +6,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
 public class Controller {
+
+    private ArticleService service;
+    public Controller(ArticleService service) {
+        this.service = service;
+    }
 
     @GetMapping("/hello")
     public String helloTest() {
@@ -21,13 +25,15 @@ public class Controller {
     @GetMapping("/articles")
     public ResponseEntity<List<ArticleResponseDto>> getAllArticles() {
 
-        return ResponseEntity.ok().body(tempList());
+        return ResponseEntity.ok().body(service.getAllArticles());
     }
 
     @GetMapping("/articles/top")
     public ResponseEntity<List<ArticleResponseDto>> getTopArticles() {
 
-        List<ArticleResponseDto> sortedArticles = tempList().stream()
+        var articles = service.getAllArticles();
+
+        List<ArticleResponseDto> sortedArticles = articles.stream()
                 .sorted(Comparator.comparing(ArticleResponseDto::rank))
                 .limit(5)
                 .toList();
@@ -35,6 +41,7 @@ public class Controller {
     }
 
     //To be removed
+    @Deprecated
     private List<ArticleResponseDto> tempList(){
         return List.of(
                 new ArticleResponseDto(
