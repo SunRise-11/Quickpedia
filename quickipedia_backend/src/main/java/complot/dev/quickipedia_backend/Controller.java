@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -42,6 +41,7 @@ public class Controller {
     }
 
     //To be removed
+    @Deprecated
     private List<ArticleResponseDto> tempList(){
         return List.of(
                 new ArticleResponseDto(
