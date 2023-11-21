@@ -1,17 +1,18 @@
 "use client"
 import axios from "axios"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
+  const [trendingArticles, setTrendingArticles] = useState();
 
-  const fetchHello = async () => {
-    const response = await axios.get("https://quickipedia.azurewebsites.net/api/hello");
-    const hello = response.data;
-    console.log(hello);
+  const fetchTrending = async () => {
+    const response = await axios.get("https://quickipedia.azurewebsites.net/api/articles/top");
+    const data = response.data;
+    setTrendingArticles(data);
   }
   useEffect(() => {
-    fetchHello();
+    fetchTrending();
   },[])
   
   return (
