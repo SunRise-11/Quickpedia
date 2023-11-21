@@ -13,6 +13,11 @@ import java.util.stream.Collectors;
 @CrossOrigin
 public class Controller {
 
+    private ArticleService service;
+    public Controller(ArticleService service) {
+        this.service = service;
+    }
+
     @GetMapping("/hello")
     public String helloTest() {
         return "Hello!";
