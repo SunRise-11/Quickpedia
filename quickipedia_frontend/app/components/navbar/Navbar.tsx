@@ -25,7 +25,7 @@ export const Navbar = () => {
       <div className="flex flex-row justify-around items-center max-w-screen-xl px-4 py-3 mx-auto">
         <button className="flex flex-row justify-center items-center font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
           <Link
-            href="/trending"
+            href="/"
             className="text-gray-900 hover:underline"
             aria-current="page"
           >
