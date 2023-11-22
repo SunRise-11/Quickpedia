@@ -19,7 +19,7 @@ export const ArticleTitle = ({ question, answer, topic,rank }: Article) => {
 
   return (
     <>
-      <button className="px-6 w-100 text-sm text-grey-900 py-3 rounded mt-3 mb-3 border-2 border-black bg-primaryB"
+      <button className="px-6 w-100 text-sm text-grey-900 py-3 rounded mt-3 mb-3 border-2 border-secondaryB bg-secondary"
       onClick={() => handleSelect({ question, answer, topic,rank })}>
         {question}
       </button>
