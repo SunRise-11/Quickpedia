@@ -6,7 +6,7 @@ import { ArticleTitle } from "../components";
 
 const Page = () => {
   const [allArticles, setAllArticles] = useState<Article[]>();
-  const [selected, setSelected] = useState<string>('all');
+  const [selected, setSelected] = useState<string>("all");
 
   const fetchArticles = async () => {
     const response = await axios.get(
@@ -16,9 +16,7 @@ const Page = () => {
     setAllArticles(data);
   };
 
-  const handleArticleSelect = (
-    event: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
+  const handleArticleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault();
     setSelected(event.target.value);
   };
@@ -27,15 +25,17 @@ const Page = () => {
     fetchArticles();
   }, []);
 
-  const articlesToShow = selected === 'all' ? allArticles : allArticles?.filter(article => article.topic === selected);
-
+  const articlesToShow =
+    selected === "all"
+      ? allArticles
+      : allArticles?.filter((article) => article.topic === selected);
 
   return (
     <main className="flex min-h-screen mt-10 flex-col items-center justify-between p-24">
       <label className="sr-only">Underline select</label>
       <select
-      value={selected}
-      onChange={handleArticleSelect}
+        value={selected}
+        onChange={handleArticleSelect}
         id="underline_select"
         className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
       >
