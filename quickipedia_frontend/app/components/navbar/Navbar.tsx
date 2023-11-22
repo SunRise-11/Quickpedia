@@ -1,5 +1,7 @@
+"use server"
 import React from "react";
 import Link from "next/link";
+import { unbuntuMono } from "@/app/layout";
 
 export const Navbar = () => {
   return (
@@ -10,7 +12,7 @@ export const Navbar = () => {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900 hover:text-gray-400">
-            Quickipedia
+            <h1 className={unbuntuMono.className}>Quickipedia</h1>
           </span>
         </Link>
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
