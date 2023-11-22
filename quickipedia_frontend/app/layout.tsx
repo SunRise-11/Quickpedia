@@ -7,7 +7,7 @@ const ubuntu = Ubuntu({
   weight: ["300","400","500","700"],
   subsets: ['latin'] })
 
-export const unbuntuMono = Ubuntu_Mono({
+export const ubuntuMono = Ubuntu_Mono({
   weight: ["400","700"],
   subsets: ['latin']})
 
