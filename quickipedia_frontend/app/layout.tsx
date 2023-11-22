@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ubuntu, Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer, Navbar } from "./components";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
@@ -11,7 +12,7 @@ const ubuntu = Ubuntu({
 const ubuntuMono = Ubuntu_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
-  variable: '--font-ubuntu-mono'
+  variable: "--font-ubuntu-mono",
 });
 
 export const metadata: Metadata = {
@@ -26,11 +27,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className=" bg-primary">
-      <body className={ubuntu.className}>
-        <Navbar/>
-        {children}
-        <Footer />
-      </body>
+      <UserProvider>
+        <body className={ubuntu.className}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </UserProvider>
     </html>
   );
 }
