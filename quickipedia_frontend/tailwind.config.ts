@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#023047",
+        primaryB: "#8ecae6",
+        secondary: "#ffb703",
+        secondaryB: "#fb8500",
+        ternary: "#219ebc"
+      },
     },
   },
   plugins: [],
