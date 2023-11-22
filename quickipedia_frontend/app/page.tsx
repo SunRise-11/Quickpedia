@@ -1,7 +1,7 @@
 "use client"
 import axios from "axios"
 import { useEffect, useState } from "react";
-import { ArticleTitle } from "./components";
+import { ArticleTitle, LoginButton, LogoutButton } from "./components";
 
 export interface Article {
   question: string;
@@ -26,6 +26,8 @@ export default function Home() {
   return (
     <main className="text-slate-200 flex min-h-screen mt-10 flex-col items-center justify-between p-24">
       <h1>TRENDING</h1>
+      <LoginButton/>
+      <LogoutButton/>
       <ol>
       {trendingArticles && trendingArticles.map((article, index) => (
         <li key={index}>

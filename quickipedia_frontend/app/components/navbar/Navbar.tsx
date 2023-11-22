@@ -22,6 +22,12 @@ export const Navbar = () => {
           >
             About us
           </Link>
+          <Link
+            href="/profile-login"
+            className="text-sm  text-primaryB hover:underline"
+          >
+            Profile
+          </Link>
         </div>
       </div>
       <div className="flex flex-row justify-around items-center max-w-screen-xl px-4 py-3 mx-auto">
