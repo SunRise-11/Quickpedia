@@ -1,15 +1,14 @@
-package complot.dev.quickipedia_backend;
+package complot.dev.quickipedia_backend.article;
 
-import complot.dev.quickipedia_backend.dtos.AddArticleDto;
-import complot.dev.quickipedia_backend.dtos.ArticleResponseDto;
-import complot.dev.quickipedia_backend.models.Article;
+import complot.dev.quickipedia_backend.article.dtos.*;
+import complot.dev.quickipedia_backend.article.models.Article;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ArticleService {
-    private JpaArticleRepository articleRepo;
+    private final JpaArticleRepository articleRepo;
     public ArticleService(JpaArticleRepository articleRepo) {
         this.articleRepo = articleRepo;
     }

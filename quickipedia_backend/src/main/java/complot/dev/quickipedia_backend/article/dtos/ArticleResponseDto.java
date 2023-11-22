@@ -1,4 +1,4 @@
-package complot.dev.quickipedia_backend.dtos;
+package complot.dev.quickipedia_backend.article.dtos;
 
 public record ArticleResponseDto(
         String question,

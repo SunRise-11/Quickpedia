@@ -1,6 +1,6 @@
-package complot.dev.quickipedia_backend;
+package complot.dev.quickipedia_backend.article;
 
-import complot.dev.quickipedia_backend.models.Article;
+import complot.dev.quickipedia_backend.article.models.Article;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

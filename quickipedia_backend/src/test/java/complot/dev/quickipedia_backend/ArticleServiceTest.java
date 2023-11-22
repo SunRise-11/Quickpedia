@@ -1,12 +1,8 @@
 package complot.dev.quickipedia_backend;
 
-import complot.dev.quickipedia_backend.dtos.AddArticleDto;
-import complot.dev.quickipedia_backend.models.Article;
-import org.junit.jupiter.api.Test;
+import complot.dev.quickipedia_backend.article.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
