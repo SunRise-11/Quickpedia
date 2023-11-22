@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className=" bg-primaryB">
+    <html lang="en" className=" bg-primary">
       <body className={ubuntu.className}>
         <Navbar/>
         {children}

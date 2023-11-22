@@ -24,7 +24,7 @@ export default function Home() {
   },[])
   
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-between p-24">
+    <main className="text-slate-200 flex min-h-screen mt-10 flex-col items-center justify-between p-24">
       <h1>TRENDING</h1>
       <ol>
       {trendingArticles && trendingArticles.map((article, index) => (
