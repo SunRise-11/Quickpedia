@@ -1,9 +1,8 @@
-package complot.dev.quickipedia_backend.models;
+package complot.dev.quickipedia_backend.article.models;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.List;
 import java.util.UUID;
 
 @Entity

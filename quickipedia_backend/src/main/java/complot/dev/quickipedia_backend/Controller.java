@@ -1,6 +1,8 @@
 package complot.dev.quickipedia_backend;
 
-import complot.dev.quickipedia_backend.dtos.ArticleResponseDto;
+import complot.dev.quickipedia_backend.article.ArticleService;
+
+import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 public class Controller {
 
-    private ArticleService service;
+    private final ArticleService service;
     public Controller(ArticleService service) {
         this.service = service;
     }
@@ -24,7 +26,6 @@ public class Controller {
 
     @GetMapping("/articles")
     public ResponseEntity<List<ArticleResponseDto>> getAllArticles() {
-
         return ResponseEntity.ok().body(service.getAllArticles());
     }
 
