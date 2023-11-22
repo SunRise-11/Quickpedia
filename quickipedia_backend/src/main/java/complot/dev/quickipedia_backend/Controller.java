@@ -4,6 +4,7 @@ import complot.dev.quickipedia_backend.article.ArticleService;
 
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
@@ -18,6 +19,20 @@ public class Controller {
     public Controller(ArticleService service) {
         this.service = service;
     }
+
+    // here
+    @GetMapping("/public")
+    public ResponseEntity<String> helloWorld() {
+        return ResponseEntity.ok().body("Hello World");
+    }
+
+    @GetMapping("/secure")
+    public ResponseEntity<String> privateSite(JwtAuthenticationToken user) {
+        var name = user.getTokenAttributes().get("name");
+
+        return ResponseEntity.ok().body("Hello " + name);
+    }
+    //to here
 
     @GetMapping("/hello")
     public String helloTest() {
