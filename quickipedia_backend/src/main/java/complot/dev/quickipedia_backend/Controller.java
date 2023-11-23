@@ -63,9 +63,13 @@ public class Controller {
 
     @GetMapping("/users/{userEmail}")
     public ResponseEntity<UserResponseDto> getUser(@PathVariable String userEmail){
-        return ResponseEntity.ok().build();
 
+        return ResponseEntity.ok(
+                userService.findUserByEmail(userEmail).convertToUserDto()
+        );
     }
+
+
 
     //To be removed
     @Deprecated
