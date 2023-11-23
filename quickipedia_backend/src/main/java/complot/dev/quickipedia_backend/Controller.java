@@ -3,6 +3,8 @@ package complot.dev.quickipedia_backend;
 import complot.dev.quickipedia_backend.article.ArticleService;
 
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
+import complot.dev.quickipedia_backend.user.UserService;
+import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +16,12 @@ import java.util.List;
 @CrossOrigin
 public class Controller {
 
-    private final ArticleService service;
-    public Controller(ArticleService service) {
-        this.service = service;
+    private final ArticleService articleService;
+    private final UserService userService;
+
+    public Controller(ArticleService service, UserService userService) {
+        this.articleService = service;
+        this.userService = userService;
     }
 
     @GetMapping("/hello")
@@ -26,19 +31,25 @@ public class Controller {
 
     @GetMapping("/articles")
     public ResponseEntity<List<ArticleResponseDto>> getAllArticles() {
-        return ResponseEntity.ok().body(service.getAllArticles());
+        return ResponseEntity.ok().body(articleService.getAllArticles());
     }
 
     @GetMapping("/articles/top")
     public ResponseEntity<List<ArticleResponseDto>> getTopArticles() {
 
-        var articles = service.getAllArticles();
+        var articles = articleService.getAllArticles();
 
         List<ArticleResponseDto> sortedArticles = articles.stream()
                 .sorted(Comparator.comparing(ArticleResponseDto::rank))
                 .limit(5)
                 .toList();
         return ResponseEntity.ok(sortedArticles);
+    }
+
+    @GetMapping("/users/{userEmail}")
+    public ResponseEntity<UserResponseDto> getUser(@PathVariable String userEmail){
+        return ResponseEntity.ok().build();
+
     }
 
     //To be removed

@@ -1,6 +1,8 @@
 package complot.dev.quickipedia_backend.user.models;
 
+import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.article.models.Article;
+import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,27 +13,24 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    private Long id; //check if we store the token here
+    private String email;
     @Column
     private String username;
 
     @Column
-    @OneToMany //finish this, the user can have multiple liked articles
-    private List<Article> favourites;
+    @OneToMany
+    private List<Article> bookmarks;
 
      public User(){}
-    public User(Long id, String username, List<Article> favourites) {
-        this.id = id;
+    public User(String email, String username, List<Article> bookmarks) {
+        this.email = email;
         this.username = username;
-        this.favourites = favourites;
+        this.bookmarks = bookmarks;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
     public String getUsername() {
@@ -42,11 +41,18 @@ public class User {
         this.username = username;
     }
 
-    public List<Article> getFavourites() {
-        return favourites;
+    public List<ArticleResponseDto> getBookmarks() {
+        return bookmarks.stream().map(Article::convertToDto).toList();
+    }
+    public void setBookmarks(List<Article> favourites) {
+        this.bookmarks = favourites;
     }
 
-    public void setFavourites(List<Article> favourites) {
-        this.favourites = favourites;
+    public UserResponseDto convertToUserDto() {
+        return new UserResponseDto(
+                this.getEmail(),
+                this.getUsername(),
+                this.getBookmarks()
+        );
     }
 }

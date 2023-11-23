@@ -1,5 +1,6 @@
 package complot.dev.quickipedia_backend.article.models;
 
+import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -54,5 +55,14 @@ public class Article {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public ArticleResponseDto convertToDto() {
+        return new ArticleResponseDto(
+                this.getQuestion(),
+                this.getAnswer(),
+                this.getTopic(),
+                this.getRank()
+        );
     }
 }

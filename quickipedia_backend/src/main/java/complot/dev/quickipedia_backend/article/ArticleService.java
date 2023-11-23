@@ -19,13 +19,7 @@ public class ArticleService {
         var articles = (List<Article>) articleRepo.findAll();
 
         return articles.stream().map(
-                article ->
-                        new ArticleResponseDto(
-                        article.getQuestion(),
-                        article.getAnswer(),
-                        article.getTopic(),
-                        article.getRank()
-                )
+                Article::convertToDto
         ).toList();
     }
 
