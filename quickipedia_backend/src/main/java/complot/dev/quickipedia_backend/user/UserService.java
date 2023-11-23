@@ -23,5 +23,4 @@ public class UserService {
         return repo.findById(email).orElseThrow().convertToUserDto();
     }
 
-
 }
