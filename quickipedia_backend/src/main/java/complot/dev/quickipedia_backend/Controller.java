@@ -4,7 +4,9 @@ import complot.dev.quickipedia_backend.article.ArticleService;
 
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.user.UserService;
+import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
@@ -69,7 +71,15 @@ public class Controller {
         );
     }
 
+    @PostMapping("/users/{userEmail}")
+    public ResponseEntity<UserResponseDto> addUser(
+            @RequestBody AddUserDto userToAdd
+    ){
 
+        return ResponseEntity.ok(
+                userService.addUser(userToAdd)
+        );
+    }
 
     //To be removed
     @Deprecated
