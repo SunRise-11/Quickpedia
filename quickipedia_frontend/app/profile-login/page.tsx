@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Page = () => {
   const { user, error, isLoading } = useUser();
@@ -13,14 +13,21 @@ const Page = () => {
   }
 
   return (
-    user &&
-    <div>
-      <img src={user.picture ?? ""} alt={user.name ?? ""} width={24} height={24}/> {/* if the left thing is null use the right thing */}
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <h2>Oi BURROS</h2>
-    </div>
+    <main className="text-slate-200 flex min-h-screen mt-10 flex-col items-center justify-between p-24">
+    {user && (
+      <div>
+        <img
+          src={user.picture ?? ""}
+          alt={user.name ?? ""}
+          width={44}
+          height={44}
+        />{" "}
+        {/* if the left thing is null use the right thing */}
+        <h1>{user.name}</h1>
+      </div>
+    )}
+    </main>
   );
-}
+};
 
 export default Page;
