@@ -4,7 +4,7 @@ export const LogoutButton = () => {
   return (
     <>
       <button>
-        <a href="/api/auth/logout">Bye bye!</a>
+        <a href="/api/auth/logout">Logout</a>
       </button>
     </>
   )
