@@ -4,6 +4,10 @@ import "./globals.css";
 import { Footer, Navbar } from "./components";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 
+//installed this: npm install tw-elements
+//second step: import this to have access to elements
+//import "tw-elements/dist/css/tw-elements.min.css";
+
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
