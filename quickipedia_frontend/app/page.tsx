@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ArticleTitle, LoginButton, LogoutButton } from "./components";
+import { ArticleTitle, LoginButton, LogoutButton, NavFooter } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from '@auth0/nextjs-auth0';
 
@@ -63,6 +63,7 @@ async function getToken() {
             </li>
           ))}
       </ol>
+      <NavFooter/>
     </main>
   );
 }
