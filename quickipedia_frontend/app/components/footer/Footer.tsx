@@ -3,7 +3,7 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="z-20 w-full p-4 bg-primary shadow md:flex md:items-center md:justify-between md:p-6  text-slate-200">
+    <footer className="fixed bottom-0 z-20 w-full p-4 bg-primary shadow md:flex md:items-center md:justify-between md:p-6  text-slate-200">
       <div className="sm:flex sm:items-center sm:justify-between w-full">
         <div className="sm:flex sm:items-center sm:justify-between">
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium">

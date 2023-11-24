@@ -5,9 +5,15 @@ import { Article } from "@/app/page";
 export const ArticleBody = (props: Article) => {
   return (
     <>
-     <article className=" bg-slate-900 border border-secondaryB px-6 w-86 text-slate-100 py-3 rounded  mb-3 text-justify">
+     <div 
+     data-te-modal-init
+     id="default-modal" 
+     tabIndex={-1}
+     aria-labelledby="exampleModalFullscreenLabel"
+     aria-hidden="true" 
+     className=" bg-slate-900 border border-secondaryB px-6 w-86 text-slate-100 py-3 rounded  mb-3 text-justify">
         {props.answer}
-     </article>
+     </div>
     </>
   )
 }
