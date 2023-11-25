@@ -7,7 +7,7 @@ import complot.dev.quickipedia_backend.user.UserService;
 //import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+//import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
@@ -32,12 +32,12 @@ public class Controller {
         return ResponseEntity.ok().body("Hello World");
     }
 
-    @GetMapping("/secure")
+    /*@GetMapping("/secure")
     public ResponseEntity<String> privateSite(JwtAuthenticationToken user) {
         var name = user.getTokenAttributes().get("name");
 
         return ResponseEntity.ok().body("Hello " + name);
-    }
+    }*/
     //to here
 
     @GetMapping("/status")
