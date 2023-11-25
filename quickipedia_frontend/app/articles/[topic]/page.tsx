@@ -40,7 +40,7 @@ const Page = ({params}:DynamicUrl) => {
     return self.indexOf(value)===index;
   }
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-between py-24 px-12">
+    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-24 px-12">
       <div className=" flex flex-row flex-wrap">
       <Filterbutton topic="all"/>
       {allArticles.map((article => article.topic))
