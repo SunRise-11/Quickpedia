@@ -47,7 +47,7 @@ const Page = ({params}:DynamicUrl) => {
       .filter(uniqueFilter)
       .map((item, index) => {return <Filterbutton key={index} topic={item.toLowerCase()} />})}
       </div>
-      <ol className="w-[80%] max-w-md">
+      <ol className="w-[100%] max-w-md">
         {articlesToShow &&
           articlesToShow.map((article, index) => (
             <li key={index}>
