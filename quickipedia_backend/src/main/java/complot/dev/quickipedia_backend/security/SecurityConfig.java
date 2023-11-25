@@ -23,7 +23,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/public").permitAll()
-                        .requestMatchers("/api/secure").authenticated()
+                        //.requestMatchers("/api/secure").authenticated()
                 )
                 .cors(withDefaults())
                 .oauth2ResourceServer(auth->auth.jwt(withDefaults()))

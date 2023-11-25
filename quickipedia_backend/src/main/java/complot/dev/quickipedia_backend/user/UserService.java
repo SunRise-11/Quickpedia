@@ -21,7 +21,7 @@ public class UserService {
         return repo.findById(email).orElseThrow();
     }
 
-    public User addUser(AddUserDto userToAdd){
+   /* public User addUser(AddUserDto userToAdd){
         repo.save(
                 new User(
                         userToAdd.email(),
@@ -29,7 +29,7 @@ public class UserService {
                         new List<Article>()
                 )
         )
-    }
+    }*/
     public UserResponseDto getBookmarksByEmail(String email) {
         return repo.findById(email).orElseThrow().convertToUserDto();
     }
