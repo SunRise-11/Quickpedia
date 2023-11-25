@@ -36,7 +36,7 @@ const Page = () => {
   }, []);
 
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen mt-10 flex-col items-center justify-between py-24">
       <div className="search-section">
         <div className="search">
           <input
@@ -49,7 +49,7 @@ const Page = () => {
         </div>
       </div>
       {searchedArticle && (
-      <div className="search-results">
+      <div className="w-[80%] max-w-md">
         {filteredArticles?.map((article) => (
             <ArticleTitle key={article.question}{...article} />
             ))}

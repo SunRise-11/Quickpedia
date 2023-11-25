@@ -54,7 +54,7 @@ async function getToken() {
       <h1>{user && user.name}</h1>
     {token && <p>hello</p>}
       <LogoutButton />
-      <ol>
+      <ol className="w-[80%] max-w-md">
         {trendingArticles &&
           trendingArticles.map((article, index) => (
             <li key={index}>
