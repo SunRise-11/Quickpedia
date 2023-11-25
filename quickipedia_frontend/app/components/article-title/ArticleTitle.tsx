@@ -33,7 +33,7 @@ export const ArticleTitle = ({ question, answer, topic,rank }: Article) => {
       data-te-toggle="modal"
       data-te-target="default-modal"
       data-te-ripple-init
-      className="px-6 w-100 text-sm text-grey-900 py-3 rounded mt-3 mb-3 border-2 border-secondaryB bg-secondaryB text-slate-950"
+      className="px-6 w-100 text-sm text-grey-900 py-3 rounded mt-3 mb-3 border-2 border-rose-400 bg-rose-400 text-slate-950"
       onClick={() => handleSelect({ question, answer, topic,rank })}>
         {question}
       </button>
