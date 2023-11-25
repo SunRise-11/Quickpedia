@@ -11,21 +11,21 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class User {
+public class QuickipediaUser {
     @Id
     private String email;
     @Column
-    private String username;
+    private String user_name;
 
-    @Column
+    /*@Column
     @OneToMany
-    private List<Article> bookmarks;
+    private List<Article> bookmarks;*/
 
-     public User(){}
-    public User(String email, String username, List<Article> bookmarks) {
+     public QuickipediaUser(){}
+    public QuickipediaUser(String email, String username, List<Article> bookmarks) {
         this.email = email;
-        this.username = username;
-        this.bookmarks = bookmarks;
+        this.user_name = username;
+        //this.bookmarks = bookmarks;
     }
 
 
@@ -33,26 +33,23 @@ public class User {
         return email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return user_name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String username) {
+        this.user_name = username;
     }
-
+/*
     public List<ArticleResponseDto> getBookmarks() {
         return bookmarks.stream().map(Article::convertToDto).toList();
     }
     public void setBookmarks(List<Article> favourites) {
         this.bookmarks = favourites;
-    }
+    }*/
 
     public UserResponseDto convertToUserDto() {
         return new UserResponseDto(
                 this.getEmail(),
-                this.getUsername(),
-                this.getBookmarks()
-        );
-    }
+                this.getUserName());}
 }

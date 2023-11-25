@@ -1,4 +1,4 @@
-package complot.dev.quickipedia_backend.security;
+/*package complot.dev.quickipedia_backend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,16 +14,17 @@ import java.util.Arrays;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 
+
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
     SecurityFilterChain defaultChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/public").permitAll()
-                        .requestMatchers("/api/secure").authenticated()
+                        .requestMatchers("/api/*").permitAll()
+                        //.requestMatchers("/api/secure").authenticated()
                 )
                 .cors(withDefaults())
                 .oauth2ResourceServer(auth->auth.jwt(withDefaults()))
@@ -40,4 +41,4 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-}
+}*/

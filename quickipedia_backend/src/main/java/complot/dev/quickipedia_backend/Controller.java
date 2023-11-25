@@ -4,11 +4,10 @@ import complot.dev.quickipedia_backend.article.ArticleService;
 
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.user.UserService;
-import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
+//import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+//import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
@@ -33,15 +32,15 @@ public class Controller {
         return ResponseEntity.ok().body("Hello World");
     }
 
-    @GetMapping("/secure")
+    /*@GetMapping("/secure")
     public ResponseEntity<String> privateSite(JwtAuthenticationToken user) {
         var name = user.getTokenAttributes().get("name");
 
         return ResponseEntity.ok().body("Hello " + name);
-    }
+    }*/
     //to here
 
-    @GetMapping("/hello")
+    @GetMapping("/status")
     public String helloTest() {
         return "Hello!";
     }
@@ -71,7 +70,7 @@ public class Controller {
         );
     }
 
-    @PostMapping("/users/{userEmail}")
+    /*@PostMapping("/users/{userEmail}")
     public ResponseEntity<UserResponseDto> addUser(
             @RequestBody AddUserDto userToAdd
     ){
@@ -79,69 +78,6 @@ public class Controller {
         return ResponseEntity.ok(
                 userService.addUser(userToAdd)
         );
-    }
+    }*/
 
-    //To be removed
-    @Deprecated
-    private List<ArticleResponseDto> tempList(){
-        return List.of(
-                new ArticleResponseDto(
-                        "Is the sky blue?",
-                        "Yes it certainly is",
-                        "Controversial",
-                        3
-                ),
-                new ArticleResponseDto(
-                        "Is Colin the best coder in the world?",
-                        "Yes he certainly is",
-                        "Facts",
-                        2
-                ),
-                new ArticleResponseDto(
-                        "Is Marisa the best coder in the world?",
-                        "Yes she certainly is",
-                        "Facts",
-                        1
-                ),
-                new ArticleResponseDto(
-                        "What year is it?",
-                        "2023",
-                        "News",
-                        7
-                ),
-
-                new ArticleResponseDto(
-                        "What happens tomorrow?",
-                        "We don't know but it's wednesday",
-                        "News",
-                        4
-                ),
-
-                new ArticleResponseDto(
-                        "Where is sweden?",
-                        "Northern europe, scandinavia",
-                        "Geography",
-                        8
-                ),
-
-                new ArticleResponseDto(
-                        "What year is it next year?",
-                        "2024",
-                        "News",
-                        9
-                ),
-                new ArticleResponseDto(
-                        "How do you cook?",
-                        "You mix vegetables and spices",
-                        "Food",
-                        6
-                ),
-                new ArticleResponseDto(
-                        "Where is portugal?",
-                        "Next to spain",
-                        "Geography",
-                        5
-                )
-        );
-    }
 }

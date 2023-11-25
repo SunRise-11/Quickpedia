@@ -4,7 +4,7 @@ import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
-import complot.dev.quickipedia_backend.user.models.User;
+import complot.dev.quickipedia_backend.user.models.QuickipediaUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,11 +17,11 @@ public class UserService {
         this.repo = repo;
     }
 
-    public User findUserByEmail(String email) {
+    public QuickipediaUser findUserByEmail(String email) {
         return repo.findById(email).orElseThrow();
     }
 
-    public User addUser(AddUserDto userToAdd){
+   /* public User addUser(AddUserDto userToAdd){
         repo.save(
                 new User(
                         userToAdd.email(),
@@ -29,7 +29,7 @@ public class UserService {
                         new List<Article>()
                 )
         )
-    }
+    }*/
     public UserResponseDto getBookmarksByEmail(String email) {
         return repo.findById(email).orElseThrow().convertToUserDto();
     }
