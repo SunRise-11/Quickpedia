@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Article } from "../page";
-import { ArticleTitle} from "../components";
+import { ArticleTitle, NavFooter} from "../components";
 
 const Page = () => {
   const [articles, setArticles] = useState<Article[]>();
@@ -55,6 +55,7 @@ const Page = () => {
             ))}
       </div>
       )}
+      <NavFooter/>
     </main>
   );
 };

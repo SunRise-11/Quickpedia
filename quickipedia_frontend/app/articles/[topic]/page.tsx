@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Article } from "../../page";
-import { ArticleTitle, Filterbutton } from "../../components";
+import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
 
 type DynamicUrl={
   params: {topic:string}
@@ -55,6 +55,7 @@ const Page = ({params}:DynamicUrl) => {
             </li>
           ))}
       </ol>
+      <NavFooter/>
     </main>
   );
 };
