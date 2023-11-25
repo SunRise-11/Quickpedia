@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className=" bg-primary">
+    <html lang="en" className=" bg-rose-50">
       <UserProvider>
         <body className={ubuntu.className}>
           <Navbar />
