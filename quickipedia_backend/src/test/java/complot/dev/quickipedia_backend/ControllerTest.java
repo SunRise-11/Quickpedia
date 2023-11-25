@@ -31,7 +31,7 @@ class ControllerTest {
         // Arrange
         String response = "Hello!";
         // Act
-        String url = this.restTemplate.getForObject("http://localhost:" + port + "/api/hello", String.class);
+        String url = this.restTemplate.getForObject("http://localhost:" + port + "/api/status", String.class);
         // Act & Assert
         assertThat(url).contains(response);
     }

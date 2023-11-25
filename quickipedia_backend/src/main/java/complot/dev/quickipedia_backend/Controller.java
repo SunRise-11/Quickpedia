@@ -40,7 +40,7 @@ public class Controller {
     }
     //to here
 
-    @GetMapping("/hello")
+    @GetMapping("/status")
     public String helloTest() {
         return "Hello!";
     }

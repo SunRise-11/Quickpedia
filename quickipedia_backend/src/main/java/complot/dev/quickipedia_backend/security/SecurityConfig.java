@@ -22,7 +22,7 @@ public class SecurityConfig {
     SecurityFilterChain defaultChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/public").permitAll()
+                        .requestMatchers("/api/*").permitAll()
                         //.requestMatchers("/api/secure").authenticated()
                 )
                 .cors(withDefaults())
