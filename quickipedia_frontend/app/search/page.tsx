@@ -36,7 +36,7 @@ const Page = () => {
   }, []);
 
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-between py-24">
+    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-24">
       <div className="search-section">
         <div className="search">
           <input
