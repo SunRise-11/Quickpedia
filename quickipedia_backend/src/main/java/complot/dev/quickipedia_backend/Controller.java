@@ -88,7 +88,7 @@ public class Controller {
             @RequestBody AddArticleDto addArticleDto
     ){
         return ResponseEntity.ok(
-                userService.addArticleById(userId, addArticleDto.id()).convertToUserDto()
+                userService.addBookmarkById(userId, addArticleDto.id()).convertToUserDto()
         );
     }
 

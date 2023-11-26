@@ -28,24 +28,41 @@ public class UserService {
         return userRepo.findById(email).orElseThrow();
     }
 
-   public QuickipediaUser addUser(AddUserDto userToAdd){
+    public QuickipediaUser addUser(AddUserDto userToAdd) {
         return userRepo.save(
                 new QuickipediaUser(
                         userToAdd.email(),
                         userToAdd.username(),
-                       new ArrayList<BookmarkedArticle>()
+                        new ArrayList<BookmarkedArticle>()
                 )
-                );
-   }
+        );
+    }
 
-    public QuickipediaUser addArticleById(String userId, String articleId){
+    public QuickipediaUser addBookmarkById(String userId, String articleId) {
         QuickipediaUser user = findUserByEmail(userId);
+        /*
+        ListedSong existingSong = getSongInPlaylist(playlist, song.getId());
 
+        if (existingSong.getSong() != null) {
+            throw new IllegalArgumentException();
+        } else {
+            ListedSong newSong = new ListedSong(
+                    song,
+                    playlist
+            );
+            playlist.listedSongs.add(newSong);
+        } */
         Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
 
         user.addBookmark(articleToAdd);
         return userRepo.save(user);
     }
+
+    public void deleteBookmarkById(String userId, String articleId) {
+        QuickipediaUser user = findUserByEmail(userId);
+
+    }
+
     public UserResponseDto getBookmarksByEmail(String email) {
         return userRepo.findById(email).orElseThrow().convertToUserDto();
     }

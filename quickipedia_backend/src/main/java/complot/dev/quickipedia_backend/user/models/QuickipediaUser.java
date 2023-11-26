@@ -42,8 +42,15 @@ public class QuickipediaUser {
         this.user_name = username;
     }
 
-    public List<ArticleResponseDto> getBookmarks() {
+    public List<ArticleResponseDto> getAllBookmarks() {
         return bookmarks.stream().map(article ->
+                article.article.convertToDto()).toList();
+    }
+
+    public List<ArticleResponseDto> getBookmark(String id) {
+        return bookmarks.stream()
+                .filter(article -> article.getId().equals(id))
+                .map(article ->
                 article.article.convertToDto()).toList();
     }
 
