@@ -40,6 +40,15 @@ public class UserService {
 
     public QuickipediaUser addBookmarkById(String userId, String articleId) {
         QuickipediaUser user = findUserByEmail(userId);
+
+        if(user.isAlreadyAdded(articleId)){
+            throw new IllegalArgumentException();
+        } else {
+            Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
+
+            user.addBookmark(articleToAdd);
+            return userRepo.save(user);
+        }
         /*
         ListedSong existingSong = getSongInPlaylist(playlist, song.getId());
 
@@ -52,10 +61,7 @@ public class UserService {
             );
             playlist.listedSongs.add(newSong);
         } */
-        Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
 
-        user.addBookmark(articleToAdd);
-        return userRepo.save(user);
     }
 
     public void deleteBookmarkById(String userId, String articleId) {

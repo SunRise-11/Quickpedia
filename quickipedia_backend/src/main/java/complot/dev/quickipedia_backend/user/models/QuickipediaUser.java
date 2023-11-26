@@ -47,11 +47,13 @@ public class QuickipediaUser {
                 article.article.convertToDto()).toList();
     }
 
-    public List<ArticleResponseDto> getBookmark(String id) {
+    public boolean isAlreadyAdded(String id) {
         return bookmarks.stream()
-                .filter(article -> article.getId().equals(id))
-                .map(article ->
-                article.article.convertToDto()).toList();
+                .map(bookmark -> bookmark.article.getArticleId().equals(id))
+                .filter(bookmark -> bookmark == true)
+                .findFirst()
+                .orElse(false);
+
     }
 
     public void addBookmark(Article articleToBookmark) {
