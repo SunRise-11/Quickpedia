@@ -2,6 +2,7 @@ package complot.dev.quickipedia_backend;
 
 import complot.dev.quickipedia_backend.article.ArticleService;
 
+import complot.dev.quickipedia_backend.article.dtos.AddArticleDto;
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.user.UserService;
 //import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
@@ -74,6 +75,17 @@ public class Controller {
     @PostMapping("/users")
     public ResponseEntity<UserResponseDto> addUser(
             @RequestBody AddUserDto userToAdd
+    ){
+
+        return ResponseEntity.ok(
+                userService.addUser(userToAdd).convertToUserDto()
+        );
+    }
+
+    @PostMapping("/users/{userId}")
+    public ResponseEntity<UserResponseDto> addUser(
+            @PathVariable String userId,
+            @RequestBody AddArticleDto addArticleDto
     ){
 
         return ResponseEntity.ok(

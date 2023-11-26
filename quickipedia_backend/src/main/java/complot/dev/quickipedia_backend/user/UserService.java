@@ -33,6 +33,14 @@ public class UserService {
                 )
                 );
    }
+
+    public QuickipediaUser addArticleById(String userId, String articleId){
+        QuickipediaUser user = findUserByEmail(userId);
+
+        Article
+
+        user.setBookmarks();
+    }
     public UserResponseDto getBookmarksByEmail(String email) {
         return repo.findById(email).orElseThrow().convertToUserDto();
     }

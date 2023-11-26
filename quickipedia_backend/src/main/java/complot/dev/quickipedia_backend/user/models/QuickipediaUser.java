@@ -21,7 +21,9 @@ public class QuickipediaUser {
     @OneToMany(mappedBy = "quickipediaUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<BookmarkedArticle> bookmarks;
 
-     public QuickipediaUser(){}
+    public QuickipediaUser() {
+    }
+
     public QuickipediaUser(String email, String username, List<BookmarkedArticle> bookmarks) {
         this.email = email;
         this.user_name = username;
@@ -44,12 +46,24 @@ public class QuickipediaUser {
         return bookmarks.stream().map(article ->
                 article.article.convertToDto()).toList();
     }
-    public void setBookmarks(List<BookmarkedArticle> favourites) {
-        this.bookmarks = favourites;
+
+    public void addBookmark(Article articleToBookmark) {
+        this.bookmarks.add(
+                new BookmarkedArticle(
+                        articleToBookmark,
+                        this
+                )
+        );
     }
 
     public UserResponseDto convertToUserDto() {
         return new UserResponseDto(
                 this.getEmail(),
-                this.getUserName());}
+                this.getUserName(),
+                bookmarks.stream()
+                        .map(
+                                item -> item.article.convertToDto())
+                        .toList()
+        );
+    }
 }

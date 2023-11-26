@@ -17,8 +17,7 @@ public class BookmarkedArticle {
     @ManyToOne
     QuickipediaUser quickipediaUser;
 
-    public BookmarkedArticle(String id, Article article, QuickipediaUser quickipediaUser) {
-        this.id = id;
+    public BookmarkedArticle(Article article, QuickipediaUser quickipediaUser) {
         this.article = article;
         this.quickipediaUser = quickipediaUser;
     }
