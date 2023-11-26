@@ -30,7 +30,7 @@ public class BookmarkedArticle {
         return id;
     }
 
-    public Article getBookmark() {
+    public Article getArticle() {
         return article;
     }
 

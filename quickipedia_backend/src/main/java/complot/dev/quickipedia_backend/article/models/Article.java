@@ -37,7 +37,7 @@ public class Article {
         return rank;
     }
 
-    public String getArticleId() {
+    public String getId() {
         return articleId;
     }
 

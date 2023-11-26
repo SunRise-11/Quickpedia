@@ -41,11 +41,10 @@ public class UserService {
     public QuickipediaUser addBookmarkById(String userId, String articleId) {
         QuickipediaUser user = findUserByEmail(userId);
 
-        if(user.isAlreadyAdded(articleId)){
+        if (user.isAlreadyAdded(articleId)) {
             throw new IllegalArgumentException("You can't add '" + articleId + "' twice");
         } else {
             Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
-
             user.addBookmark(articleToAdd);
             return userRepo.save(user);
         }
@@ -53,7 +52,25 @@ public class UserService {
 
     public void deleteBookmarkById(String userId, String articleId) {
         QuickipediaUser user = findUserByEmail(userId);
+        userRepo.delete(user);
 
+        user.setBookmarks(
+                user.getBookmarks().stream()
+                        .filter(
+                                bookmark -> !bookmark.getArticle().getId().equals(articleId))
+                        .toList()
+        );
+        userRepo.save(user);
+        /*
+        var playlist = findById(playlistId);
+        repo.delete(playlist);
+
+        playlist.listedSongs = playlist.listedSongs.stream()
+                .filter(song -> !song.getSong().getId().equals(songId))
+                .toList();
+
+        repo.save(playlist);
+         */
     }
 
     public UserResponseDto getBookmarksByEmail(String email) {

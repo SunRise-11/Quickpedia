@@ -65,7 +65,7 @@ public class Controller {
     }
 
     @GetMapping("/users/{userEmail}")
-    public ResponseEntity<UserResponseDto> getUser(@PathVariable String userEmail){
+    public ResponseEntity<UserResponseDto> getUser(@PathVariable String userEmail) {
 
         return ResponseEntity.ok(
                 userService.findUserByEmail(userEmail).convertToUserDto()
@@ -75,7 +75,7 @@ public class Controller {
     @PostMapping("/users")
     public ResponseEntity<UserResponseDto> addUser(
             @RequestBody AddUserDto userToAdd
-    ){
+    ) {
 
         return ResponseEntity.ok(
                 userService.addUser(userToAdd).convertToUserDto()
@@ -83,13 +83,22 @@ public class Controller {
     }
 
     @PostMapping("/users/{userId}")
-    public ResponseEntity<UserResponseDto> addUser(
+    public ResponseEntity<UserResponseDto> addBookmarkToUser(
             @PathVariable String userId,
             @RequestBody AddArticleDto addArticleDto
-    ){
+    ) {
         return ResponseEntity.ok(
                 userService.addBookmarkById(userId, addArticleDto.id()).convertToUserDto()
         );
+    }
+
+    @DeleteMapping("/users/{userId}")
+    public ResponseEntity<UserResponseDto> deleteBookmarkFromUser(
+            @PathVariable String userId,
+            @RequestBody AddArticleDto addArticleDto
+    ) {
+        userService.deleteBookmarkById(userId, addArticleDto.id());
+        return ResponseEntity.noContent().build();
     }
 
 }

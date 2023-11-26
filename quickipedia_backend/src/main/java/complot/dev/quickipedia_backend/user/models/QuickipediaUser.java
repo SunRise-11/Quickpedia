@@ -38,18 +38,21 @@ public class QuickipediaUser {
         return user_name;
     }
 
+
     public void setUserName(String username) {
         this.user_name = username;
     }
 
-    public List<ArticleResponseDto> getAllBookmarks() {
-        return bookmarks.stream().map(article ->
-                article.article.convertToDto()).toList();
+    public void setBookmarks(List<BookmarkedArticle> bookmarks) {
+        this.bookmarks = bookmarks;
+    }
+    public List<BookmarkedArticle> getBookmarks() {
+        return this.bookmarks;
     }
 
     public boolean isAlreadyAdded(String id) {
         return bookmarks.stream()
-                .map(bookmark -> bookmark.article.getArticleId().equals(id))
+                .map(bookmark -> bookmark.article.getId().equals(id))
                 .filter(bookmark -> bookmark == true)
                 .findFirst()
                 .orElse(false);
