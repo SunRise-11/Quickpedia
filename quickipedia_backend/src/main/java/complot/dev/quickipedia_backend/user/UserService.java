@@ -42,26 +42,13 @@ public class UserService {
         QuickipediaUser user = findUserByEmail(userId);
 
         if(user.isAlreadyAdded(articleId)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("You can't add '" + articleId + "' twice");
         } else {
             Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
 
             user.addBookmark(articleToAdd);
             return userRepo.save(user);
         }
-        /*
-        ListedSong existingSong = getSongInPlaylist(playlist, song.getId());
-
-        if (existingSong.getSong() != null) {
-            throw new IllegalArgumentException();
-        } else {
-            ListedSong newSong = new ListedSong(
-                    song,
-                    playlist
-            );
-            playlist.listedSongs.add(newSong);
-        } */
-
     }
 
     public void deleteBookmarkById(String userId, String articleId) {
