@@ -1,5 +1,6 @@
 package complot.dev.quickipedia_backend.user;
 
+import complot.dev.quickipedia_backend.article.JpaArticleRepository;
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
@@ -14,18 +15,21 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private final JpaUserRepository repo;
+    private final JpaUserRepository userRepo;
+    private final JpaArticleRepository articleRepo;
 
-    public UserService(JpaUserRepository repo) {
-        this.repo = repo;
+
+    public UserService(JpaUserRepository userRepo, JpaArticleRepository articleRepo) {
+        this.userRepo = userRepo;
+        this.articleRepo = articleRepo;
     }
 
     public QuickipediaUser findUserByEmail(String email) {
-        return repo.findById(email).orElseThrow();
+        return userRepo.findById(email).orElseThrow();
     }
 
    public QuickipediaUser addUser(AddUserDto userToAdd){
-        return repo.save(
+        return userRepo.save(
                 new QuickipediaUser(
                         userToAdd.email(),
                         userToAdd.username(),
@@ -37,12 +41,12 @@ public class UserService {
     public QuickipediaUser addArticleById(String userId, String articleId){
         QuickipediaUser user = findUserByEmail(userId);
 
-        Article
+        user.addBookmark();
 
         user.setBookmarks();
     }
     public UserResponseDto getBookmarksByEmail(String email) {
-        return repo.findById(email).orElseThrow().convertToUserDto();
+        return userRepo.findById(email).orElseThrow().convertToUserDto();
     }
 
 }
