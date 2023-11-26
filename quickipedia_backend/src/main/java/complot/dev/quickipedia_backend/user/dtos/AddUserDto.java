@@ -6,7 +6,6 @@ import java.util.List;
 
 public record AddUserDto(
         String email,
-        String username,
-        List<ArticleResponseDto> bookmarks
+        String username
 ) {
 }
