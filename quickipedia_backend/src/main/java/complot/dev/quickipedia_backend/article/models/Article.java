@@ -11,7 +11,7 @@ public class Article {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID articleId;
+    private String articleId;
     @Column
     private String topic;
     @Column
@@ -22,7 +22,7 @@ public class Article {
     private int rank;
 
     public Article(){}
-    private Article(UUID articleId,String topic, String question) {
+    private Article(String articleId,String topic, String question) {
         this.articleId = articleId;
         this.topic = topic;
         this.question = question;
@@ -37,7 +37,7 @@ public class Article {
         return rank;
     }
 
-    public UUID getArticleId() {
+    public String getArticleId() {
         return articleId;
     }
 

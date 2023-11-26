@@ -87,9 +87,8 @@ public class Controller {
             @PathVariable String userId,
             @RequestBody AddArticleDto addArticleDto
     ){
-
         return ResponseEntity.ok(
-                userService.addUser(userToAdd).convertToUserDto()
+                userService.addArticleById(userId, addArticleDto.id()).convertToUserDto()
         );
     }
 
