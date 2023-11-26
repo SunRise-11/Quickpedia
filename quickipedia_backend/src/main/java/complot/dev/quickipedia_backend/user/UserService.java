@@ -61,16 +61,6 @@ public class UserService {
                         .toList()
         );
         userRepo.save(user);
-        /*
-        var playlist = findById(playlistId);
-        repo.delete(playlist);
-
-        playlist.listedSongs = playlist.listedSongs.stream()
-                .filter(song -> !song.getSong().getId().equals(songId))
-                .toList();
-
-        repo.save(playlist);
-         */
     }
 
     public UserResponseDto getBookmarksByEmail(String email) {
