@@ -1,10 +1,15 @@
 package complot.dev.quickipedia_backend.user;
 
+import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
+import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
+import complot.dev.quickipedia_backend.user.models.BookmarkedArticle;
 import complot.dev.quickipedia_backend.user.models.QuickipediaUser;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -23,9 +28,10 @@ public class UserService {
         return repo.save(
                 new QuickipediaUser(
                         userToAdd.email(),
-                        userToAdd.username()
+                        userToAdd.username(),
+                       new ArrayList<BookmarkedArticle>()
                 )
-        );
+                );
    }
     public UserResponseDto getBookmarksByEmail(String email) {
         return repo.findById(email).orElseThrow().convertToUserDto();

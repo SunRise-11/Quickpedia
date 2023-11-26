@@ -6,6 +6,7 @@ import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,18 +16,17 @@ public class QuickipediaUser {
     @Column
     private String user_name;
 
-    @Column
+
     @JsonIgnore
     @OneToMany(mappedBy = "quickipediaUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Article> bookmarks;
+    private List<BookmarkedArticle> bookmarks;
 
      public QuickipediaUser(){}
-    public QuickipediaUser(String email, String username, List<Article> bookmarks) {
+    public QuickipediaUser(String email, String username, List<BookmarkedArticle> bookmarks) {
         this.email = email;
         this.user_name = username;
         this.bookmarks = bookmarks;
     }
-
 
     public String getEmail() {
         return email;
@@ -41,9 +41,10 @@ public class QuickipediaUser {
     }
 
     public List<ArticleResponseDto> getBookmarks() {
-        return bookmarks.stream().map(Article::convertToDto).toList();
+        return bookmarks.stream().map(article ->
+                article.article.convertToDto()).toList();
     }
-    public void setBookmarks(List<Article> favourites) {
+    public void setBookmarks(List<BookmarkedArticle> favourites) {
         this.bookmarks = favourites;
     }
 
