@@ -41,9 +41,10 @@ public class UserService {
     public QuickipediaUser addArticleById(String userId, String articleId){
         QuickipediaUser user = findUserByEmail(userId);
 
-        user.addBookmark();
+        Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
 
-        user.setBookmarks();
+        user.addBookmark(articleToAdd);
+        return userRepo.save(user);
     }
     public UserResponseDto getBookmarksByEmail(String email) {
         return userRepo.findById(email).orElseThrow().convertToUserDto();
