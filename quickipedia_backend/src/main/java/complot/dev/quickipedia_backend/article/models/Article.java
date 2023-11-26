@@ -59,6 +59,7 @@ public class Article {
 
     public ArticleResponseDto convertToDto() {
         return new ArticleResponseDto(
+                //this.getArticleId,
                 this.getQuestion(),
                 this.getAnswer(),
                 this.getTopic(),
