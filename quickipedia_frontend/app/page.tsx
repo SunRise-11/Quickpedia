@@ -48,7 +48,7 @@ async function getToken() {
   },[])
 
   return (
-    <main className="text-slate-200 flex min-h-screen mt-20 flex-col items-center justify-between py-10">
+    <main className="text-slate-800 font-regular flex min-h-screen mt-20 flex-col items-center justify-between py-10">
       <h1>TRENDING</h1>
       <LoginButton />
       <h1>{user && user.name}</h1>
