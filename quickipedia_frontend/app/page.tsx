@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArticleTitle, LoginButton, LogoutButton, NavFooter } from "./components";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { UserProfile, useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from '@auth0/nextjs-auth0';
 
 
@@ -36,9 +36,39 @@ async function getToken() {
     setTrendingArticles(data);
   };
 
+  const postUserInfo = async () => {
+    if (!isLoading) {
+      const response = await axios.post(
+        'http://localhost:8080/api/users',
+        { email:user?.email,
+        username: user?.name },
+      );
+
+      console.log(response.data);
+    }
+  };
+
   useEffect(() => {
-    fetchTrending();
-  },[]);
+    const fetchData = async () => {
+      try {
+        if (!isLoading) {
+          if (user) {
+            localStorage.setItem('user_id', user.email!);
+            await postUserInfo();
+            console.log(localStorage);
+          } else if (!user) {
+            localStorage.clear();
+          }
+          await fetchTrending();
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, [user, isLoading]);
+  
 
   useEffect(()=>{
     getToken();
