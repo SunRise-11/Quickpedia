@@ -24,12 +24,9 @@ async function getToken() {
   const { accessToken } = await getAccessToken();
   setToken(accessToken);
   }catch(error){
-    console.log('Nope');
+    console.log('Nope'); // problem here
   }
 }
-
-
-  
 
   const fetchTrending = async () => {
     const response = await axios.get(
@@ -52,7 +49,7 @@ async function getToken() {
       <h1>TRENDING</h1>
       <LoginButton />
       <h1>{user && user.name}</h1>
-    {token && <p>hello</p>}
+    {token && <p>hello</p>} {/* same here, we don't get the token */}
       <LogoutButton />
       <ol className="w-[80%] max-w-md">
         {trendingArticles &&
