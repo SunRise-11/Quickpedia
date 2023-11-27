@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { ArticleTitle, LoginButton, LogoutButton, NavFooter } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from '@auth0/nextjs-auth0';
+import { handleBookmarking } from "@/utils/http";
+import { UserData } from "@/utils/types";
 
 
 export type Article = {
+  id: string;
   question: string;
   answer: string;
   topic: string;
@@ -15,6 +18,7 @@ export type Article = {
 
 export default function Home() {
   const [trendingArticles, setTrendingArticles] = useState<Article[]>();
+  const [userBookmarks, setUserBookmarks] = useState<Article[]>();
   const { user,isLoading } = useUser();
   const [token,setToken]= useState<string | undefined>();
 
@@ -36,6 +40,10 @@ async function getToken() {
     setTrendingArticles(data);
   };
 
+  /*type User = {
+    email: string;
+    bookmarks: Article[];
+  }*/
   const postUserInfo = async () => {
     if (!isLoading) {
       const response = await axios.post(
@@ -43,10 +51,20 @@ async function getToken() {
         { email:user?.email,
         username: user?.name },
       );
-
-      console.log(response.data);
     }
   };
+
+  const fetchUserBookmarks = async () => {
+
+    const response = await axios({
+      method: "get",
+      url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
+    });
+    const userData:UserData = response.data
+    const bookmarks = userData.bookmarks;
+
+    setUserBookmarks(bookmarks)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,6 +73,7 @@ async function getToken() {
           if (user) {
             localStorage.setItem('user_id', user.email!);
             await postUserInfo();
+            await fetchUserBookmarks()
             console.log(localStorage);
           } else if (!user) {
             localStorage.clear();
@@ -69,7 +88,6 @@ async function getToken() {
     fetchData();
   }, [user, isLoading]);
   
-
   useEffect(()=>{
     getToken();
   },[])
@@ -84,7 +102,7 @@ async function getToken() {
           trendingArticles.map((article, index) => (
             <li key={index}>
               <h1>#{article.rank} Article Today</h1>
-              <ArticleTitle {...article} />
+              <ArticleTitle {...article} bookmarks={userBookmarks || []} toggleBookmark={(articleId) => handleBookmarking(user?.email || "", articleId)} />
             </li>
           ))}
       </ol>

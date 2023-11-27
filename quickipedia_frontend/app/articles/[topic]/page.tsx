@@ -3,13 +3,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Article } from "../../page";
 import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { handleBookmarking } from "@/utils/http";
+import { UserData } from "@/utils/types";
 
 type DynamicUrl={
   params: {topic:string}
 }
 
 const Page = ({params}:DynamicUrl) => {
+  const { user,isLoading } = useUser();
   const [allArticles, setAllArticles] = useState<Article[] | []>();
+  const [userBookmarks, setUserBookmarks] = useState<Article[]>();
+
 
   const fetchArticles = async () => {
     const response = await axios.get(
@@ -19,6 +25,18 @@ const Page = ({params}:DynamicUrl) => {
     setAllArticles(data);
   };
 
+  const fetchUserBookmarks = async () => {
+
+    const response = await axios({
+      method: "get",
+      url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
+    });
+    const userData:UserData = response.data
+    const bookmarks = userData.bookmarks;
+
+    setUserBookmarks(bookmarks)
+  };
+  
   useEffect(() => {
     fetchArticles();
   }, []);
@@ -51,7 +69,7 @@ const Page = ({params}:DynamicUrl) => {
         {articlesToShow &&
           articlesToShow.map((article, index) => (
             <li key={index}>
-              <ArticleTitle {...article} />
+              <ArticleTitle {...article} key={article.id} bookmarks={userBookmarks || []} toggleBookmark={(articleId) => handleBookmarking(user?.email || "", articleId)} />
             </li>
           ))}
       </ol>

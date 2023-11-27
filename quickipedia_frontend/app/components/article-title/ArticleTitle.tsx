@@ -4,7 +4,14 @@ import { BookmarkButton } from "../bookmark-button/BookmarkButton";
 import React, { useEffect, useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";
 
-export const ArticleTitle = ({ question, answer, topic, rank }: Article) => {
+type Props = {
+  toggleBookmark: (articleId: string) => void;
+  bookmarks: Article[];
+} & Article;
+
+export const ArticleTitle = (
+  {id, question, answer, topic, rank, toggleBookmark, bookmarks }: Props
+) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [selected, setSelected] = useState<boolean>(false);
 
@@ -36,7 +43,7 @@ export const ArticleTitle = ({ question, answer, topic, rank }: Article) => {
           data-te-target="default-modal"
           data-te-ripple-init
           className="p-2 rounded-lg text-left transition ease-in-out delay-150 group-hover/article:-translate-y-0.5 group-hover/article:scale-105 duration-300 ..."
-          onClick={() => handleSelect({ question, answer, topic, rank })}
+          onClick={() => handleSelect({id, question, answer, topic, rank })}
         >
           {question}
         </button>
@@ -44,7 +51,7 @@ export const ArticleTitle = ({ question, answer, topic, rank }: Article) => {
           <button
             type="button"
             className="group text-rose-700 hover:text-white font-medium rounded-lg text-sm  pl-1 w-[100%] text-center"
-            onClick={() => handleSelect({ question, answer, topic, rank })}
+            onClick={() => handleSelect({id, question, answer, topic, rank })}
           >
             <svg
               className="w-6 h-6 text-rose-200 transition ease-in-out delay-150 group-hover/article:text-rose-700"
@@ -67,7 +74,7 @@ export const ArticleTitle = ({ question, answer, topic, rank }: Article) => {
               <path d="M20,24H4c-2.2,0-4-1.8-4-4V4c0-2.2,1.8-4,4-4h16c2.2,0,4,1.8,4,4v16C24,22.2,22.2,24,20,24z M4,2C2.9,2,2,2.9,2,4v16 c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2H4z" />
             </svg>
           </button>
-          <BookmarkButton/>
+          <BookmarkButton isBookmarked={false} articleId={id} toggleBookmark={toggleBookmark}/>
           <button
             type="button"
             className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center"
@@ -90,7 +97,7 @@ export const ArticleTitle = ({ question, answer, topic, rank }: Article) => {
           </button>
         </div>
       </article>
-      {selected && <ArticleBody {...{ question, answer, topic, rank }} />}
+      {selected && <ArticleBody {...{id, question, answer, topic, rank }} />}
     </>
   );
 };
