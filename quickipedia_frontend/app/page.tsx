@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ArticleTitle, LoginButton, LogoutButton, NavFooter } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from '@auth0/nextjs-auth0';
-import { handleBookmarking } from "@/utils/http";
 import { UserData } from "@/utils/types";
 
 
@@ -66,6 +65,29 @@ async function getToken() {
     setUserBookmarks(bookmarks)
   }
 
+  const handleBookmarking = async (email: string, articleToToggle: Article) => {
+    if(!userBookmarks){
+      return;
+    }
+    if(userBookmarks?.filter(item => item.id == articleToToggle.id).length > 0){
+      //console.log("you tried to remove a bookmark");
+      await axios({
+        method: "delete",
+        url: `https://quickipedia.azurewebsites.net/api/users/${email}`,
+        data: {id: articleToToggle.id}
+      });
+      setUserBookmarks(userBookmarks?.filter(item => item.id != articleToToggle.id));
+      return;
+    }
+    const data = await axios({
+      method: "post",
+      url: `https://quickipedia.azurewebsites.net/api/users/${email}`,
+      data: {id: articleToToggle.id}
+    });
+    const articles:Article[] =  [...userBookmarks, articleToToggle];
+    setUserBookmarks(articles)
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -102,7 +124,7 @@ async function getToken() {
           trendingArticles.map((article, index) => (
             <li key={index}>
               <h1>#{article.rank} Article Today</h1>
-              <ArticleTitle {...article} bookmarks={userBookmarks || []} toggleBookmark={(articleId) => handleBookmarking(user?.email || "", articleId)} />
+              <ArticleTitle {...article} bookmarks={userBookmarks || []} toggleBookmark={() => handleBookmarking(user?.email || "", article)} />
             </li>
           ))}
       </ol>
