@@ -7,4 +7,13 @@ import { LogoutButton } from "./logout-button/LogoutButton";
 import { Filterbutton } from "./filter-button/Filterbutton";
 import { NavFooter } from "./nav-footer/NavFooter";
 
-export {Navbar, Footer, ArticleTitle, SearchBar, LoginButton, LogoutButton, Filterbutton, NavFooter}
+export {
+  Navbar,
+  Footer,
+  ArticleTitle,
+  SearchBar,
+  LoginButton,
+  LogoutButton,
+  Filterbutton,
+  NavFooter,
+};

@@ -2,11 +2,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArticleTitle, LoginButton, LogoutButton, NavFooter } from "./components";
-import { UserProfile, useUser } from "@auth0/nextjs-auth0/client";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from '@auth0/nextjs-auth0';
 
 
-export interface Article {
+export type Article = {
   question: string;
   answer: string;
   topic: string;
@@ -15,7 +15,7 @@ export interface Article {
 
 export default function Home() {
   const [trendingArticles, setTrendingArticles] = useState<Article[]>();
-  const { user, error, isLoading } = useUser();
+  const { user,isLoading } = useUser();
   const [token,setToken]= useState<string | undefined>();
 
 
@@ -39,7 +39,7 @@ async function getToken() {
   const postUserInfo = async () => {
     if (!isLoading) {
       const response = await axios.post(
-        'http://localhost:8080/api/users',
+        'https://quickipedia.azurewebsites.net/api/users',
         { email:user?.email,
         username: user?.name },
       );
