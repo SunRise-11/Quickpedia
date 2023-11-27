@@ -77,10 +77,8 @@ async function getToken() {
   return (
     <main className="text-slate-800 flex min-h-screen mt-20 flex-col items-center justify-between py-10">
       <h1>TRENDING</h1>
-      <LoginButton />
       <h1>{user && user.name}</h1>
     {token && <p>hello</p>} {/* same here, we don't get the token */}
-      <LogoutButton />
       <ol className="w-[80%] max-w-md">
         {trendingArticles &&
           trendingArticles.map((article, index) => (
