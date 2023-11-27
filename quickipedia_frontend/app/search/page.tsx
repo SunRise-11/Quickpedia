@@ -2,12 +2,18 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Article } from "../page";
-import { ArticleTitle, NavFooter } from "../components";
+import { ArticleTitle, NavFooter} from "../components";
+import { handleBookmarking } from "@/utils/http";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { UserData } from "@/utils/types";
 
 const Page = () => {
+  const { user,isLoading } = useUser();
   const [articles, setArticles] = useState<Article[]>();
   const [filteredArticles, setFilteredArticles] = useState<Article[]>();
   const [searchedArticle, setSearchedArticle] = useState<string>();
+  const [userBookmarks, setUserBookmarks] = useState<Article[]>();
+
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value.toLowerCase();
@@ -17,7 +23,6 @@ const Page = () => {
         article.question.toLowerCase().includes(searchTerm) ||
         article.topic.toLowerCase().includes(searchTerm)
     );
-
     setSearchedArticle(searchTerm);
     setFilteredArticles(filteredArticles);
   };
@@ -31,7 +36,20 @@ const Page = () => {
     setFilteredArticles(data);
   };
 
+  const fetchUserBookmarks = async () => {
+
+    const response = await axios({
+      method: "get",
+      url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
+    });
+    const userData:UserData = response.data
+    const bookmarks = userData.bookmarks;
+
+    setUserBookmarks(bookmarks)
+  };
+
   useEffect(() => {
+    fetchUserBookmarks();
     fetchArticles();
   }, []);
 
