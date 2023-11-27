@@ -70,7 +70,7 @@ const Page = () => {
         <div className="w-[80%] max-w-md">
           {filteredArticles?.length > 0 ? (
             filteredArticles.map((article) => (
-              <ArticleTitle key={article.question} {...article} />
+              <ArticleTitle key={article.question} {...article} bookmarks={userBookmarks || []} toggleBookmark={(articleId) => handleBookmarking(user?.email || "", articleId)} />
             ))
           ) : (
             <div className="w-72 text-center pt-10">
