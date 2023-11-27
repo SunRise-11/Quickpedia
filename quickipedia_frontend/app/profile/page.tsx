@@ -16,7 +16,7 @@ const Page = () => {
     <main className="text-rose-900 flex min-h-screen mt-10 flex-col items-center p-24">
       {user && (
         <>
-          <div className="text-center rounded sm:text-left  bg-slate-50">
+          <div className="text-center rounded  bg-slate-50">
             <h3 className="text-3xl sm:text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
               {user.name}
             </h3>
@@ -25,8 +25,8 @@ const Page = () => {
              {user.email}
             </div>
           </div>
-          <div className="border-t border-blueGray-200 text-center sm:text-left bg-slate-50">
-            <div className="flex flex-wrap justify-center sm:justify-start px-4 py-2 w-96 rounded">
+          <div className="border-t border-blueGray-200 text-center  bg-slate-50">
+            <div className="flex flex-wrap justify-center px-4 py-2 w-96 rounded">
               <h4>All your booksmarks here!</h4>
             </div>
           </div>

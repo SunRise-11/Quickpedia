@@ -16,11 +16,11 @@ export const NavFooter = () => {
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
-            viewBox="0 0 20 20"
+            viewBox="0 0 16 16"  // Adjusted viewBox for the fire icon
           >
-            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+            <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
           </svg>
-          <span className="sr-only">Home</span>
+          <span className="sr-only">Trending</span>
         </Link>
         <div
           id="tooltip-home"
@@ -35,9 +35,9 @@ export const NavFooter = () => {
           href={"/articles/all"}
           data-tooltip-target="tooltip-new"
           type="button"
-          className="inline-flex flex-col items-center justify-center px-4 rounded-xl hover:bg-rose-400/30 group"
+          className="inline-flex flex-col items-center justify-center px-4 rounded-xl  text-2xl font-extrabold text-rose-700 hover:text-slate-950 hover:bg-rose-400/30 group"
         >
-          <svg
+         {/*  <svg
             className="w-6 h-6 text-gray-700 group-hover:text-rose-500"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,8 @@ export const NavFooter = () => {
               d="M12 12H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM16 8L9.5 9.5L8 16L14.5 14.5L16 8Z"
             />
           </svg>
-          <span className="sr-only">New item</span>
+          <span className="sr-only">New item</span> */}
+          Q
         </Link>
         <div
           id="tooltip-new"
