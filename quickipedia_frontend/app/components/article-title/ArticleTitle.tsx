@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";
 
 type Props = {
-  toggleBookmark: (articleId: string) => void;
+  toggleBookmark: () => void;
   bookmarks: Article[];
 } & Article;
 
@@ -14,6 +14,8 @@ export const ArticleTitle = (
 ) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [selected, setSelected] = useState<boolean>(false);
+
+  const bookmarked = bookmarks.filter(item => item.id == id).length? true : false;
 
   //tailwind import for initializing the modal
   /*useEffect(() => {
@@ -74,7 +76,7 @@ export const ArticleTitle = (
               <path d="M20,24H4c-2.2,0-4-1.8-4-4V4c0-2.2,1.8-4,4-4h16c2.2,0,4,1.8,4,4v16C24,22.2,22.2,24,20,24z M4,2C2.9,2,2,2.9,2,4v16 c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V4c0-1.1-0.9-2-2-2H4z" />
             </svg>
           </button>
-          <BookmarkButton isBookmarked={false} articleId={id} toggleBookmark={toggleBookmark}/>
+          <BookmarkButton isBookmarked={bookmarked} articleId={id} toggleBookmark={toggleBookmark}/>
           <button
             type="button"
             className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center"
