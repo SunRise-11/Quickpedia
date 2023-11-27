@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { LoginButton, LogoutButton } from "..";
-
+import { LoginButton} from "./login-button/LoginButton";
+import { LogoutButton } from "./logout-button/LogoutButton";
 export const Navbar = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const { user } = useUser();
