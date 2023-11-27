@@ -83,19 +83,29 @@ const Page = () => {
             type="text"
             value={searchedArticle}
             onChange={handleSearch}
-            className="search-field"
+            className="search-field px-3 h-10 border-rose-900 border-2 rounded max-w-xs"
             placeholder="Search articles"
           />
         </div>
       </div>
-      {searchedArticle && (
-      <div className="w-[80%] max-w-md">
-        {filteredArticles?.map((article) => (
-              <ArticleTitle {...article} key={article.id} bookmarks={userBookmarks || []} toggleBookmark={() => handleBookmarking(user?.email || "", article)} />
-              ))}
-      </div>
+      {filteredArticles && searchedArticle ? (
+        <div className="w-[80%] max-w-md">
+          {filteredArticles?.length > 0 ? (
+            filteredArticles.map((article) => (
+              <ArticleTitle key={article.question} {...article} bookmarks={userBookmarks || []} toggleBookmark={() => handleBookmarking(user?.email || "", article)} />
+            ))
+          ) : (
+            <div className="w-72 text-center pt-10">
+            <h2 className="text-2xl font-bold">Ups! It looks like we don&apos;t have an article for {searchedArticle} yet!</h2>
+          </div>
+          )}
+        </div>
+      ) : (
+        <div className="w-72 text-center pt-10">
+        <h2 className="text-2xl font-bold"> Try to search for <i>&quot;kangaroos&quot;</i> and see what happens!</h2>
+        </div>
       )}
-      <NavFooter/>
+      <NavFooter />
     </main>
   );
 };

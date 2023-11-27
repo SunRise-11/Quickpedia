@@ -79,7 +79,7 @@ export const ArticleTitle = (
           <BookmarkButton isBookmarked={bookmarked} articleId={id} toggleBookmark={toggleBookmark}/>
           <button
             type="button"
-            className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm p-2.5 text-center"
+            className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 font-medium rounded-lg text-sm p-2.5 text-center"
           >
             <svg
               className="w-4 h-4 text-rose-300 group-hover:text-rose-50"

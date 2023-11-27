@@ -10,7 +10,7 @@ export const BookmarkButton = ({ isBookmarked, toggleBookmark, articleId}: Props
   return (
     <button
       type="button"
-      className={toggleFill + " group text-rose-700 hover:text-white bg-rose-300 hover:bg-rose-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"}
+      className={toggleFill + " group text-rose-700 hover:text-white bg-rose-300 hover:bg-rose-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"}
       onClick={() => toggleBookmark(articleId)}
     >
       <svg

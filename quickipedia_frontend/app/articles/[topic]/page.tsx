@@ -6,9 +6,9 @@ import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { UserData } from "@/utils/types";
 
-type DynamicUrl={
-  params: {topic:string}
-}
+type DynamicUrl = {
+  params: { topic: string };
+};
 
 const Page = ({params}:DynamicUrl) => {
   const { user,isLoading } = useUser();
@@ -68,26 +68,32 @@ const Page = ({params}:DynamicUrl) => {
   const articlesToShow =
     params.topic === "all"
       ? allArticles
-      : allArticles?.filter((article) => article.topic.toLowerCase() === params.topic);
+      : allArticles?.filter(
+          (article) => article.topic.toLowerCase() === params.topic
+        );
 
-  if(allArticles === void[]){
-    return(
+  if (allArticles === void []) {
+    return (
       <>
-      <h1>It looks like we have no articles to show!</h1>
+        <h1>It looks like we have no articles to show!</h1>
       </>
-    )
+    );
   }
 
-  function uniqueFilter( value:string, index:number, self:string[]){
-    return self.indexOf(value)===index;
+  function uniqueFilter(value: string, index: number, self: string[]) {
+    return self.indexOf(value) === index;
   }
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">
+    <main
+      className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">
       <div className=" flex flex-row flex-wrap">
-      <Filterbutton topic="all"/>
-      {allArticles.map((article => article.topic))
-      .filter(uniqueFilter)
-      .map((item, index) => {return <Filterbutton key={index} topic={item.toLowerCase()} />})}
+        <Filterbutton topic="all" />
+        {allArticles
+          .map((article) => article.topic)
+          .filter(uniqueFilter)
+          .map((item, index) => {
+            return <Filterbutton key={index} topic={item.toLowerCase()} />;
+          })}
       </div>
       <ol className="w-[100%] max-w-md">
         {articlesToShow &&
@@ -97,7 +103,7 @@ const Page = ({params}:DynamicUrl) => {
             </li>
           ))}
       </ol>
-      <NavFooter/>
+      <NavFooter />
     </main>
   );
 };
