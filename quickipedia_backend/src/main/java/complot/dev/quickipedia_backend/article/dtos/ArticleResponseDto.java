@@ -5,6 +5,7 @@ public record ArticleResponseDto(
         String question,
         String answer,
         String topic,
+        String source,
         int rank
 ) {
 }
