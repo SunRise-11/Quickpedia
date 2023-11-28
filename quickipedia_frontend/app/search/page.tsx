@@ -6,7 +6,6 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { fetchArticles } from "../utils/articlesUtils";
 import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
-import { Loading } from "../components/loading/Loading";
 
 const Page = () => {
   const { user, isLoading } = useUser();
@@ -58,14 +57,14 @@ const Page = () => {
   }, [user?.email, userBookmarks, isLoading]);
 
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-24">
+    <main className="flex bg-primary min-h-screen mt-10 flex-col items-center justify-start py-24">
       <div className="search-section">
         <div className="search">
           <input
             type="text"
             value={searchedArticle}
             onChange={handleSearch}
-            className="search-field px-3 h-10 border-rose-900 border-2 rounded max-w-xs"
+            className="search-field px-3 h-10 rounded-md max-w-xs"
             placeholder="Search articles"
           />
         </div>
@@ -90,16 +89,16 @@ const Page = () => {
             ))
           ) : (
             <div className="w-72 text-center pt-10">
-              <h2 className="text-2xl font-bold">
-                Ups! It looks like we don&apos;t have an article for{" "}
-                {searchedArticle} yet!
+              <h2 className="text-2xl font-bold text-primaryB">
+                Ups! It looks like we don&apos;t have an article for 
+                &quot;{searchedArticle}&quot; yet!
               </h2>
             </div>
           )}
         </div>
       ) : (
         <div className="w-72 text-center pt-10">
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold text-primaryB">
             {" "}
             Try to search for <i>&quot;kangaroos&quot;</i> and see what happens!
           </h2>
