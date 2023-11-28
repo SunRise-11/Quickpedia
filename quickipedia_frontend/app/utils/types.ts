@@ -13,5 +13,6 @@ export type Article = {
   question: string;
   answer: string;
   topic: string;
+  source: string;
   rank: number;
 }
