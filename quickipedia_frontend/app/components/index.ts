@@ -9,6 +9,7 @@ import { NavFooter } from "./nav-footer/NavFooter";
 import { BookmarkButton } from "./bookmark-button/BookmarkButton";
 import { SpeechButton } from "./speech-button/SpeechButton";
 import { Loading } from "./loading/Loading";
+import { BackButton } from "./back-button/BackButton";
 export {
   Navbar,
   Footer,
