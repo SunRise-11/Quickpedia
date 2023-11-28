@@ -1,7 +1,7 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
-import { Article } from "../page";
+import { Article } from "../utils/types";
 import { ArticleTitle, NavFooter } from "../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { UserData } from "@/app/utils/types";
