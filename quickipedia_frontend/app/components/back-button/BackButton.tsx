@@ -8,15 +8,16 @@ export const BackButton = () => {
     router.back()
   }
   return (
+    <div className=" top-10">
     <button
       type="button"
       className={
-        " group text-rose-700 mr-auto hover:text-white font-medium rounded-lg text-sm text-center mr-2"
+        "flex flex-row group text-primaryB hover:text-ternary font-medium rounded-lg text-md w-20"
       }
       onClick={() => handleGoBack()}
     >
       <svg
-        className="w-6 h-6 text-rose-400"
+        className="w-6 h-6 text-primaryB hover:text-ternary"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-6.24 -6.24 64.48 64.48"
@@ -34,6 +35,8 @@ export const BackButton = () => {
           />
         </g>
       </svg>
+      home
     </button>
+    </div>
   );
 };

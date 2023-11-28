@@ -36,21 +36,21 @@ const Page = () => {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <main className="text-rose-900 flex min-h-screen mt-10 flex-col items-center p-24">
+    <main className="flex bg-primary min-h-screen mt-10 flex-col items-center justify-start py-10">
       {user && (
         <>
           <BackButton />
-          <div className="text-center rounded  bg-slate-50">
-            <h3 className="text-3xl sm:text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+          <div className="text-secondary mt-44 text-center rounded-3xl py-6  bg-primaryB">
+            <h3 className=" text-3xl sm:text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
               {user.name}
             </h3>
-            <div className="text-center px-4 rounded text-sm leading-normal mt-0text-blueGray-400 font-bold uppercase">
+            <div className="text-center px-4 rounded text-sm leading-normal mt-0 text-blueGray-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg"></i>
               {user.email}
             </div>
           </div>
-          <div className="border-t border-blueGray-200 text-center  bg-slate-50">
-            <div className="flex flex-wrap justify-center px-4 py-2 w-96 rounded">
+          <div className="border-t text-secondary text-center rounded-3xl bg-primaryB">
+            <div className="flex flex-wrap justify-center min-h-full px-4 py-2 w-96 rounded">
               <h4>All your booksmarks here!</h4>
               <ol className="w-[100%] max-w-md">
                 {userBookmarks &&
