@@ -1,21 +1,19 @@
 "use client";
 
-import { UserData } from "@/utils/types";
+import { UserData } from "@/app/utils/types";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import axios from "axios";
 import { useState } from "react";
-import { Article } from "../page";
+import { Article } from "@/app/utils/types";
 import { ArticleTitle } from "../components";
-import { apiBaseUrlUsers } from "@/utils/utilities";
+import { apiBaseUrlUsers } from "@/app/utils/utilities";
 
 const Page = () => {
   const { user, error, isLoading } = useUser();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
   const fetchUserBookmarks = async () => {
-    const response = await axios.get(
-      `${apiBaseUrlUsers}${user?.email}`
-    );
+    const response = await axios.get(`${apiBaseUrlUsers}${user?.email}`);
     const userData: UserData = response.data;
     const bookmarks = userData.bookmarks;
     setUserBookmarks(bookmarks);
@@ -29,20 +27,18 @@ const Page = () => {
       userBookmarks?.filter((item) => item.id == articleToToggle.id).length > 0
     ) {
       {
-        await axios.delete(
-          `${apiBaseUrlUsers}${email}`,
-          { data: { id: articleToToggle.id } }
-        );
+        await axios.delete(`${apiBaseUrlUsers}${email}`, {
+          data: { id: articleToToggle.id },
+        });
       }
       setUserBookmarks(
         userBookmarks?.filter((item) => item.id != articleToToggle.id)
       );
       return;
     }
-    await axios.post(
-      `${apiBaseUrlUsers}${email}`,
-      { data: { id: articleToToggle.id } }
-    );
+    await axios.post(`${apiBaseUrlUsers}${email}`, {
+      data: { id: articleToToggle.id },
+    });
     const articles: Article[] = [...userBookmarks, articleToToggle];
     setUserBookmarks(articles);
   };

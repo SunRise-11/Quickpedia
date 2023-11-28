@@ -1,5 +1,3 @@
-import { Article } from "@/app/page";
-
 export type UserData = {
   email: string;
   username: string;
@@ -9,3 +7,11 @@ export type UserData = {
 export type DynamicUrl = {
   params: { topic: string };
 };
+
+export type Article = {
+  id: string;
+  question: string;
+  answer: string;
+  topic: string;
+  rank: number;
+}

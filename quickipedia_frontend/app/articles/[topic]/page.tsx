@@ -1,16 +1,15 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Article } from "../../page";
 import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { DynamicUrl, UserData } from "@/utils/types";
+import { DynamicUrl, UserData, Article } from "@/app/utils/types";
 
-const Page = ({params}:DynamicUrl) => {
-  const { user,isLoading } = useUser();
+const Page = ({ params }: DynamicUrl) => {
+  const { user, isLoading } = useUser();
   const [allArticles, setAllArticles] = useState<Article[] | []>();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
-  
+
   const fetchArticles = async () => {
     const response = await axios.get(
       "https://quickipedia.azurewebsites.net/api/articles"
@@ -22,38 +21,41 @@ const Page = ({params}:DynamicUrl) => {
   const fetchUserBookmarks = async () => {
     const response = await axios({
       method: "get",
-      url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
+      url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`,
     });
-    const userData:UserData = response.data
+    const userData: UserData = response.data;
     const bookmarks = userData.bookmarks;
 
-    setUserBookmarks(bookmarks)
+    setUserBookmarks(bookmarks);
   };
 
   const handleBookmarking = async (email: string, articleToToggle: Article) => {
-    if(!userBookmarks){
+    if (!userBookmarks) {
       return;
     }
-    if(userBookmarks?.filter(item => item.id == articleToToggle.id).length > 0){
+    if (
+      userBookmarks?.filter((item) => item.id == articleToToggle.id).length > 0
+    ) {
       //console.log("you tried to remove a bookmark");
       await axios({
         method: "delete",
         url: `https://quickipedia.azurewebsites.net/api/users/${email}`,
-        data: {id: articleToToggle.id}
+        data: { id: articleToToggle.id },
       });
-      setUserBookmarks(userBookmarks?.filter(item => item.id != articleToToggle.id));
+      setUserBookmarks(
+        userBookmarks?.filter((item) => item.id != articleToToggle.id)
+      );
       return;
     }
     const data = await axios({
       method: "post",
       url: `https://quickipedia.azurewebsites.net/api/users/${email}`,
-      data: {id: articleToToggle.id}
+      data: { id: articleToToggle.id },
     });
-    const articles:Article[] =  [...userBookmarks, articleToToggle];
-    setUserBookmarks(articles)
-  }
+    const articles: Article[] = [...userBookmarks, articleToToggle];
+    setUserBookmarks(articles);
+  };
 
-  
   useEffect(() => {
     fetchArticles();
   }, []);
@@ -79,10 +81,9 @@ const Page = ({params}:DynamicUrl) => {
 
   if (isLoading && !userBookmarks) return <div>Loading...</div>;
   if (!isLoading && !userBookmarks) fetchUserBookmarks();
- 
+
   return (
-    <main
-      className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">
+    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">
       <div className=" flex flex-row flex-wrap">
         <Filterbutton topic="all" />
         {allArticles
@@ -96,7 +97,14 @@ const Page = ({params}:DynamicUrl) => {
         {articlesToShow &&
           articlesToShow.map((article, index) => (
             <li key={index}>
-              <ArticleTitle {...article} key={article.id} bookmarks={userBookmarks || []} toggleBookmark={() => handleBookmarking(user?.email || "", article)} />
+              <ArticleTitle
+                {...article}
+                key={article.id}
+                bookmarks={userBookmarks || []}
+                toggleBookmark={() =>
+                  handleBookmarking(user?.email || "", article)
+                }
+              />
             </li>
           ))}
       </ol>
