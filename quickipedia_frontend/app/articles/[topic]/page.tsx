@@ -52,7 +52,7 @@ const Page = ({ params }: DynamicUrl) => {
           (article) => article.topic.toLowerCase() === params.topic
         );
 
-  if (isLoading || !userBookmarks) {
+  if (isLoading || !allArticles) {
     return <Loading />;
   }
   
