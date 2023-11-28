@@ -1,5 +1,5 @@
 "use client";
-import { Article } from "@/app/page";
+import { Article } from "@/app/utils/types";
 import { BookmarkButton } from "../bookmark-button/BookmarkButton";
 import React, { useEffect, useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";

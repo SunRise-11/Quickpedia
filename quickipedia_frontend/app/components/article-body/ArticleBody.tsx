@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Article } from "@/app/page";
+import { Article } from "@/app/utils/types";
 
 export const ArticleBody = (props: Article) => {
   return (
