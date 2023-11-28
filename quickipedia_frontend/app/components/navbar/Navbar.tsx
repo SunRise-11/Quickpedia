@@ -9,6 +9,10 @@ export const Navbar = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const { user } = useUser();
 
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
+  };
+
   const toggleSideMenu = () => {
     setIsSideMenuOpen((prev) => !prev);
   };
@@ -80,13 +84,18 @@ export const Navbar = () => {
                         <Link
                           href="/profile"
                           className="hover:underline italic"
+                          onClick={closeSideMenu}
                         >
                           PROFILE
                         </Link>
                       </li>
                     )}
                     <li>
-                      <Link href="/about" className="hover:underline italic">
+                      <Link
+                        href="/about"
+                        className="hover:underline italic"
+                        onClick={closeSideMenu}
+                      >
                         ABOUT US
                       </Link>
                     </li>
