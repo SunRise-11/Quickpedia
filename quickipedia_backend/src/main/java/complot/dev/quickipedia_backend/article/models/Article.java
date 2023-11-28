@@ -18,11 +18,15 @@ public class Article {
     private String question;
     @Column(length = 65535)
     private String answer;
+    @Column
+    private String source;
     @Column(unique = true)
     private int rank;
 
-    public Article(){}
-    private Article(String articleId,String topic, String question) {
+    public Article() {
+    }
+
+    private Article(String articleId, String topic, String question) {
         this.articleId = articleId;
         this.topic = topic;
         this.question = question;
@@ -57,12 +61,17 @@ public class Article {
         this.question = question;
     }
 
+    public String getSource() {
+        return source;
+    }
+
     public ArticleResponseDto convertToDto() {
         return new ArticleResponseDto(
                 this.getId(),
                 this.getQuestion(),
                 this.getAnswer(),
                 this.getTopic(),
+                this.getSource(),
                 this.getRank()
         );
     }

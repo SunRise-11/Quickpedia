@@ -22,3 +22,7 @@ INSERT INTO article(article_id, question, answer, topic, rank) VALUES (NEWID(), 
 INSERT INTO article(article_id, question, answer, topic, rank) VALUES (NEWID(), 'What was the first programmable computer?', 'The Z3, completed in 1941 by German engineer Konrad Zuse, is considered the first programmable computer. It was used to perform complex engineering calculations and was a significant step in the development of modern computing.', 'Technology', 19);
 INSERT INTO article(article_id, question, answer, topic, rank) VALUES (NEWID(), 'Who is considered the father of the computer?', 'Charles Babbage is often referred to as the father of the computer. In the 19th century, he conceptualized and began developing the Analytical Engine, which laid the groundwork for the modern computer.', 'Technology', 8);
 INSERT INTO article(article_id, question, answer, topic, rank) VALUES (NEWID(), 'What year was the first iPhone released?', 'The first iPhone was released in 2007. Unveiled by Steve Jobs, it was a breakthrough in mobile phone technology, combining a phone, an internet communicator, and a digital music player.', 'Technology', 17);
+
+
+UPDATE article
+SET source = 'https://www.wikipedia.org/'
