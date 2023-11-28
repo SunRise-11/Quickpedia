@@ -6,4 +6,6 @@ export const speakFromText = (text: string) => {
     window.speechSynthesis.speak(speech);
 }
 
- 
+export function uniqueFilter(value: string, index: number, self: string[]) {
+    return self.indexOf(value) === index;
+  }
