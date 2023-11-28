@@ -48,11 +48,11 @@ export const ArticleTitle = (
         <div className="flex flex-row justify-end">
           <button
             type="button"
-            className="group text-rose-700 hover:text-white font-medium rounded-lg text-sm  pl-1 w-[100%] text-center"
+            className="group text-primaryB hover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-center"
             onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
-              className="w-6 h-6 text-rose-200 transition ease-in-out delay-150 group-hover/article:text-rose-700"
+              className="w-6 h-6 text-primaryB transition ease-in-out delay-150 group-hover/article:text-secondaryB"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -81,10 +81,10 @@ export const ArticleTitle = (
         >
           <button
             type="button"
-            className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 font-medium rounded-lg text-sm p-2.5 text-center"
+            className="group border border-secondaryB text-secondaryB hover:text-primary  hover:bg-secondaryB font-medium rounded-lg text-sm p-2.5 text-center"
           >
             <svg
-              className="w-4 h-4 text-rose-300 group-hover:text-rose-50"
+              className="w-4 h-4 text-secondaryB group-hover:text-primary"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

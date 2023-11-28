@@ -14,13 +14,13 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-rose-200 text-rose-900 border-gray-200 rounded-b-2xl px-4 z-10">
+    <nav className="fixed top-0 w-full bg-primary text-primaryB border-primaryB border-b-2 px-4 z-10">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span className="self-center text-2xl font-semibold whitespace-nowrap hover:text-stone-950">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap hover:text-secondaryB">
             <h1 className="">Quickipedia</h1>
           </span>
         </Link>
@@ -50,7 +50,7 @@ export const Navbar = () => {
                 </svg>
               </div>
               {isSideMenuOpen && (
-                <div className="fixed top-0 left-0 h-full w-full bg-white border-l border-gray-200 shadow z-50 flex flex-col">
+                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
                   <div className="p-4">
                     <div
                       tabIndex={0}
@@ -79,15 +79,15 @@ export const Navbar = () => {
                       <li>
                         <Link
                           href="/profile"
-                          className="text-sm hover:underline"
+                          className="hover:underline italic"
                         >
-                          Profile
+                          PROFILE
                         </Link>
                       </li>
                     )}
                     <li>
-                      <Link href="/about" className="text-sm hover:underline">
-                        About us
+                      <Link href="/about" className="hover:underline italic">
+                        ABOUT US
                       </Link>
                     </li>
                   </ul>

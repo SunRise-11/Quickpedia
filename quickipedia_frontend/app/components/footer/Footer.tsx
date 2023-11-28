@@ -3,9 +3,8 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="h-[200px] w-full p-4 bg-primary shadow md:flex md:items-center md:justify-between md:p-6  text-slate-200">
+    <footer className="h-[50px] w-full p-4 bg-primary shadow md:flex md:items-start md:justify-between md:p-6  text-primaryB">
       <div className=" sm:flex sm:items-center sm:justify-between w-full">
-        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <span className="text-sm sm:text-center hover:underline">
           © 2023{" "}
           <Link
