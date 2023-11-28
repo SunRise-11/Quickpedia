@@ -7,9 +7,8 @@ import { SpeechButton } from "../speech-button/SpeechButton";
 export const ArticleBody = (props: Article) => {
   return (
     <>
-      <div className=" bg-primary border border-slate-950 px-6 text-primaryB py-3 rounded-xl  mb-3 ">
-        <div className="pb-2 flex flex-row align-baseline justify-between">
-          <h1 className="font-medium">Answer:</h1>
+      <div className=" bg-primaryB px-6 text-secondary py-3 rounded-xl  mb-3 ">
+        <div className="pb-2 flex ">
           <SpeechButton text={props.answer}/>
         </div>
         <p
@@ -18,12 +17,12 @@ export const ArticleBody = (props: Article) => {
           tabIndex={-1}
           aria-labelledby="exampleModalFullscreenLabel"
           aria-hidden="true"
-          className="text-justify mb-5"
+          className=" text-md mb-5"
         >
           {props.answer}
         </p>
         <Link
-          className="underline hover:text-secondaryB"
+          className="underline hover:text-ternary"
           target="_blank"
           href={props.source}
         >
