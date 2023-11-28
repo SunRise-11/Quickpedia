@@ -16,6 +16,8 @@ const Page = ({params}:DynamicUrl) => {
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
 
+
+  
   const fetchArticles = async () => {
     const response = await axios.get(
       "https://quickipedia.azurewebsites.net/api/articles"
@@ -61,7 +63,6 @@ const Page = ({params}:DynamicUrl) => {
 
   
   useEffect(() => {
-    fetchUserBookmarks();
     fetchArticles();
   }, []);
 
@@ -83,6 +84,10 @@ const Page = ({params}:DynamicUrl) => {
   function uniqueFilter(value: string, index: number, self: string[]) {
     return self.indexOf(value) === index;
   }
+
+  if (isLoading && !userBookmarks) return <div>Loading...</div>;
+  if (!isLoading && !userBookmarks) fetchUserBookmarks();
+ 
   return (
     <main
       className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">

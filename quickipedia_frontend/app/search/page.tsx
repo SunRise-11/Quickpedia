@@ -75,6 +75,9 @@ const Page = () => {
     fetchArticles();
   }, []);
 
+  if (isLoading && !userBookmarks) return <div>Loading...</div>;
+  if (!isLoading && !userBookmarks) fetchUserBookmarks();
+  
   return (
     <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-24">
       <div className="search-section">
