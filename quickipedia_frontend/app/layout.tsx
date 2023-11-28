@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Ubuntu, Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
-import { Footer, Navbar } from "./components";
+import { Footer, NavFooter, Navbar } from "./components";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 //installed this: npm install tw-elements
@@ -37,6 +37,7 @@ export default function RootLayout({
           <main className="flex-grow">
             {children}
           </main>
+          <NavFooter/>
           <Footer />
         </body>
       </UserProvider>

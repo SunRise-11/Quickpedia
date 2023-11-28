@@ -9,6 +9,18 @@ export const fetchArticles = async (): Promise<Article[]> => {
     return response.data;
   } catch (error) {
     console.error("Error fetching articles:", error);
-    throw error;  //look into how we want to do this 
+    throw error; //look into how we want to do this
+  }
+};
+
+export const fetchTrending = async (): Promise<Article[]> => {
+  try {
+    const response = await axios.get(
+      "https://quickipedia.azurewebsites.net/api/articles/top"
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    throw error; //look into how we want to do this
   }
 };
