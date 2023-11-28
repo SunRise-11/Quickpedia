@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Article } from "../page";
 import { ArticleTitle } from "../components";
+import { apiBaseUrlUsers } from "@/utils/utilities";
 
 const Page = () => {
   const { user, error, isLoading } = useUser();
@@ -13,7 +14,7 @@ const Page = () => {
 
   const fetchUserBookmarks = async () => {
     const response = await axios.get(
-      `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
+      `${apiBaseUrlUsers}${user?.email}`
     );
     const userData: UserData = response.data;
     const bookmarks = userData.bookmarks;
@@ -29,7 +30,7 @@ const Page = () => {
     ) {
       {
         await axios.delete(
-          `https://quickipedia.azurewebsites.net/api/users/${email}`,
+          `${apiBaseUrlUsers}${email}`,
           { data: { id: articleToToggle.id } }
         );
       }
@@ -39,7 +40,7 @@ const Page = () => {
       return;
     }
     await axios.post(
-      `https://quickipedia.azurewebsites.net/api/users/${email}`,
+      `${apiBaseUrlUsers}${email}`,
       { data: { id: articleToToggle.id } }
     );
     const articles: Article[] = [...userBookmarks, articleToToggle];
