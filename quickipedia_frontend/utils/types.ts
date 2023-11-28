@@ -5,3 +5,7 @@ export type UserData = {
   username: string;
   bookmarks: Article[];
 };
+
+export type DynamicUrl = {
+  params: { topic: string };
+};

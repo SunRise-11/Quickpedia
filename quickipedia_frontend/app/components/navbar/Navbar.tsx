@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { LoginButton } from "./login-button/LoginButton";
-import { LogoutButton } from "./logout-button/LogoutButton";
-
+import { LoginButton } from "../login-button/LoginButton";
+import { LogoutButton } from "../logout-button/LogoutButton";
 
 export const Navbar = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -26,7 +25,7 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
-        {user? <LogoutButton/>: <LoginButton/>}
+          {user ? <LogoutButton /> : <LoginButton />}
           <div className="navbar-end">
             <div className="relative">
               <div

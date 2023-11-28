@@ -4,19 +4,12 @@ import { useEffect, useState } from "react";
 import { Article } from "../../page";
 import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import { UserData } from "@/utils/types";
-
-type DynamicUrl = {
-  params: { topic: string };
-};
+import { DynamicUrl, UserData } from "@/utils/types";
 
 const Page = ({params}:DynamicUrl) => {
   const { user,isLoading } = useUser();
   const [allArticles, setAllArticles] = useState<Article[] | []>();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
-
-
-
   
   const fetchArticles = async () => {
     const response = await axios.get(
@@ -27,7 +20,6 @@ const Page = ({params}:DynamicUrl) => {
   };
 
   const fetchUserBookmarks = async () => {
-
     const response = await axios({
       method: "get",
       url: `https://quickipedia.azurewebsites.net/api/users/${user?.email}`
