@@ -7,6 +7,7 @@ import { LogoutButton } from "./navbar/logout-button/LogoutButton";
 import { Filterbutton } from "./filter-button/Filterbutton";
 import { NavFooter } from "./nav-footer/NavFooter";
 import { BookmarkButton } from "./bookmark-button/BookmarkButton";
+import { SpeechButton } from "./speech-button/SpeechButton";
 export {
   Navbar,
   Footer,
@@ -16,5 +17,6 @@ export {
   LogoutButton,
   Filterbutton,
   NavFooter,
-  BookmarkButton
+  BookmarkButton,
+  SpeechButton
 };

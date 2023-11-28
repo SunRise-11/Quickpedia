@@ -3,6 +3,7 @@ import { Article } from "@/app/page";
 import { BookmarkButton } from "../bookmark-button/BookmarkButton";
 import React, { useEffect, useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";
+import { SpeechButton } from "../speech-button/SpeechButton";
 
 type Props = {
   toggleBookmark: () => void;
@@ -39,16 +40,19 @@ export const ArticleTitle = (
   return (
     <>
       <article className="group/article p-4 flex flex-col w-[100%] text-grey-900 rounded-xl mt-3 mb-3 bg-white text-slate-950 text-lg drop-shadow-xl">
+        <div className="flex flex-row align-baseline justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 group-hover/article:-translate-y-0.5 group-hover/article:scale-105 duration-300 ...">
         <button
           type="button"
           data-te-toggle="modal"
           data-te-target="default-modal"
           data-te-ripple-init
-          className="p-2 rounded-lg text-left transition ease-in-out delay-150 group-hover/article:-translate-y-0.5 group-hover/article:scale-105 duration-300 ..."
+          className=""
           onClick={() => handleSelect({id, question, answer, topic, rank })}
         >
           {question}
         </button>
+        <SpeechButton text={question}/>
+        </div>  
         <div className="flex flex-row justify-end">
           <button
             type="button"
@@ -80,6 +84,7 @@ export const ArticleTitle = (
           <button
             type="button"
             className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 font-medium rounded-lg text-sm p-2.5 text-center"
+            //onClick={}
           >
             <svg
               className="w-4 h-4 text-rose-300 group-hover:text-rose-50"
