@@ -8,6 +8,7 @@ import { handleBookmarking } from "@/app/utils/bookmarksUtils";
 import { uniqueFilter } from "@/app/utils/utilities";
 import { fetchUserBookmarks } from "@/app/utils/userBookmarksUtils";
 import { fetchArticles } from "@/app/utils/articlesUtils";
+import { Loading } from "@/app/components/loading/Loading";
 
 const Page = ({ params }: DynamicUrl) => {
   const { user, isLoading } = useUser();
@@ -51,6 +52,10 @@ const Page = ({ params }: DynamicUrl) => {
           (article) => article.topic.toLowerCase() === params.topic
         );
 
+  if (isLoading || !userBookmarks) {
+    return <Loading />;
+  }
+  
   return (
     <main className="flex mt-10 flex-col items-center justify-start py-10 px-12">
       <div className=" flex flex-row flex-wrap">

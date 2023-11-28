@@ -1,13 +1,12 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-  ArticleTitle,
-  NavFooter,
-} from "./components";
+import { ArticleTitle, NavFooter } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { getAccessToken } from "@auth0/nextjs-auth0";
 import { UserData, Article } from "@/app/utils/types";
+import ArticleSkeleton from "./components/article-title/ArticleSkeleton";
+import { Loading } from "./components/loading/Loading";
 
 export default function Home() {
   const [trendingArticles, setTrendingArticles] = useState<Article[]>();
@@ -109,6 +108,11 @@ export default function Home() {
     getToken();
   }, []);
 
+  if (isLoading || !trendingArticles) {
+    return (
+      <Loading/>
+    );
+  }
   return (
     <main className="text-slate-800 flex min-h-screen mt-20 flex-col items-center justify-between py-10">
       <h1>TRENDING</h1>

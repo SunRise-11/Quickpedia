@@ -6,6 +6,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { fetchArticles } from "../utils/articlesUtils";
 import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
+import { Loading } from "../components/loading/Loading";
 
 const Page = () => {
   const { user, isLoading } = useUser();
