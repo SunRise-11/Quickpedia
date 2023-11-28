@@ -6,6 +6,7 @@ import { Article } from "@/app/utils/types";
 import { ArticleTitle } from "../components";
 import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
 import { handleBookmarking } from "../utils/bookmarksUtils";
+import { BackButton } from "../components/back-button/BackButton";
 
 const Page = () => {
   const { user, error, isLoading } = useUser();
@@ -38,6 +39,7 @@ const Page = () => {
     <main className="text-rose-900 flex min-h-screen mt-10 flex-col items-center p-24">
       {user && (
         <>
+          <BackButton />
           <div className="text-center rounded  bg-slate-50">
             <h3 className="text-3xl sm:text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
               {user.name}

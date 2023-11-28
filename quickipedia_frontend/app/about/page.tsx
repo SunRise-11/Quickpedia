@@ -1,8 +1,11 @@
+"use client"
 import Link from "next/link";
+import { BackButton } from "../components/back-button/BackButton";
 
 export default function About() {
   return (
     <main className="flex min-h-screen mt-10 flex-col items-center justify-between p-24">
+      <BackButton />
       <h1>About Quickipedia</h1>
       <p>
         Quickipedia is an ambitious project aimed at creating a real-time online
@@ -19,13 +22,13 @@ export default function About() {
           href="https://www.linkedin.com/in/colinnordmark/"
           className="hover:underline"
         >
-          Colin Nordmark 
+          Colin Nordmark
         </Link>
         <Link
           href="https://github.com/colinnordmark"
           className="hover:underline"
         >
-           (GitHub)
+          (GitHub)
         </Link>
       </p>
       <p>
@@ -33,13 +36,13 @@ export default function About() {
           href="https://www.linkedin.com/in/marisa-pinheiro-833a12113/"
           className="hover:underline"
         >
-          Marisa Pinheiro  
+          Marisa Pinheiro
         </Link>
         <Link
           href="https://github.com/Marisa-Pinheiro"
           className="hover:underline"
         >
-           (GitHub)
+          (GitHub)
         </Link>
       </p>
     </main>
