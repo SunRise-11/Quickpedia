@@ -1,55 +1,38 @@
 "use client";
 
-import { UserData } from "@/app/utils/types";
 import { useUser } from "@auth0/nextjs-auth0/client";
-import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Article } from "@/app/utils/types";
 import { ArticleTitle } from "../components";
-import { apiBaseUrlUsers } from "@/app/utils/utilities";
+import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
+import { handleBookmarking } from "../utils/bookmarksUtils";
 
 const Page = () => {
   const { user, error, isLoading } = useUser();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
-  const fetchUserBookmarks = async () => {
-    const response = await axios.get(`${apiBaseUrlUsers}${user?.email}`);
-    const userData: UserData = response.data;
-    const bookmarks = userData.bookmarks;
-    setUserBookmarks(bookmarks);
-  };
-
-  const handleBookmarking = async (email: string, articleToToggle: Article) => {
-    if (!userBookmarks) {
-      return;
-    }
-    if (
-      userBookmarks?.filter((item) => item.id == articleToToggle.id).length > 0
-    ) {
-      {
-        await axios.delete(`${apiBaseUrlUsers}${email}`, {
-          data: { id: articleToToggle.id },
-        });
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!user?.email) {
+        console.error("User email is undefined");
+        return;
       }
-      setUserBookmarks(
-        userBookmarks?.filter((item) => item.id != articleToToggle.id)
-      );
-      return;
+
+      try {
+        const userData = await fetchUserBookmarks(user.email);
+        setUserBookmarks(userData.bookmarks);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    if (!isLoading && !userBookmarks) {
+      fetchData();
     }
-    await axios.post(`${apiBaseUrlUsers}${email}`, {
-      data: { id: articleToToggle.id },
-    });
-    const articles: Article[] = [...userBookmarks, articleToToggle];
-    setUserBookmarks(articles);
-  };
+  }, [user?.email, userBookmarks, isLoading]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
-  if (!isLoading && !userBookmarks) fetchUserBookmarks();
-
-  if (!user) {
-    return <div>User not authenticated.</div>;
-  }
 
   return (
     <main className="text-rose-900 flex min-h-screen mt-10 flex-col items-center p-24">
@@ -76,7 +59,12 @@ const Page = () => {
                         key={article.id}
                         bookmarks={userBookmarks || []}
                         toggleBookmark={() =>
-                          handleBookmarking(user?.email || "", article)
+                          handleBookmarking(
+                            user?.email || "",
+                            article,
+                            userBookmarks,
+                            setUserBookmarks
+                          )
                         }
                       />
                     </li>

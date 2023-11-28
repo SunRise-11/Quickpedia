@@ -1,6 +1,3 @@
-
-export const apiBaseUrlUsers = 'https://quickipedia.azurewebsites.net/api/users/'
-
 export const speakFromText = (text: string) => {
     let speech = new SpeechSynthesisUtterance();
     speech.text = text;
