@@ -31,14 +31,14 @@ export const ArticleTitle = (
 
   return (
     <>
-      <article className="group/article p-4 flex flex-col w-[100%] text-grey-900 rounded-xl mt-3 mb-3 bg-white text-slate-950 text-lg drop-shadow-xl">
+      <article className="group/article p-4 text-left flex flex-col w-[100%] text-grey-900 rounded-xl mt-3 mb-3 bg-white text-secondary text-lg drop-shadow-xl">
         <div className="flex flex-row align-baseline justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 group-hover/article:-translate-y-0.5 group-hover/article:scale-105 duration-300 ...">
         <button
           type="button"
           data-te-toggle="modal"
           data-te-target="default-modal"
           data-te-ripple-init
-          className=""
+          className="text-left w-full"
           onClick={() => handleSelect({id, question, answer, topic, source, rank })}
         >
           {question}
@@ -48,11 +48,11 @@ export const ArticleTitle = (
         <div className="flex flex-row justify-end">
           <button
             type="button"
-            className="group text-primaryB hover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-center"
+            className="group text-secondary hover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
             onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
-              className="w-6 h-6 text-primaryB transition ease-in-out delay-150 group-hover/article:text-secondaryB"
+              className="w-6 h-6 text-secondary transition ease-in-out delay-150 group-hover/article:text-secondaryB"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -84,7 +84,7 @@ export const ArticleTitle = (
             className="group border border-secondaryB text-secondaryB hover:text-primary  hover:bg-secondaryB font-medium rounded-lg text-sm p-2.5 text-center"
           >
             <svg
-              className="w-4 h-4 text-secondaryB group-hover:text-primary"
+              className="w-4 h-4 text-secondaryB group-hover:text-primaryB"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
