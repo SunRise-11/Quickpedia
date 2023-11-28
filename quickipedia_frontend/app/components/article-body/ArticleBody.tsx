@@ -2,7 +2,7 @@
 import React from "react";
 import { Article } from "@/app/utils/types";
 import Link from "next/link";
-import { SpeechButton } from "..";
+import { SpeechButton } from "../speech-button/SpeechButton";
 
 export const ArticleBody = (props: Article) => {
   return (
