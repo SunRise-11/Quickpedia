@@ -83,7 +83,7 @@ const Page = ({ params }: DynamicUrl) => {
   if (!isLoading && !userBookmarks) fetchUserBookmarks();
 
   return (
-    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-10 px-12">
+    <main className="flex mt-10 flex-col items-center justify-start py-10 px-12">
       <div className=" flex flex-row flex-wrap">
         <Filterbutton topic="all" />
         {allArticles
