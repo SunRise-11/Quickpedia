@@ -1,10 +1,10 @@
 "use client";
 import { Article } from "@/app/utils/types";
 import { BookmarkButton } from "../bookmark-button/BookmarkButton";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";
 import { SpeechButton } from "../speech-button/SpeechButton";
-import { handleShare } from "@/app/utils/articlesUtils";
+import { RWebShare } from "react-web-share";
 
 type Props = {
   toggleBookmark: () => void;
@@ -18,15 +18,6 @@ export const ArticleTitle = (
   const [selected, setSelected] = useState<boolean>(false);
 
   const bookmarked = bookmarks.filter(item => item.id == id).length? true : false;
-
-  //tailwind import for initializing the modal
-  /*useEffect(() => {
-    const init = async () => {
-      const { Modal, initTE } = await import("tw-elements");
-      initTE({ Modal });
-    };
-    init();
-  }, []);*/
 
   const handleSelect = (article: Article) => {
     if (selectedArticle && selectedArticle.question === article.question) {
@@ -82,10 +73,15 @@ export const ArticleTitle = (
             </svg>
           </button>
           <BookmarkButton isBookmarked={bookmarked} articleId={id} toggleBookmark={toggleBookmark}/>
+          <RWebShare
+            data={{
+                title: "Share Quickipedia with your friends!",
+                url: window.location.href,
+            }}
+        >
           <button
             type="button"
             className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 font-medium rounded-lg text-sm p-2.5 text-center"
-            onClick={()=> handleShare()}
           >
             <svg
               className="w-4 h-4 text-rose-300 group-hover:text-rose-50"
@@ -103,6 +99,7 @@ export const ArticleTitle = (
               />
             </svg>
           </button>
+          </RWebShare>
         </div>
       </article>
       {selected && <ArticleBody {...{id, question, answer, topic, source, rank }} />}
