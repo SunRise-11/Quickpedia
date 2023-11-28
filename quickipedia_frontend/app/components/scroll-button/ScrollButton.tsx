@@ -27,8 +27,8 @@ export const ScrollButton = () => {
 
   const buttonStyle: React.CSSProperties = {
     position: "fixed",
-    bottom: isVisible ? "33%" : "-100px", 
-    right: "40px",
+    bottom: isVisible ? "15%" : "-100px", 
+    left: "10%",
     opacity: isVisible ? 1 : 0, 
     transition: "opacity 0.5s ease, bottom 0.5s ease", 
   };
@@ -37,13 +37,13 @@ export const ScrollButton = () => {
     <button
       type="button"
       className={
-        "flex flex-col justify-center group bg-secondaryB hover:bg-ternary font-medium rounded-lg text-sm p-2 text-center mr-2"
+        "flex flex-col justify-center group bg-secondaryB hover:bg-ternary font-medium rounded-full text-sm p-3 text-center mr-2 z-10"
       }
       style={buttonStyle}
       onClick={easeInScrollToTop}
     >
       <svg
-        className="w-5 h-5 text-primaryB"
+        className="w-6 h-6 text-primaryB"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1024 1024"
