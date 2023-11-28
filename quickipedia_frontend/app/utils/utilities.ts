@@ -1,7 +1,16 @@
 let voice:SpeechSynthesisVoice;
 
 export const initVoice = () => {
-    voice = window.speechSynthesis.getVoices()[160];
+  const regex = /UK English Male/;
+  const regexFallback = /en-US/;
+  let voices = window.speechSynthesis.getVoices();
+  voice = voices.filter(item => regex.test(item.name))[0];
+  if(!voice){
+    voices = voices.filter(item => regexFallback.test(item.lang));
+    console.log(voices.map(item => console.log(item.name)));
+    voice = voices[24];
+    //24
+  }
 }
 
 export const speakFromText = (text: string) => {
@@ -11,7 +20,7 @@ export const speakFromText = (text: string) => {
       initVoice()
       if (voice != null) {
         speech.voice = voice; 
-        console.log("tried to speak " + text)
+        console.log(voice.name + " tried to speak " + text)
         window.speechSynthesis.speak(speech);
       }
     };
