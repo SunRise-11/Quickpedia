@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArticleTitle, Filterbutton, NavFooter, ScrollButton } from "../../components";
+import {
+  ArticleTitle,
+  Filterbutton,
+  NavFooter,
+  ScrollButton,
+} from "../../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { DynamicUrl, Article } from "@/app/utils/types";
 import { handleBookmarking } from "@/app/utils/bookmarksUtils";
@@ -55,9 +60,10 @@ const Page = ({ params }: DynamicUrl) => {
   if (isLoading || !allArticles) {
     return <Loading />;
   }
-  
+
   return (
     <main className="flex mt-10 flex-col items-center justify-start py-10 px-12 bg-primary">
+      <ScrollButton />
       <div className=" flex flex-row flex-wrap">
         <Filterbutton topic="all" />
         {allArticles
@@ -67,7 +73,6 @@ const Page = ({ params }: DynamicUrl) => {
             return <Filterbutton key={index} topic={item.toLowerCase()} />;
           })}
       </div>
-      <ScrollButton/>
       <ol className="w-[100%] max-w-md">
         {articlesToShow &&
           articlesToShow.map((article, index) => (

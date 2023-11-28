@@ -3,7 +3,7 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useEffect, useState } from "react";
 import { Article } from "@/app/utils/types";
-import { ArticleTitle } from "../components";
+import { ArticleTitle, ScrollButton } from "../components";
 import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { BackButton } from "../components/back-button/BackButton";
@@ -37,6 +37,7 @@ const Page = () => {
 
   return (
     <main className="text-rose-900 flex min-h-screen mt-10 flex-col items-center p-24">
+      <ScrollButton/>
       {user && (
         <>
           <BackButton />

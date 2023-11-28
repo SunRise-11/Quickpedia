@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ArticleTitle, NavFooter } from "./components";
+import { ArticleTitle, NavFooter, ScrollButton } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { Article } from "@/app/utils/types";
 import { Loading } from "./components/loading/Loading";
@@ -54,6 +54,7 @@ export default function Home() {
   }
   return (
     <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
+      <ScrollButton/>
       <div className="flex items-center pr-11 text-left min-w-max">
       <h1 className=" flex items-start mb-3 item-start text-4xl font-bold">Trending today &darr;</h1>
       </div>
