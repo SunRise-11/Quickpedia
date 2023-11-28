@@ -8,6 +8,7 @@ import { handleBookmarking } from "./utils/bookmarksUtils";
 import { fetchUserBookmarks } from "./utils/userBookmarksUtils";
 import { fetchTrending } from "./utils/articlesUtils";
 import { postUserInfo } from "./utils/userUtils";
+import { initVoice } from "./utils/utilities";
 
 export default function Home() {
   const [trendingArticles, setTrendingArticles] = useState<Article[]>();
@@ -42,6 +43,7 @@ export default function Home() {
 
     if (!isLoading && !userBookmarks) {
       fetchData();
+      initVoice();
     }
 
     fetchTrendingArticles();
