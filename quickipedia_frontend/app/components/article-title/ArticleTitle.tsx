@@ -12,7 +12,7 @@ type Props = {
 } & Article;
 
 export const ArticleTitle = (
-  {id, question, answer, topic, rank, toggleBookmark, bookmarks }: Props
+  {id, question, answer, topic, rank, toggleBookmark, bookmarks, source }: Props
 ) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [selected, setSelected] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export const ArticleTitle = (
           data-te-target="default-modal"
           data-te-ripple-init
           className=""
-          onClick={() => handleSelect({id, question, answer, topic, rank })}
+          onClick={() => handleSelect({id, question, answer, topic, source, rank })}
         >
           {question}
         </button>
@@ -58,7 +58,7 @@ export const ArticleTitle = (
           <button
             type="button"
             className="group text-rose-700 hover:text-white font-medium rounded-lg text-sm  pl-1 w-[100%] text-center"
-            onClick={() => handleSelect({id, question, answer, topic, rank })}
+            onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
               className="w-6 h-6 text-rose-200 transition ease-in-out delay-150 group-hover/article:text-rose-700"
@@ -105,7 +105,7 @@ export const ArticleTitle = (
           </button>
         </div>
       </article>
-      {selected && <ArticleBody {...{id, question, answer, topic, rank }} />}
+      {selected && <ArticleBody {...{id, question, answer, topic, source, rank }} />}
     </>
   );
 };
