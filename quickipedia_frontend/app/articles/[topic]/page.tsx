@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArticleTitle, Filterbutton, NavFooter } from "../../components";
+import { ArticleTitle, Filterbutton, NavFooter, ScrollButton } from "../../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { DynamicUrl, Article } from "@/app/utils/types";
 import { handleBookmarking } from "@/app/utils/bookmarksUtils";
@@ -67,6 +67,7 @@ const Page = ({ params }: DynamicUrl) => {
             return <Filterbutton key={index} topic={item.toLowerCase()} />;
           })}
       </div>
+      <ScrollButton/>
       <ol className="w-[100%] max-w-md">
         {articlesToShow &&
           articlesToShow.map((article, index) => (
