@@ -24,3 +24,19 @@ export const fetchTrending = async (): Promise<Article[]> => {
     throw error; //look into how we want to do this
   }
 };
+
+export const handleShare = async () => {
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: 'Share Quikipedia with your friends!',
+        url: window.location.href,
+      });
+    } else {
+      console.log('Web Share API not supported in this browser');
+    }
+  } catch (error) {
+    console.error('Error sharing:', error);
+  }
+};
+

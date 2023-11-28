@@ -4,6 +4,7 @@ import { BookmarkButton } from "../bookmark-button/BookmarkButton";
 import React, { useEffect, useState } from "react";
 import { ArticleBody } from "../article-body/ArticleBody";
 import { SpeechButton } from "../speech-button/SpeechButton";
+import { handleShare } from "@/app/utils/articlesUtils";
 
 type Props = {
   toggleBookmark: () => void;
@@ -84,7 +85,7 @@ export const ArticleTitle = (
           <button
             type="button"
             className="group border border-rose-300 text-rose-700 hover:text-white  hover:bg-rose-700 font-medium rounded-lg text-sm p-2.5 text-center"
-            //onClick={}
+            onClick={()=> handleShare()}
           >
             <svg
               className="w-4 h-4 text-rose-300 group-hover:text-rose-50"
