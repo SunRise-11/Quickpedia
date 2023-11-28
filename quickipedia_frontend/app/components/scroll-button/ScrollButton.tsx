@@ -5,7 +5,7 @@ export const ScrollButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const checkScroll = () => {
-    const threshold = 300; 
+    const threshold = 300;
     setIsVisible(window.scrollY > threshold);
   };
 
@@ -18,6 +18,11 @@ export const ScrollButton = () => {
   }, []);
 
   const easeInScrollToTop = () => {
+    if (navigator.userAgent.match(/mobile/i)) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     const c = document.documentElement.scrollTop || document.body.scrollTop;
     if (c > 0) {
       window.requestAnimationFrame(easeInScrollToTop);
@@ -27,10 +32,10 @@ export const ScrollButton = () => {
 
   const buttonStyle: React.CSSProperties = {
     position: "fixed",
-    bottom: isVisible ? "15%" : "-100px", 
+    bottom: isVisible ? "15%" : "-100px",
     left: "10%",
-    opacity: isVisible ? 1 : 0, 
-    transition: "opacity 0.5s ease, bottom 0.5s ease", 
+    opacity: isVisible ? 1 : 0,
+    transition: "opacity 0.5s ease, bottom 0.5s ease",
   };
 
   return (
