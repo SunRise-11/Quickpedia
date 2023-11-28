@@ -7,7 +7,7 @@ import { SpeechButton } from "../speech-button/SpeechButton";
 export const ArticleBody = (props: Article) => {
   return (
     <>
-      <div className=" bg-slate-800 border border-primaryB px-6 text-slate-100 py-3 rounded-xl  mb-3 ">
+      <div className=" bg-primary border border-slate-950 px-6 text-primaryB py-3 rounded-xl  mb-3 ">
         <div className="pb-2 flex flex-row align-baseline justify-between">
           <h1 className="font-medium">Answer:</h1>
           <SpeechButton text={props.answer}/>
@@ -23,7 +23,7 @@ export const ArticleBody = (props: Article) => {
           {props.answer}
         </p>
         <Link
-          className="hover:underline hover:text-white"
+          className="underline hover:text-secondaryB"
           target="_blank"
           href={props.source}
         >

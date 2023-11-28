@@ -51,13 +51,13 @@ export default function Home() {
     return <Loading />;
   }
   return (
-    <main className="text-slate-800 flex min-h-screen mt-20 flex-col items-center py-10">
-      <h1>TRENDING TODAY</h1>
+    <main className=" text-primaryB bg-slate-50 flex min-h-screen mt-20 flex-col items-center py-10">
+      <h1 className=" flex items-start mb-3 text-left text-4xl font-bold italic">TRENDING TODAY</h1>
       <ol className="w-[80%] max-w-md">
         {trendingArticles &&
           trendingArticles.map((article, index) => (
             <li key={index}>
-              <h1>#{article.rank} Article Today</h1>
+              <h2 className="text-xl mb-0">#{article.rank} Article Today</h2>
               <ArticleTitle
                 {...article}
                 bookmarks={userBookmarks || []}

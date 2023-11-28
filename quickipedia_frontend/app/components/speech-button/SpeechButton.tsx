@@ -13,7 +13,7 @@ export const SpeechButton = ({ text }: Props) => {
       onClick={() => speakFromText(text)}
     >
       <svg
-        className="w-6 h-6 text-slate-200 transition ease-in-out delay-150 hover/article:text-rose-700"
+        className="w-6 h-6 text-slate-400 transition ease-in-out delay-150 hover/article:text-secondary"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 22 22"
