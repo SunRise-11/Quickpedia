@@ -1,4 +1,4 @@
-package complot.dev.quickipedia_backend;
+package complot.dev.quickipedia_backend.web;
 
 import complot.dev.quickipedia_backend.article.ArticleService;
 
@@ -98,5 +98,4 @@ public class Controller {
         userService.deleteBookmarkById(userId, addArticleDto.id());
         return ResponseEntity.noContent().build();
     }
-
 }
