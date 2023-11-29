@@ -20,7 +20,8 @@ const Page = () => {
     const filteredArticles = articles?.filter(
       (article) =>
         article.question.toLowerCase().includes(searchTerm) ||
-        article.topic.toLowerCase().includes(searchTerm)
+        article.topic.toLowerCase().includes(searchTerm) ||
+        article.answer.toLowerCase().includes(searchTerm)
     );
     setSearchedArticle(searchTerm);
     setFilteredArticles(filteredArticles);

@@ -29,7 +29,7 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
-          {user ? <LogoutButton /> : <LoginButton />}
+          {!user && <LoginButton />}
           <div className="navbar-end">
             <div className="relative">
               <div
@@ -79,7 +79,8 @@ export const Navbar = () => {
                     </div>
                   </div>
                   <ul className="menu menu-sm p-2 text-center flex-grow">
-                    {user && (
+                    {user && (<>
+                      <LogoutButton/>
                       <li>
                         <Link
                           href="/profile"
@@ -89,6 +90,7 @@ export const Navbar = () => {
                           PROFILE
                         </Link>
                       </li>
+                      </>
                     )}
                     <li>
                       <Link
