@@ -6,17 +6,47 @@ export default function About() {
   return (
     <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
       <BackButton />
-      <div className="flex flex-col w-[80%] items left text-left">
-        <h1 className="mr-auto text-primaryB flex items-start mb-3  mt-12 item-start text-4xl font-bold">
-          About us
+      <div className="flex flex-col w-[80%] items text-sm left text-left">
+        <h3>About us</h3>
+        <h1 className="mr-auto text-primaryB flex items-start mb-1 mt-3 item-start text-4xl font-bold">
+          Quickipedia
         </h1>
-        <p className="mt-2 text-white">
-          Quickipedia is an ambitious project aimed at creating a real-time
-          online platform that aggregates and displays trending information
-          across diverse categories like nature, cars, culture, healthcare, and
-          cats. Our vision is to develop an intuitive, user-friendly interface
-          backed by a robust, scalable architecture that delivers
-          up-to-the-minute trending content to our users.
+        <h2 className="italic mb-4 text-lg">Hard questions, quick answers</h2>
+        <p className="mt-2 mb-4 text-md text-white">
+          In an era where attention spans are shrinking and the digital world is
+          evolving rapidly, Quickipedia emerges as a tool designed specifically
+          for the young and dynamic.
+          <br />
+          Born from the minds of two Gen Z creators, Quickipedia is more than
+          just an app - it&apos;s a gateway to quick, engaging, and informative
+          content.
+        </p>
+        <br />
+        <h4 className="text-xl font-bold mt-2 mb-2">Our Mission:</h4>
+        <p>
+          To cater to the unique needs of individuals aged 6-30, providing a
+          platform that aligns with their digital fluency and fast-paced
+          lifestyles.
+          <br />
+          We understand that for our generation, time is of the essence.
+          That&apos;s why Quickipedia is optimized for mobile use, ensuring that
+          knowledge is not just accessible but also concise and visually
+          appealing.
+        </p>
+        <br />
+        <h4 className="text-xl font-bold mt-2 mb-2">Our Inspiration:</h4>
+        <p>
+          Drawing inspiration from the viral trend of short-form videos,
+          Quickipedia offers a similar approach to information consumption. Our
+          platform is designed to capture and retain the attention of our users
+          through bite-sized, yet substantial content.
+        </p>
+        <br />
+
+        <br />
+        <p>
+          Join us on this exciting journey as we redefine what it means to learn
+          and stay informed in the digital age!
         </p>
         <br />
         <h1 className="mr-auto text-primaryB flex items-start mb-3  mt-5 item-start text-xl font-bold">
