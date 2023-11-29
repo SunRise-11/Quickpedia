@@ -54,10 +54,11 @@ export default function Home() {
   return (
     <main className=" text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton/>
-      <div className="flex items-center pr-11 text-left min-w-max">
-      <h1 className=" flex items-start mb-3 item-start text-4xl font-bold">Trending today</h1>
+      <section className="w-[80%] md:w-[90%] lg:w-[70%]">
+      <div className="flex items-center pr-11 text-left mr-auto">
+      <h1 className=" flex items-start mb-3 text-4xl font-bold">Trending today</h1>
       </div>
-      <ol className="w-[80%] max-w-md">
+      <ol className=" sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
         {trendingArticles &&
           trendingArticles.map((article, index) => (
             <li key={index}>
@@ -76,6 +77,7 @@ export default function Home() {
             </li>
           ))}
       </ol>
+      </section>
     </main>
   );
 }

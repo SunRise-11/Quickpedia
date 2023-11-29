@@ -62,7 +62,7 @@ const Page = ({ params }: DynamicUrl) => {
   }
 
   return (
-    <main className="flex mt-10 flex-col items-center justify-start py-10 px-12">
+    <main className="flex mt-10 flex-col items-center justify-start py-10 px-10">
       <ScrollButton />
       <div className=" flex flex-row flex-wrap">
         <Filterbutton topic="all" />
@@ -73,7 +73,7 @@ const Page = ({ params }: DynamicUrl) => {
             return <Filterbutton key={index} topic={item.toLowerCase()} />;
           })}
       </div>
-      <ol className="w-[100%] max-w-md">
+      <ol className="w-[100%] md:w-[98%] lg:w-[70%] sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
         {articlesToShow &&
           articlesToShow.map((article, index) => (
             <li key={index}>
