@@ -32,7 +32,7 @@ export const ArticleTitle = (
   return (
     <>
       <article className="group/article p-4 text-left flex flex-col w-[100%] text-grey-900 rounded-xl mt-3 mb-3 bg-white text-secondary text-lg drop-shadow-xl">
-        <div className="flex flex-row align-baseline justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 group-hover/article:-translate-y-0.5 group-hover/article:scale-105 duration-300 ...">
+        <div className="flex flex-row align-baseline justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 betterhover:group-hover/article:-translate-y-0.5 betterhover:group-hover/article:scale-105 duration-300 ...">
         <button
           type="button"
           data-te-toggle="modal"
@@ -52,7 +52,7 @@ export const ArticleTitle = (
             onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
-              className="w-6 h-6 text-secondary transition ease-in-out delay-150 group-hover/article:text-secondaryB"
+              className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover/article:text-secondaryB"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
