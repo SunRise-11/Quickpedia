@@ -9,7 +9,7 @@ export const ArticleBody = (props: Article) => {
     <>
       <div className=" bg-primaryB px-6 text-secondary py-3 rounded-xl  mb-3 ">
         <div className="pb-2 flex ">
-          <SpeechButton text={props.answer}/>
+          {/* <SpeechButton text={props.answer}/> */}
         </div>
         <p
           data-te-modal-init
