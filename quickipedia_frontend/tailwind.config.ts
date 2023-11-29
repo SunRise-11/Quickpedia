@@ -15,8 +15,12 @@ const config: Config = {
         secondaryB: "#F92D64",
         ternary: "#2fb596",
       },
+      screens: {
+        betterhover: { raw: "(hover: hover)" },
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

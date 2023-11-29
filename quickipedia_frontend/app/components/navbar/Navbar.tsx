@@ -24,7 +24,7 @@ export const Navbar = () => {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span className="self-center text-2xl font-semibold whitespace-nowrap hover:text-secondaryB">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap betterhover:text-secondaryB">
             <h1 className="">Quickipedia</h1>
           </span>
         </Link>

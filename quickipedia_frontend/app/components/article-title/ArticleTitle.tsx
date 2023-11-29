@@ -48,7 +48,7 @@ export const ArticleTitle = (
         <div className="flex flex-row justify-end">
           <button
             type="button"
-            className="group text-secondary hover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
+            className="group text-secondary  betterhover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
             onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
