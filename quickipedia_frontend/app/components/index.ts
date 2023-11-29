@@ -10,6 +10,7 @@ import { BookmarkButton } from "./bookmark-button/BookmarkButton";
 import { SpeechButton } from "./speech-button/SpeechButton";
 import { Loading } from "./loading/Loading";
 import { BackButton } from "./back-button/BackButton";
+import { ScrollButton } from "./scroll-button/ScrollButton";
 export {
   Navbar,
   Footer,
@@ -20,4 +21,7 @@ export {
   NavFooter,
   BookmarkButton,
   SpeechButton,
+  ScrollButton,
+  BackButton,
+  Loading
 };

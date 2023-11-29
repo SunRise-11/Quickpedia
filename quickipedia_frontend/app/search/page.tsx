@@ -1,7 +1,7 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Article } from "@/app/utils/types";
-import { ArticleTitle, NavFooter } from "../components";
+import { ArticleTitle, NavFooter, ScrollButton } from "../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { fetchArticles } from "../utils/articlesUtils";
@@ -58,6 +58,7 @@ const Page = () => {
 
   return (
     <main className="flex bg-primary min-h-screen mt-10 flex-col items-center justify-start py-24">
+      <ScrollButton/>
       <div className="search-section">
         <div className="search">
           <input
