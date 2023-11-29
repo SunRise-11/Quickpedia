@@ -19,7 +19,6 @@ export default function Home() {
     const fetchData = async () => {
       if (!user?.email) {
         localStorage.clear();
-        //console.error("User email is undefined");
         return;
       }
       try {
@@ -56,13 +55,12 @@ export default function Home() {
     <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton/>
       <div className="flex items-center pr-11 text-left min-w-max">
-      <h1 className=" flex items-start mb-3 item-start text-4xl font-bold">Trending today &darr;</h1>
+      <h1 className=" flex items-start mb-3 item-start text-4xl font-bold">Trending today</h1>
       </div>
       <ol className="w-[80%] max-w-md">
         {trendingArticles &&
           trendingArticles.map((article, index) => (
             <li key={index}>
-              {/* <h2 className="text-xl mb-0">#{article.rank} Article</h2> */}
               <ArticleTitle
                 {...article}
                 bookmarks={userBookmarks || []}
