@@ -4,8 +4,6 @@ import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.UUID;
-
 @Entity
 public class Article {
     @Id

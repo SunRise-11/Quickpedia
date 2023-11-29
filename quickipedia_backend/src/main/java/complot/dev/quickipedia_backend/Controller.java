@@ -28,7 +28,6 @@ public class Controller {
         this.userService = userService;
     }
 
-    // here
     @GetMapping("/public")
     public ResponseEntity<String> helloWorld() {
         return ResponseEntity.ok().body("Hello World");
@@ -40,7 +39,6 @@ public class Controller {
 
         return ResponseEntity.ok().body("Hello " + name);
     }*/
-    //to here
 
     @GetMapping("/status")
     public String helloTest() {

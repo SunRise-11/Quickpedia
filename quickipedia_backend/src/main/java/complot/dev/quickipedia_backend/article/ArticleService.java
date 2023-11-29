@@ -22,12 +22,4 @@ public class ArticleService {
                 Article::convertToDto
         ).toList();
     }
-
-    public List<Article> getArticlesByTopic(String topic) {
-        return null;
-    }
-
-    public Article addArticle(AddArticleDto articleDto){
-        return null;
-    }
 }

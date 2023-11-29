@@ -22,9 +22,7 @@ public class BookmarkedArticle {
         this.quickipediaUser = quickipediaUser;
     }
 
-    public BookmarkedArticle() {
-
-    }
+    public BookmarkedArticle() {}
 
     public String getId() {
         return id;

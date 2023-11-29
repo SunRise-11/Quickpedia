@@ -1,7 +1,6 @@
 package complot.dev.quickipedia_backend.user;
 
 import complot.dev.quickipedia_backend.article.JpaArticleRepository;
-import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.AddUserDto;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
@@ -10,7 +9,6 @@ import complot.dev.quickipedia_backend.user.models.QuickipediaUser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Service

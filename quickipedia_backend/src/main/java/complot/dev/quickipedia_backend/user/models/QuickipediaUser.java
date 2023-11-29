@@ -1,12 +1,10 @@
 package complot.dev.quickipedia_backend.user.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
 import complot.dev.quickipedia_backend.article.models.Article;
 import complot.dev.quickipedia_backend.user.dtos.UserResponseDto;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
