@@ -54,7 +54,7 @@ export const Navbar = () => {
                 </svg>
               </div>
               {isSideMenuOpen && (
-                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col ">
+                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
                   <div className="p-4">
                     <div
                       tabIndex={0}
@@ -78,29 +78,30 @@ export const Navbar = () => {
                       </svg>
                     </div>
                   </div>
-                  <ul className="menu menu-sm p-2 text-center flex-grow">
-                    {user && (<>
-                      <LogoutButton/>
-                      <li>
-                        <Link
-                          href="/profile"
-                          className="hover:underline italic"
-                          onClick={closeSideMenu}
-                        >
-                          PROFILE
-                        </Link>
-                      </li>
+                  <ul className="menu menu-sm p-2 text-center flex flex-col justify-between h-[25%] mt-14">
+                    {user && (
+                      <>
+                        <li>
+                          <Link
+                            href="/profile"
+                            className="hover:underline"
+                            onClick={closeSideMenu}
+                          >
+                            PROFILE
+                          </Link>
+                        </li>
                       </>
                     )}
                     <li>
                       <Link
                         href="/about"
-                        className="hover:underline italic"
+                        className="hover:underline"
                         onClick={closeSideMenu}
                       >
                         ABOUT US
                       </Link>
                     </li>
+                    <LogoutButton />
                   </ul>
                 </div>
               )}

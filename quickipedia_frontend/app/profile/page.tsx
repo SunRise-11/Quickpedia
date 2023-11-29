@@ -36,17 +36,17 @@ const Page = () => {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <main className="flex bg-primary min-h-screen mt-10 flex-col items-center justify-start py-10">
+    <main className="flex bg-primary min-h-screen flex-col items-center justify-start py-10">
       <ScrollButton/>
       {user && (
         <>
+          <div className=" w-[80%] flex flex-col justify-center text-primaryB mt-8 text-center rounded-3xl py-6">
           <BackButton />
-          <div className="text-secondary mt-44 text-center rounded-3xl py-6  bg-primaryB">
-            <h3 className=" text-3xl sm:text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+            <h3 className=" text-3xl sm:text-4xl font-semibold leading-normal mt-10 mb-2 text-blueGray-700">
               {user.name}
             </h3>
-            <div className="text-center px-4 rounded text-sm leading-normal mt-0 text-blueGray-400 font-bold uppercase">
-              <i className="fas fa-map-marker-alt mr-2 text-lg"></i>
+            <div className="text-center rounded text-sm leading-normal mt-0 text-blueGray-400 font-bold uppercase">
+              <i className="fas fa-map-marker-alt mr-2 text-sm"></i>
               {user.email}
             </div>
           </div>

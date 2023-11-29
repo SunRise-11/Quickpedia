@@ -7,9 +7,8 @@ export default function About() {
     <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
       <BackButton />
       <div className="flex flex-col w-[80%] items text-sm left text-left">
-        <h3>About us</h3>
-        <h1 className="mr-auto text-primaryB flex items-start mb-1 mt-3 item-start text-4xl font-bold">
-          Quickipedia
+        <h1 className="mr-auto text-primaryB flex items-start mb-3  mt-12 item-start text-4xl font-bold">
+          About us
         </h1>
         <h2 className="italic mb-4 text-lg">Hard questions, quick answers</h2>
         <p className="mt-2 mb-4 text-md text-white">
