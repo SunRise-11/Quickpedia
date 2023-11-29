@@ -8,7 +8,7 @@ export const BackButton = () => {
     router.back()
   }
   return (
-    <div className=" top-10">
+    <div className=" top-10 mr-auto">
     <button
       type="button"
       className={
