@@ -17,7 +17,7 @@ const config: Config = {
         ternary: "#2fb596",
       },
       screens: {
-        betterhover: { raw: "(hover: hover)" },
+        betterhover: { raw: "(hover: hover) and (min-width: 1024px)" }
       },
     },
   },
