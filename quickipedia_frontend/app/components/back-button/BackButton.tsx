@@ -35,7 +35,6 @@ export const BackButton = () => {
           />
         </g>
       </svg>
-      home
     </button>
     </div>
   );
