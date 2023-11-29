@@ -11,7 +11,7 @@ export default function About() {
           Quickipedia
         </h1>
         <h2 className="italic mb-4 text-lg">Hard questions, quick answers</h2>
-        <p className="mt-2 mb-4 text-md text-white">
+        <p className="mt-2 mb-4 text-base text-white">
           In an era where attention spans are shrinking and the digital world is
           evolving rapidly, Quickipedia emerges as a tool designed specifically
           for the young and dynamic.
@@ -21,8 +21,8 @@ export default function About() {
           content.
         </p>
         <br />
-        <h4 className="text-xl font-bold mt-2 mb-2">Our Mission:</h4>
-        <p>
+        <h4 className="text-xl font-bold mt-3 mb-3">Our Mission:</h4>
+        <p className=" text-base">
           To cater to the unique needs of individuals aged 6-30, providing a
           platform that aligns with their digital fluency and fast-paced
           lifestyles.
@@ -33,8 +33,8 @@ export default function About() {
           appealing.
         </p>
         <br />
-        <h4 className="text-xl font-bold mt-2 mb-2">Our Inspiration:</h4>
-        <p>
+        <h4 className="text-xl font-bold mt-3 mb-3">Our Inspiration:</h4>
+        <p className="text-base">
           Drawing inspiration from the viral trend of short-form videos,
           Quickipedia offers a similar approach to information consumption. Our
           platform is designed to capture and retain the attention of our users
@@ -43,7 +43,7 @@ export default function About() {
         <br />
 
         <br />
-        <p>
+        <p className="text-base">
           Join us on this exciting journey as we redefine what it means to learn
           and stay informed in the digital age!
         </p>
@@ -51,7 +51,7 @@ export default function About() {
         <h1 className="mr-auto text-primaryB flex items-start mb-3  mt-5 item-start text-xl font-bold">
           Discover the Complot Team!
         </h1>
-        <p className="flex justify-between border-b border-primaryB/25 pb-3 pt-3">
+        <p className="flex justify-between border-b border-primaryB/25 pb-3 pt-3 text-base">
           <Link
             href="https://www.linkedin.com/in/colinnordmark/"
             className="hover:underline"
@@ -65,7 +65,7 @@ export default function About() {
             GitHub
           </Link>
         </p>
-        <p className="flex justify-between pt-3">
+        <p className="flex justify-between pt-3 text-base">
           <Link
             href="https://www.linkedin.com/in/marisa-pinheiro-833a12113/"
             className="hover:underline"
