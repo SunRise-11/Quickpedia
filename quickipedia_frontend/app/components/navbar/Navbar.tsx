@@ -54,7 +54,7 @@ export const Navbar = () => {
                 </svg>
               </div>
               {isSideMenuOpen && (
-                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
+                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col ">
                   <div className="p-4">
                     <div
                       tabIndex={0}
