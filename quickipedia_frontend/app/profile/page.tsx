@@ -36,7 +36,7 @@ const Page = () => {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <main className="flex bg-primary min-h-screen flex-col items-center justify-start py-10">
+    <main className="flex min-h-screen flex-col items-center justify-start py-10">
       <ScrollButton/>
       {user && (
         <>

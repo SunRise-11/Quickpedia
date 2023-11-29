@@ -62,7 +62,7 @@ const Page = ({ params }: DynamicUrl) => {
   }
 
   return (
-    <main className="flex mt-10 flex-col items-center justify-start py-10 px-12 bg-primary">
+    <main className="flex mt-10 flex-col items-center justify-start py-10 px-12">
       <ScrollButton />
       <div className=" flex flex-row flex-wrap">
         <Filterbutton topic="all" />

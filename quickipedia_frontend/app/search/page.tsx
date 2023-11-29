@@ -58,7 +58,7 @@ const Page = () => {
   }, [user?.email, userBookmarks, isLoading]);
 
   return (
-    <main className="flex bg-primary min-h-screen mt-10 flex-col items-center justify-start py-24">
+    <main className="flex min-h-screen mt-10 flex-col items-center justify-start py-24">
       <ScrollButton/>
       <div className="search-section">
         <div className="search">

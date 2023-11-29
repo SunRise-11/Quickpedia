@@ -30,11 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-primary">
+    <html lang="en" className="">
       <UserProvider>
-        <body className={`${ubuntu.className} bg-primary flex flex-col min-h-[125vh]`}>
+        <body className={`${ubuntu.className} flex flex-col min-h-[125vh]`}>
           <Navbar />
-          <main className="flex-grow bg-primary">
+          <main className="flex-grow">
             {children}
           </main>
           <NavFooter/>

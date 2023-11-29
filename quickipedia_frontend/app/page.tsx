@@ -52,7 +52,7 @@ export default function Home() {
     return <Loading />;
   }
   return (
-    <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
+    <main className=" text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton/>
       <div className="flex items-center pr-11 text-left min-w-max">
       <h1 className=" flex items-start mb-3 item-start text-4xl font-bold">Trending today</h1>
