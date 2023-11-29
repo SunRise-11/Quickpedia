@@ -9,6 +9,7 @@ import complot.dev.quickipedia_backend.user.models.QuickipediaUser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 
 @Service
@@ -23,7 +24,8 @@ public class UserService {
     }
 
     public QuickipediaUser findUserByEmail(String email) {
-        return userRepo.findById(email).orElseThrow();
+        return userRepo.findById(email)
+                .orElseThrow(()-> new NoSuchElementException("User not found."));
     }
 
     public QuickipediaUser addUser(AddUserDto userToAdd) {
@@ -42,7 +44,8 @@ public class UserService {
         if (user.isAlreadyAdded(articleId)) {
             throw new IllegalArgumentException("You can't add '" + articleId + "' twice");
         } else {
-            Article articleToAdd = articleRepo.findById(articleId).orElseThrow();
+            Article articleToAdd = articleRepo.findById(articleId)
+                    .orElseThrow(()-> new NoSuchElementException("Article not found."));
             user.addBookmark(articleToAdd);
             return userRepo.save(user);
         }
@@ -62,7 +65,9 @@ public class UserService {
     }
 
     public UserResponseDto getBookmarksByEmail(String email) {
-        return userRepo.findById(email).orElseThrow().convertToUserDto();
+        return userRepo.findById(email)
+                .orElseThrow(()-> new NoSuchElementException("User not found."))
+                .convertToUserDto();
     }
 
 }
