@@ -51,9 +51,9 @@ const Page = () => {
             </div>
           </div>
           <div className="border-t text-secondary text-center rounded-3xl bg-primaryB">
-            <div className="flex flex-wrap justify-center min-h-full px-4 py-2 w-96 rounded">
-              <h4>All your booksmarks here!</h4>
-              <ol className="w-[100%] max-w-md">
+            <div className="flex flex-col justify-center min-h-full px-4 py-2 rounded">
+              <h4 className="py-4 text-lg font-medium">All your booksmarks here!</h4>
+              <ol className=" sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
                 {userBookmarks &&
                   userBookmarks.map((article, index) => (
                     <li key={index}>
