@@ -4,7 +4,7 @@ import { BackButton } from "../components/back-button/BackButton";
 
 export default function About() {
   return (
-    <main className=" text-primaryB bg-primary flex min-h-screen mt-10 flex-col items-center py-10">
+    <main className=" text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <BackButton />
       <div className="flex flex-col w-[80%] items text-sm left text-left">
         <h1 className="mr-auto text-primaryB flex items-start mb-3  mt-12 item-start text-4xl font-bold">
