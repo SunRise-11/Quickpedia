@@ -20,10 +20,13 @@ const assignVoice = () => {
   const regexFallback = /en-US/;
   let voices = EasySpeech.voices();
   voice = voices.filter((item) => regex.test(item.name))[0];
-  if (!voice) {
+  
+  //Safari fallback
+  if (!voice)
+  {
     voices = voices.filter((item) => regexFallback.test(item.lang));
     console.log(voices.map((item) => console.log(item.name)));
-    voice = voices[27];
+    voice = voices.filter((item) => item.name == "Samantha")[0];
   }
   console.log("Speech initialized with voice: " + voice.name);
 };
