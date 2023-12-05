@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <main className=" text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton/>
-      <section className="w-[80%] md:w-[90%] lg:w-[70%]">
+      <section className="w-[85%] md:w-[90%] lg:w-[70%]">
       <div className="flex items-center pr-11 text-left mr-auto">
       <h1 className=" flex items-start mb-3 text-4xl font-bold">Trending today</h1>
       </div>

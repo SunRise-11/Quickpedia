@@ -72,7 +72,7 @@ const Page = () => {
         </div>
       </div>
       {filteredArticles && searchedArticle ? (
-        <div className="w-[80%] max-w-md">
+        <div className="w-[85%] max-w-md">
           {filteredArticles?.length > 0 ? (
             filteredArticles.map((article) => (
               <ArticleTitle
