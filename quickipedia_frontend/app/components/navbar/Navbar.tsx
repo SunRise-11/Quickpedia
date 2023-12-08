@@ -29,7 +29,7 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
-          {!user && <LoginButton />}
+          {!user}
           <div className="navbar-end">
             <div className="relative">
               <div
@@ -101,7 +101,7 @@ export const Navbar = () => {
                         ABOUT US
                       </Link>
                     </li>
-                    {user && <LogoutButton />}
+     
                   </ul>
                 </div>
               )}
