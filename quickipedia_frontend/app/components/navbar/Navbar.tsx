@@ -31,9 +31,8 @@ export const Navbar = () => {
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
           {!user}
           <div className="navbar-end">
-            <div
+            <button
               tabIndex={0}
-              role="button"
               className="btn btn-ghost btn-circle"
               onClick={toggleSideMenu}
             >
@@ -51,7 +50,7 @@ export const Navbar = () => {
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
-            </div>
+            </button>
             {isSideMenuOpen && (
               <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
                 <div className="p-4">
