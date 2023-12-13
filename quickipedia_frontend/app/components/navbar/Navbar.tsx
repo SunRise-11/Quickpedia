@@ -31,81 +31,78 @@ export const Navbar = () => {
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
           {!user}
           <div className="navbar-end">
-            <div className="relative">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle"
-                onClick={toggleSideMenu}
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle"
+              onClick={toggleSideMenu}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </div>
-              {isSideMenuOpen && (
-                <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
-                  <div className="p-4">
-                    <div
-                      tabIndex={0}
-                      role="button"
-                      className="btn btn-ghost btn-circle self-start"
-                      onClick={toggleSideMenu}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <ul className="menu menu-sm p-2 text-center flex flex-col justify-between h-[25%] mt-14">
-                    {user && (
-                      <>
-                        <li>
-                          <Link
-                            href="/profile"
-                            className="hover:underline"
-                            onClick={closeSideMenu}
-                          >
-                            PROFILE
-                          </Link>
-                        </li>
-                      </>
-                    )}
-                    <li>
-                      <Link
-                        href="/about"
-                        className="hover:underline"
-                        onClick={closeSideMenu}
-                      >
-                        ABOUT US
-                      </Link>
-                    </li>
-     
-                  </ul>
-                </div>
-              )}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
             </div>
+            {isSideMenuOpen && (
+              <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
+                <div className="p-4">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle self-start"
+                    onClick={toggleSideMenu}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ul className="menu menu-sm p-2 text-center flex flex-col justify-between h-[25%] mt-14">
+                  {user && (
+                    <>
+                      <li>
+                        <Link
+                          href="/profile"
+                          className="hover:underline"
+                          onClick={closeSideMenu}
+                        >
+                          PROFILE
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                  <li>
+                    <Link
+                      href="/about"
+                      className="hover:underline"
+                      onClick={closeSideMenu}
+                    >
+                      ABOUT US
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

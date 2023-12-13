@@ -20,10 +20,9 @@ const assignVoice = () => {
   const regexFallback = /en-US/;
   let voices = EasySpeech.voices();
   voice = voices.filter((item) => regex.test(item.name))[0];
-  
+
   //Safari fallback
-  if (!voice)
-  {
+  if (!voice) {
     voices = voices.filter((item) => regexFallback.test(item.lang));
     console.log(voices.map((item) => console.log(item.name)));
     voice = voices.filter((item) => item.name == "Samantha")[0];
@@ -32,7 +31,6 @@ const assignVoice = () => {
 };
 
 export const speakFromText = async (text: string) => {
-
   await EasySpeech.speak({
     text: text,
     voice: voice,
