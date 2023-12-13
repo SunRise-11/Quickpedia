@@ -18,8 +18,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full text-primaryB  px-4 z-10 bg-gradient-to-b from-primaryC to-transparent">
-      <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+    <nav className="flex flex-wrap items-center justify-between fixed top-0 w-full text-primaryB  px-7 py-5 z-10 bg-gradient-to-b from-primaryC to-transparent">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -102,7 +101,6 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-      </div>
     </nav>
   );
 };
