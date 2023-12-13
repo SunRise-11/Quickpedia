@@ -51,40 +51,38 @@ export const Navbar = () => {
         </button>
         {isSideMenuOpen && (
           <div className="fixed top-0 left-0 h-full w-full text-primary text-2xl bg-primaryB border-l border-gray-200 shadow z-50 flex flex-col">
-              <button
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle self-start m-5"
-                onClick={toggleSideMenu}
+            <button
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle self-start m-5"
+              onClick={toggleSideMenu}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
             <ul className="menu menu-sm p-2 text-center flex flex-col justify-between h-[25%] mt-14">
               {user && (
-                <>
-                  <li>
-                    <Link
-                      href="/profile"
-                      className="hover:underline"
-                      onClick={closeSideMenu}
-                    >
-                      PROFILE
-                    </Link>
-                  </li>
-                </>
+                <li>
+                  <Link
+                    href="/profile"
+                    className="hover:underline"
+                    onClick={closeSideMenu}
+                  >
+                    PROFILE
+                  </Link>
+                </li>
               )}
               <li>
                 <Link
