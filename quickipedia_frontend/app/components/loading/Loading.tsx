@@ -3,16 +3,21 @@ import ArticleSkeleton from "../article-title/ArticleSkeleton";
 
 export const Loading = () => {
   return (
-    <main className="text-primaryB flex min-h-screen mt-20 flex-col items-center justify-between py-10">
-      <h1>Loading</h1>
-      <ol className="w-[85%] max-w-md">
-        <h1>Loading</h1>
-        <ArticleSkeleton />
-        <h1>Loading</h1>
-        <ArticleSkeleton />
-        <h1>Loading</h1>
-        <ArticleSkeleton />
-      </ol>
+    <main className="flex mt-10 flex-col items-center justify-start py-10 px-8">
+      <section className="w-[100%] md:w-[90%] lg:w-[73%]">
+        <div className="flex items-center pr-11 text-left mr-auto">
+          <h1 className="text-primaryB flex items-start mb-3 text-4xl font-bold">
+            Loading...
+          </h1>
+        </div>{" "}
+        <ol className="sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
+          <ArticleSkeleton />
+          <ArticleSkeleton />
+          <ArticleSkeleton />
+          <ArticleSkeleton />
+          <ArticleSkeleton />
+        </ol>
+      </section>
     </main>
-  )
-}
+  );
+};
