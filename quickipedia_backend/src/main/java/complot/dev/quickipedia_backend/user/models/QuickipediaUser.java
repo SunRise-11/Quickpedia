@@ -19,6 +19,9 @@ public class QuickipediaUser {
     @OneToMany(mappedBy = "quickipediaUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<BookmarkedArticle> bookmarks;
 
+    @OneToMany(mappedBy = "quickipediaUser", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<ArticleRating> articleRatings;
+
     public QuickipediaUser() {
     }
 
