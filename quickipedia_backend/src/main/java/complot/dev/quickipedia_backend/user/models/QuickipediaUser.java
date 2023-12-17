@@ -69,6 +69,16 @@ public class QuickipediaUser {
         );
     }
 
+    public void addRating(Article articleToRate, boolean rating) {
+        this.articleRatings.add(
+                new ArticleRating(
+                        articleToRate,
+                        this,
+                        rating
+                )
+        );
+    }
+
     public UserResponseDto convertToUserDto() {
         return new UserResponseDto(
                 this.getEmail(),
