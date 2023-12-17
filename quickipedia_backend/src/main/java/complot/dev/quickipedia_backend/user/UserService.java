@@ -51,6 +51,19 @@ public class UserService {
         }
     }
 
+    public QuickipediaUser rateArticleById(String userId, String articleId, boolean rating) {
+        QuickipediaUser user = findUserByEmail(userId);
+
+        if (user.hasAlreadyRated(articleId)) {
+            throw new IllegalArgumentException("You can't rate '" + articleId + "' twice");
+        } else {
+            Article articleToRate = articleRepo.findById(articleId)
+                    .orElseThrow(()-> new NoSuchElementException("Article not found."));
+            user.addRating(articleToRate, rating);
+            return userRepo.save(user);
+        }
+    }
+
     public void deleteBookmarkById(String userId, String articleId) {
         QuickipediaUser user = findUserByEmail(userId);
         userRepo.delete(user);

@@ -60,6 +60,16 @@ public class QuickipediaUser {
 
     }
 
+
+    public boolean hasAlreadyRated(String id) {
+        return articleRatings.stream()
+                .map(rating -> rating.article.getId().equals(id))
+                .filter(bookmark -> bookmark == true)
+                .findFirst()
+                .orElse(false);
+
+    }
+
     public void addBookmark(Article articleToBookmark) {
         this.bookmarks.add(
                 new BookmarkedArticle(
