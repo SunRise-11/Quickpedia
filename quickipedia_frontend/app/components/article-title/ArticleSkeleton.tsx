@@ -9,7 +9,7 @@ export const ArticleSkeleton = () => {
       before:-translate-x-full
       before:animate-[shimmer_2s_infinite]
       before:bg-gradient-to-r
-      before:from-transparent before:via-primary/25 before:to-transparent
+      before:from-transparent before:via-primary/20 before:to-transparent
       isolate
       overflow-hidden
       shadow-xl 
