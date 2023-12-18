@@ -17,7 +17,14 @@ const config: Config = {
         ternary: "#2fb596",
       },
       screens: {
-        betterhover: { raw: "(hover: hover) and (min-width: 1024px)" }
+        betterhover: { raw: "(hover: hover) and (min-width: 1024px)" },
+      },
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
       },
     },
   },
