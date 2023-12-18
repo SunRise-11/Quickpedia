@@ -1,8 +1,11 @@
 package complot.dev.quickipedia_backend.article.models;
 
 import complot.dev.quickipedia_backend.article.dtos.ArticleResponseDto;
+import complot.dev.quickipedia_backend.user.models.ArticleRating;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity
 public class Article {
@@ -20,6 +23,9 @@ public class Article {
     private String source;
     @Column(unique = true)
     private int rank;
+    @OneToMany(mappedBy = "article", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<ArticleRating> articleRatings;
+
 
     public Article() {
     }

@@ -98,4 +98,20 @@ public class Controller {
         userService.deleteBookmarkById(userId, addArticleDto.id());
         return ResponseEntity.noContent().build();
     }
+
+
+    @PostMapping("/users/{userId}/rate/{rating}")
+    public ResponseEntity<UserResponseDto> rateArticle(
+            @PathVariable String userId,
+            @PathVariable String rating,
+            @RequestBody AddArticleDto addArticleDto
+    ) {
+        return ResponseEntity.ok(
+                userService.rateArticleById(
+                        userId,
+                        addArticleDto.id(),
+                        rating.equals("positive")
+                ).convertToUserDto()
+        );
+    }
 }
