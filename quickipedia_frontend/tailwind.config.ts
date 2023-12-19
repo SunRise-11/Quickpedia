@@ -31,7 +31,7 @@ const config: Config = {
         },
       },
       animation: {
-        expand: "expand 0.5s ease-out forwards",
+        expand: "expand 0.2s ease-out forwards",
       },
     },
   },
