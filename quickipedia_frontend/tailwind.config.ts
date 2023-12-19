@@ -25,6 +25,13 @@ const config: Config = {
             transform: "translateX(100%)",
           },
         },
+        expand: {
+          "0%": { opacity: "0", transform: "scale(0.7)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+      },
+      animation: {
+        expand: "expand 0.5s ease-out forwards",
       },
     },
   },
