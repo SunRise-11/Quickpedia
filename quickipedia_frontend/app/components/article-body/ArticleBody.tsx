@@ -7,7 +7,7 @@ import { SpeechButton } from "../speech-button/SpeechButton";
 export const ArticleBody = (props: Article) => {
   return (
     <>
-      <div className="border border-gray-200 bg-primaryB px-6 text-left text-secondary py-3 rounded-xl  mb-3 animate-expand overflow-hidden">
+      <div className="border border-gray-200 bg-primaryB px-6 text-left text-secondary py-3 rounded-xl  mb-3 animate-expand lg:animate-expand_high overflow-hidden">
         <div className="pb-2 flex ">
           {<SpeechButton text={props.answer}/>}
         </div>

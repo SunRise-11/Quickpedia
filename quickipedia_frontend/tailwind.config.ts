@@ -25,13 +25,18 @@ const config: Config = {
             transform: "translateX(100%)",
           },
         },
-        expand: {
+        expand_high: {
           "0%": { opacity: "0", maxHeight: "0px" },
           "100%": { opacity: "1", maxHeight: "400px" },
         },
+        expand: {
+          '0%': { opacity: '0', transform: 'scale(0)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
       },
       animation: {
-        expand: "expand 0.4s ease-out forwards",
+        expand: "expand 0.3s ease-out forwards",
+        expand_high: "expand_high 0.4s ease-out forwards",
       },
     },
   },
