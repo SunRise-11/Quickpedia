@@ -26,12 +26,12 @@ const config: Config = {
           },
         },
         expand: {
-          "0%": { opacity: "0", transform: "scale(0.7)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
+          "0%": { opacity: "0", maxHeight: "0px" },
+          "100%": { opacity: "1", maxHeight: "400px" },
         },
       },
       animation: {
-        expand: "expand 0.2s ease-out forwards",
+        expand: "expand 0.4s ease-out forwards",
       },
     },
   },
