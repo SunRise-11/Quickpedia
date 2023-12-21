@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 type Props ={
-    topic:string
+  topic: string;
 }
 
 export const Filterbutton = ({topic}: Props) => {
