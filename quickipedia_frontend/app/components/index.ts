@@ -11,7 +11,7 @@ import { SpeechButton } from "./speech-button/SpeechButton";
 import { Loading } from "./loading/Loading";
 import { BackButton } from "./back-button/BackButton";
 import { ScrollButton } from "./scroll-button/ScrollButton";
-import { TopicButton } from "./topic-button/TopicButton";
+import { TopicArticle } from "./topic-button/TopicArticle";
 export {
   Navbar,
   Footer,
@@ -25,5 +25,5 @@ export {
   ScrollButton,
   BackButton,
   Loading,
-  TopicButton
+  TopicArticle
 };

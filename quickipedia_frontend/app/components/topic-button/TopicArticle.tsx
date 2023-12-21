@@ -5,7 +5,7 @@ type Props = {
   topicTwo: string;
 };
 
-export const TopicButton = ({ topicOne, topicTwo }: Props) => {
+export const TopicArticle = ({ topicOne, topicTwo }: Props) => {
   let urlOne: string = "/articles/" + topicOne.toLowerCase();
   let urlTwo: string = "/articles/" + topicTwo.toLowerCase();
   

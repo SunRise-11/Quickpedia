@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ArticleTitle, NavFooter, ScrollButton, TopicButton } from "./components";
+import { ArticleTitle, NavFooter, ScrollButton, TopicArticle } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { Article } from "@/app/utils/types";
 import { Loading } from "./components/loading/Loading";
@@ -76,7 +76,7 @@ export default function Home() {
               />
             </li>
           ))}
-          <TopicButton topicOne={"Animals"} topicTwo={"Technology"} />
+          <TopicArticle topicOne={"Animals"} topicTwo={"Technology"} />
       </ol>
       </section>
     </main>
