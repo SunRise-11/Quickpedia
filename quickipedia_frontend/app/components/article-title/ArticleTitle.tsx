@@ -48,11 +48,11 @@ export const ArticleTitle = (
         <div className="flex flex-row justify-end">
           <button
             type="button"
-            className="group text-secondary  betterhover:hover:text-secondaryB font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
+            className="group text-secondary  betterhover:hover:text-secondaryB-500 font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
             onClick={() => handleSelect({id, question, answer, topic, source, rank })}
           >
             <svg
-              className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover/article:text-secondaryB"
+              className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover/article:text-secondaryB-500"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -81,10 +81,10 @@ export const ArticleTitle = (
         >
           <button
             type="button"
-            className="group border border-secondaryB text-secondaryB betterhover:hover:text-white  betterhover:hover:bg-secondaryB font-medium rounded-lg text-sm p-2.5 text-center"
+            className="group border border-secondaryB-500 text-secondaryB-500 betterhover:hover:text-white  betterhover:hover:bg-secondaryB-500 font-medium rounded-lg text-sm p-2.5 text-center"
           >
             <svg
-              className="w-4 h-4 text-secondaryB betterhover:group-hover:text-primaryB"
+              className="w-4 h-4 text-secondaryB-500 betterhover:group-hover:text-primaryB"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
