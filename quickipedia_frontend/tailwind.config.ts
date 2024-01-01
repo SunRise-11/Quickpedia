@@ -63,6 +63,11 @@ const config: Config = {
       animation: {
         expand: "expand 0.3s ease-out forwards",
         expand_high: "expand_high 0.4s ease-out forwards",
+        shimmer_2s_delay_1: 'shimmer 2s infinite linear 1s',
+        shimmer_2s_delay_2: 'shimmer 2s infinite linear 2s',
+        shimmer_2s_delay_3: 'shimmer 2s infinite linear 3s',
+        shimmer_2s_delay_4: 'shimmer 2s infinite linear 4s',
+        shimmer_2s_delay_5: 'shimmer 2s infinite linear 5s',
       },
     },
   },

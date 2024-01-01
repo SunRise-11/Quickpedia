@@ -11,11 +11,11 @@ export const Loading = () => {
           </h1>
         </div>{" "}
         <ol className="sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
-          <ArticleSkeleton />
-          <ArticleSkeleton />
-          <ArticleSkeleton />
-          <ArticleSkeleton />
-          <ArticleSkeleton />
+          <ArticleSkeleton delay={1}/>
+          <ArticleSkeleton delay={2}/>
+          <ArticleSkeleton delay={3}/>
+          <ArticleSkeleton delay={4}/>
+          <ArticleSkeleton delay={5}/>
         </ol>
       </section>
     </main>
