@@ -5,7 +5,6 @@ type Props = {
 };
 
 export const ArticleSkeleton = ({ delay }: Props) => {
-  const shimmerClass = `before:animate-shimmer_2s_delay_${delay}`;
 
   return (
     <article
@@ -14,9 +13,9 @@ export const ArticleSkeleton = ({ delay }: Props) => {
       relative 
       before:absolute before:inset-0
       before:-translate-x-full
-      before:animate-shimmer_2s_delay_${delay}
+      before:animate-shimmer-delay-1
       before:bg-gradient-to-r
-      before:from-transparent before:via-primary/20 before:to-transparent
+      before:from-transparent before:via-primary/10 before:to-transparent
       isolate
       overflow-hidden
       shadow-xl 
@@ -25,7 +24,7 @@ export const ArticleSkeleton = ({ delay }: Props) => {
     before:border-rose-100/10`}
     >
       <div
-        //style={{ animationDelay: `${delay*0.2}s` }}
+        style={{ animationDelay: `${delay*0.2}s` }}
         className=" animate-pulse flex flex-col space-y-4"
       >
         <div className="flex justify-between">
