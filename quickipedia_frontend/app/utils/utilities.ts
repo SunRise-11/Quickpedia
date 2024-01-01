@@ -45,3 +45,7 @@ export const speakFromText = async (text: string) => {
 export function uniqueFilter(value: string, index: number, self: string[]) {
   return self.indexOf(value) === index;
 }
+
+export function capitaliseFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
