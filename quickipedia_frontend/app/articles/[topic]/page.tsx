@@ -10,7 +10,7 @@ import {
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { DynamicUrl, Article } from "@/app/utils/types";
 import { handleBookmarking } from "@/app/utils/bookmarksUtils";
-import { uniqueFilter } from "@/app/utils/utilities";
+import { capitaliseFirstLetter, uniqueFilter } from "@/app/utils/utilities";
 import { fetchUserBookmarks } from "@/app/utils/userBookmarksUtils";
 import { fetchArticles } from "@/app/utils/articlesUtils";
 import { Loading } from "@/app/components/loading/Loading";
@@ -62,8 +62,9 @@ const Page = ({ params }: DynamicUrl) => {
   }
 
   return (
-    <main className="flex mt-10 flex-col items-center justify-start py-10 px-8">
+    <main className="text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton />
+      <section className="w-[85%] md:w-[90%] lg:w-[70%]">
       <div className=" flex flex-row justify-center flex-wrap">
         <Filterbutton topic="all" />
         {allArticles
@@ -73,8 +74,11 @@ const Page = ({ params }: DynamicUrl) => {
             return <Filterbutton key={index} topic={item.toLowerCase()} />;
           })}
       </div>
-      <h1 className=" flex items-start mb-3 text-4xl font-bold text-primaryB">{params.topic}</h1>
-      <ol className="w-[100%] md:w-[98%] lg:w-[70%] sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
+      <div className="flex items-center pr-11 text-left mr-auto">
+        <h1 className=" flex items-start mb-3 text-4xl font-bold text-primaryB">{capitaliseFirstLetter(params.topic)}</h1>
+
+      </div>
+      <ol className="sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
         {articlesToShow &&
           articlesToShow.map((article, index) => (
             <li key={index}>
@@ -94,6 +98,8 @@ const Page = ({ params }: DynamicUrl) => {
             </li>
           ))}
       </ol>
+      </section>
+      
       <NavFooter />
     </main>
   );
