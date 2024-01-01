@@ -66,12 +66,12 @@ const Page = ({ params }: DynamicUrl) => {
       <ScrollButton />
       <section className="w-[85%] md:w-[90%] lg:w-[70%]">
       <div className=" flex flex-row justify-center flex-wrap">
-        <Filterbutton topic="all" />
+        <Filterbutton topic="all" selected={params.topic == "all"} />
         {allArticles
           ?.map((article) => article.topic)
           .filter(uniqueFilter)
           .map((item, index) => {
-            return <Filterbutton key={index} topic={item.toLowerCase()} />;
+            return <Filterbutton key={index} topic={item.toLowerCase()} selected={item.toLowerCase() == params.topic} />;
           })}
       </div>
       <div className="flex items-center pr-11 text-left mr-auto">
