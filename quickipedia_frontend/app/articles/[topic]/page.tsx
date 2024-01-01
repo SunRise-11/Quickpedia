@@ -73,6 +73,7 @@ const Page = ({ params }: DynamicUrl) => {
             return <Filterbutton key={index} topic={item.toLowerCase()} />;
           })}
       </div>
+      <h1 className=" flex items-start mb-3 text-4xl font-bold text-primaryB">{params.topic}</h1>
       <ol className="w-[100%] md:w-[98%] lg:w-[70%] sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
         {articlesToShow &&
           articlesToShow.map((article, index) => (
