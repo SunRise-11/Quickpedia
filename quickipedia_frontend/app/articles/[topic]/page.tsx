@@ -68,7 +68,7 @@ const Page = ({ params }: DynamicUrl) => {
       <section className="w-[85%] md:w-[90%] lg:w-[70%]">
       <TopicSelector allArticles={allArticles} pathParam={params.topic} />
       <div className="flex items-center pr-11 text-left mr-auto">
-        <h1 className=" flex items-start mb-3 text-4xl font-bold text-primaryB">{capitaliseFirstLetter(params.topic)}</h1>
+        <h1 className=" flex items-start mb-3 mt-3 text-4xl font-bold text-primaryB">{capitaliseFirstLetter(params.topic)}</h1>
 
       </div>
       <ol className="sm:max-w-md sm:grid-cols-none md:grid md:grid-cols-2 md:gap-x-4 lg:gap-x-6 md:max-w-none">
