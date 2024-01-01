@@ -14,6 +14,7 @@ import { capitaliseFirstLetter, uniqueFilter } from "@/app/utils/utilities";
 import { fetchUserBookmarks } from "@/app/utils/userBookmarksUtils";
 import { fetchArticles } from "@/app/utils/articlesUtils";
 import { Loading } from "@/app/components/loading/Loading";
+import { TopicSelector } from "@/app/components/topic-selector/TopicSelector";
 
 const Page = ({ params }: DynamicUrl) => {
   const { user, isLoading } = useUser();
@@ -65,15 +66,7 @@ const Page = ({ params }: DynamicUrl) => {
     <main className="text-primaryB flex min-h-screen mt-10 flex-col items-center py-10">
       <ScrollButton />
       <section className="w-[85%] md:w-[90%] lg:w-[70%]">
-      <div className=" flex flex-row justify-center flex-wrap">
-        <Filterbutton topic="all" selected={params.topic == "all"} />
-        {allArticles
-          ?.map((article) => article.topic)
-          .filter(uniqueFilter)
-          .map((item, index) => {
-            return <Filterbutton key={index} topic={item.toLowerCase()} selected={item.toLowerCase() == params.topic} />;
-          })}
-      </div>
+      <TopicSelector allArticles={allArticles} pathParam={params.topic} />
       <div className="flex items-center pr-11 text-left mr-auto">
         <h1 className=" flex items-start mb-3 text-4xl font-bold text-primaryB">{capitaliseFirstLetter(params.topic)}</h1>
 
