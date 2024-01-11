@@ -31,10 +31,10 @@ export const ArticleSkeleton = ({ delay }: Props) => {
           <h1 className="h-6 bg-gray-300 rounded w-3/4"></h1>
           <div className="h-6 bg-gray-300 rounded w-8"></div>
         </div>
-        <h2 className="h-4 bg-gray-200 rounded w-5/6"></h2>
+        <h2 className="h-4 bg-gray-300 rounded w-5/6"></h2>
         <div className="flex justify-end space-x-2">
-          <div className="h-8 bg-gray-200 rounded w-12"></div>
-          <div className="h-8 bg-gray-200 rounded w-8"></div>
+          <div className="h-8 bg-gray-300 rounded w-12"></div>
+          <div className="h-8 bg-gray-300 rounded w-8"></div>
         </div>
       </div>
     </article>
