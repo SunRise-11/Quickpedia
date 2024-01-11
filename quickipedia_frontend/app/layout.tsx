@@ -36,6 +36,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-grow">
             {children}
+            <div id="modal-root"></div>
           </main>
           <NavFooter/>
           <Footer />
