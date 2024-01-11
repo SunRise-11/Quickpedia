@@ -12,6 +12,7 @@ import { Loading } from "./loading/Loading";
 import { BackButton } from "./back-button/BackButton";
 import { ScrollButton } from "./scroll-button/ScrollButton";
 import { TopicArticle } from "./topic-button/TopicArticle";
+import { ArticleModal } from "./modal/ArticleModal";
 export {
   Navbar,
   Footer,
@@ -25,5 +26,6 @@ export {
   ScrollButton,
   BackButton,
   Loading,
-  TopicArticle
+  TopicArticle,
+  ArticleModal
 };
