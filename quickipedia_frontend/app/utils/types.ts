@@ -16,3 +16,12 @@ export type Article = {
   source: string;
   rank: number;
 }
+
+export type ArticleBody = {
+  id: string;
+  question: string;
+  answer: string;
+  topic: string;
+  source: string;
+  rank: number;
+}
