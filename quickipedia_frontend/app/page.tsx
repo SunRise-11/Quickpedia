@@ -24,7 +24,6 @@ export default function Home() {
   const handleOpenModal = (article: Article) => {
     setSelectedArticle(article);
     setIsModalOpen(true);
-    console.log("Modal open: " + isModalOpen);
   };
 
   const handleCloseModal = () => {
