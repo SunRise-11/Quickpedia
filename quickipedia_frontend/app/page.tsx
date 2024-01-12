@@ -63,7 +63,7 @@ export default function Home() {
           trendingArticles.map((article, index) => (
             <li key={index}>
               <ArticleTitle
-                {...article}
+                article={article}
                 bookmarks={userBookmarks || []}
                 toggleBookmark={() =>
                   handleBookmarking(

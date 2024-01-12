@@ -2,31 +2,26 @@
 import { Article } from "@/app/utils/types";
 import { BookmarkButton } from "../bookmark-button/BookmarkButton";
 import React, { useState } from "react";
-import { ArticleBody } from "../article-body/ArticleBody";
 import { SpeechButton } from "../speech-button/SpeechButton";
 import { RWebShare } from "react-web-share";
-import { ArticleModal } from "..";
+import { ArticleModal } from "../modal/ArticleModal";
 
 type Props = {
   toggleBookmark: () => void;
   bookmarks: Article[];
-} & Article;
+  article: Article;
+}
 
 export const ArticleTitle = ({
-  id,
-  question,
-  answer,
-  topic,
-  rank,
+  article,
   toggleBookmark,
   bookmarks,
-  source,
 }: Props) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   /*  const [selected, setSelected] = useState<boolean>(false); */
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const bookmarked = bookmarks.filter((item) => item.id == id).length
+  const bookmarked = bookmarks.filter((item) => item.id == article.id).length
     ? true
     : false;
 
@@ -46,8 +41,8 @@ export const ArticleTitle = ({
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = (article: Article) => {
-    if (selectedArticle && selectedArticle.question === article.question) {
+  const handleCloseModal = () => {
+    if (selectedArticle != null) {
       setSelectedArticle(null);
       setIsModalOpen(false);
     }
@@ -63,18 +58,18 @@ export const ArticleTitle = ({
             data-te-target="default-modal"
             data-te-ripple-init
             className="text-left w-full"
-            onClick={handleOpenModal}
+            onClick={() => handleOpenModal(article)}
             /* onClick={() => handleSelect({id, question, answer, topic, source, rank })} */
           >
-            {question}
+            {article.question}
           </button>
-          {<SpeechButton text={question} />}
+          {<SpeechButton text={article.question} />}
         </div>
         <div className="flex flex-row justify-end">
           <button
             type="button"
             className="group text-secondary  betterhover:hover:text-secondaryB-500 font-medium rounded-lg text-sm  pl-1 w-[100%] text-left"
-            onClick={handleOpenModal}
+            onClick={() => handleOpenModal(article)}
             /* onClick={() => handleSelect({id, question, answer, topic, source, rank })} */
           >
             <svg
@@ -100,7 +95,7 @@ export const ArticleTitle = ({
           </button>
           <BookmarkButton
             isBookmarked={bookmarked}
-            articleId={id}
+            articleId={article.id}
             toggleBookmark={toggleBookmark}
           />
           <RWebShare
@@ -135,13 +130,8 @@ export const ArticleTitle = ({
       {/* {selected && <ArticleBody {...{id, question, answer, topic, source, rank }} />} */}
       <ArticleModal
         {...{
-          id,
-          question,
-          answer,
-          topic,
-          source,
-          rank,
-          onClose: handleCloseModal,
+          article,
+          onClose: handleCloseModal, // Add the onClose prop with the handleCloseModal function
         }}
       />
     </>
