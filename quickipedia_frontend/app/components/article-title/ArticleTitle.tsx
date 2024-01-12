@@ -8,6 +8,8 @@ import { ArticleModal } from "../modal/ArticleModal";
 
 type Props = {
   toggleBookmark: () => void;
+  handleOpenModal: (article: Article) => void;
+  handleCloseModal: () => void;
   bookmarks: Article[];
   article: Article;
 }
@@ -15,11 +17,11 @@ type Props = {
 export const ArticleTitle = ({
   article,
   toggleBookmark,
+  handleOpenModal,
+  handleCloseModal,
   bookmarks,
 }: Props) => {
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
-  /*  const [selected, setSelected] = useState<boolean>(false); */
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
 
   const bookmarked = bookmarks.filter((item) => item.id == article.id).length
     ? true
@@ -35,18 +37,6 @@ export const ArticleTitle = ({
     }
   };
  */
-
-  const handleOpenModal = (article: Article) => {
-    setSelectedArticle(article);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    if (selectedArticle != null) {
-      setSelectedArticle(null);
-      setIsModalOpen(false);
-    }
-  };
 
   return (
     <>

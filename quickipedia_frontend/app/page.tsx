@@ -10,10 +10,29 @@ import { fetchTrending } from "./utils/articlesUtils";
 import { postUserInfo } from "./utils/userUtils";
 import { initVoice } from "./utils/utilities";
 
+
 export default function Home() {
   const [trendingArticles, setTrendingArticles] = useState<Article[]>();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
   const { user, isLoading } = useUser();
+  
+  //trying to get modal to work
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  /*  const [selected, setSelected] = useState<boolean>(false); */
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleOpenModal = (article: Article) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+    console.log("Modal open: " + isModalOpen);
+  };
+
+  const handleCloseModal = () => {
+    if (selectedArticle != null) {
+      setSelectedArticle(null);
+      setIsModalOpen(false);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,6 +84,8 @@ export default function Home() {
               <ArticleTitle
                 article={article}
                 bookmarks={userBookmarks || []}
+                handleOpenModal={() => handleOpenModal(article)}
+                handleCloseModal={handleCloseModal}
                 toggleBookmark={() =>
                   handleBookmarking(
                     user?.email || "",
