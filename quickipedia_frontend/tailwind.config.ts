@@ -52,8 +52,8 @@ const config: Config = {
           },
         },
         expand_high: {
-          "0%": { opacity: "0", maxHeight: "0px" },
-          "100%": { opacity: "1", maxHeight: "400px" },
+          "0%": { opacity: "0.5", maxHeight: "0px" },
+          "100%": { opacity: "1", maxHeight: "100%" },
         },
         expand: {
           "0%": { opacity: "0", transform: "scale(0)" },
@@ -64,8 +64,16 @@ const config: Config = {
           "0%": { opacity: "1", transform: "scale(1)" },
         },
         shrink_high: {
-          "100%": { opacity: "0", maxHeight: "0px" },
-          "0%": { opacity: "1", maxHeight: "400px" },
+          "100%": { opacity: "0.5", maxHeight: "0px" },
+          "0%": { opacity: "1", maxHeight: "100%" },
+        },
+        fade_in: {
+          "0%": { opacity: "0"},
+          "100%": { opacity: "1"},
+        },
+        fade_out: {
+          "0%": { opacity: "1"},
+          "100%": { opacity: "0"},
         },
       },
       animation: {
@@ -73,6 +81,8 @@ const config: Config = {
         shrink: "shrink 0.3s ease-out forwards",
         expand_high: "expand_high 0.4s ease-out forwards",
         shrink_high: "shrink_high 0.4s ease-out forwards",
+        fade_in: "fade_in 0.4s ease-out forwards",
+        fade_out: "fade_out 0.4s ease-out forwards",
         'shimmer-delay-1': 'shimmer 2s infinite 1s',
         'shimmer-delay-2': 'shimmer 2s infinite 2s',
         

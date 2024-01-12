@@ -23,8 +23,14 @@ export const ArticleModal = ({
   const modalClass = isVisible
     ? "animate-expand lg:animate-expand_high"
     : "animate-shrink lg:animate-shrink_high";
+  const backdropClass = isVisible
+    ? "animate-fade_in"
+    : "animate-fade_out pointer-events-none";
+  
   console.log("Modal class: " + modalClass);
   const modalContent = (
+    <>
+    <div className={`fixed inset-0 bg-black/50 h-screen opacity-50 ${backdropClass}`} onClick={onClose}></div>
     <div
       className={`flex justify-around ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}
     >
@@ -53,6 +59,7 @@ export const ArticleModal = ({
         </Link>
       </div>
     </div>
+    </>
   );
   const modalRoot = document.getElementById("modal-root");
   if (modalRoot) {
