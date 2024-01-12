@@ -14,6 +14,16 @@ const Page = () => {
   const [searchedArticle, setSearchedArticle] = useState<string>("");
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  /*  const [selected, setSelected] = useState<boolean>(false); */
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleOpenModal = (article: Article) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+    console.log("Modal open: " + isModalOpen);
+  };
+
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value.toLowerCase();
 
@@ -77,8 +87,10 @@ const Page = () => {
             filteredArticles.map((article) => (
               <ArticleTitle
                 key={article.question}
-                {...article}
+                article={article}
                 bookmarks={userBookmarks || []}
+                handleOpenModal={() => handleOpenModal(article)}
+                handleCloseModal={() => setIsModalOpen(false)}
                 toggleBookmark={() =>
                   handleBookmarking(
                     user?.email || "",

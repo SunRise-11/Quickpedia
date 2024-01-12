@@ -21,6 +21,16 @@ const Page = ({ params }: DynamicUrl) => {
   const [allArticles, setAllArticles] = useState<Article[] | []>();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  /*  const [selected, setSelected] = useState<boolean>(false); */
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleOpenModal = (article: Article) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+    console.log("Modal open: " + isModalOpen);
+  };
+  
   useEffect(() => {
     const fetchData = async () => {
       if (!user?.email) {
@@ -76,9 +86,11 @@ const Page = ({ params }: DynamicUrl) => {
           articlesToShow.map((article, index) => (
             <li key={index}>
               <ArticleTitle
-                {...article}
+                article={article}
                 key={article.id}
                 bookmarks={userBookmarks || []}
+                handleOpenModal={() => handleOpenModal(article)}
+                handleCloseModal={() => setIsModalOpen(false)}
                 toggleBookmark={() =>
                   handleBookmarking(
                     user?.email || "",

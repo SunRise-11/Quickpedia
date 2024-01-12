@@ -118,12 +118,6 @@ export const ArticleTitle = ({
         </div>
       </article>
       {/* {selected && <ArticleBody {...{id, question, answer, topic, source, rank }} />} */}
-      <ArticleModal
-        {...{
-          article,
-          onClose: handleCloseModal, // Add the onClose prop with the handleCloseModal function
-        }}
-      />
     </>
   );
 };
