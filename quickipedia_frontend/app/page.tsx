@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ArticleTitle, NavFooter, ScrollButton, TopicArticle } from "./components";
+import { ArticleModal, ArticleTitle, NavFooter, ScrollButton, TopicArticle } from "./components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { Article } from "@/app/utils/types";
 import { Loading } from "./components/loading/Loading";
@@ -100,6 +100,7 @@ export default function Home() {
           <TopicArticle topicOne={"Animals"} topicTwo={"Technology"} />
       </ol>
       </section>
+      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
     </main>
   );
 }

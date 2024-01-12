@@ -9,8 +9,7 @@ interface ArticleModalProps extends ArticleBody {
   onClose: () => void;
 }
 
-export const ArticleModal = ({article, onClose}: ArticleModalProps) => {
-
+export const ArticleModal = ({ article, onClose }: ArticleModalProps) => {
   const handleCloseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     onClose();
@@ -19,7 +18,9 @@ export const ArticleModal = ({article, onClose}: ArticleModalProps) => {
   const modalContent = (
     <>
       <div className="border border-gray-200 bg-primaryB px-6 text-left text-secondary py-3 rounded-xl  mb-3 animate-expand lg:animate-expand_high overflow-hidden">
-        <div className="pb-2 flex ">{<SpeechButton text={article.answer} />}</div>
+        <div className="pb-2 flex ">
+          {<SpeechButton text={article.answer} />}
+        </div>
         <p
           data-te-modal-init
           id="default-modal"
@@ -40,5 +41,8 @@ export const ArticleModal = ({article, onClose}: ArticleModalProps) => {
       </div>
     </>
   );
-  return <div>{modalContent}</div>;
+  const modalRoot = document.getElementById("modal-root");
+  if (modalRoot) {
+    return ReactDOM.createPortal(modalContent, modalRoot);
+  }
 };
