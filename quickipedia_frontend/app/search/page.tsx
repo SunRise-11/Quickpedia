@@ -1,7 +1,7 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Article } from "@/app/utils/types";
-import { ArticleTitle, NavFooter, ScrollButton } from "../components";
+import { ArticleModal, ArticleTitle, NavFooter, ScrollButton } from "../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { fetchArticles } from "../utils/articlesUtils";
@@ -22,6 +22,13 @@ const Page = () => {
     setSelectedArticle(article);
     setIsModalOpen(true);
     console.log("Modal open: " + isModalOpen);
+  };
+
+  const handleCloseModal = () => {
+    if (selectedArticle != null) {
+      setSelectedArticle(null);
+      setIsModalOpen(false);
+    }
   };
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -119,6 +126,7 @@ const Page = () => {
         </div>
       )}
       <NavFooter />
+      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
     </main>
   );
 };

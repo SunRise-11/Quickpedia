@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import {
+  ArticleModal,
   ArticleTitle,
   Filterbutton,
   NavFooter,
@@ -29,6 +30,13 @@ const Page = ({ params }: DynamicUrl) => {
     setSelectedArticle(article);
     setIsModalOpen(true);
     console.log("Modal open: " + isModalOpen);
+  };
+
+  const handleCloseModal = () => {
+    if (selectedArticle != null) {
+      setSelectedArticle(null);
+      setIsModalOpen(false);
+    }
   };
   
   useEffect(() => {
@@ -104,8 +112,8 @@ const Page = ({ params }: DynamicUrl) => {
           ))}
       </ol>
       </section>
-      
       <NavFooter />
+      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
     </main>
   );
 };
