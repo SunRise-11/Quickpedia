@@ -12,6 +12,23 @@ const Page = () => {
   const { user, error, isLoading } = useUser();
   const [userBookmarks, setUserBookmarks] = useState<Article[]>();
 
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  /*  const [selected, setSelected] = useState<boolean>(false); */
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleOpenModal = (article: Article) => {
+    setSelectedArticle(article);
+    setIsModalOpen(true);
+    console.log("Modal open: " + isModalOpen);
+  };
+
+  const handleCloseModal = () => {
+    if (selectedArticle != null) {
+      setSelectedArticle(null);
+      setIsModalOpen(false);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       if (!user?.email) {
@@ -58,9 +75,11 @@ const Page = () => {
                   userBookmarks.map((article, index) => (
                     <li key={index}>
                       <ArticleTitle
-                        {...article}
+                        article={article}
                         key={article.id}
                         bookmarks={userBookmarks || []}
+                        handleOpenModal={handleOpenModal}
+                        handleCloseModal={handleCloseModal}
                         toggleBookmark={() =>
                           handleBookmarking(
                             user?.email || "",
