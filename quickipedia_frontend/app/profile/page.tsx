@@ -3,7 +3,7 @@
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useEffect, useState } from "react";
 import { Article } from "@/app/utils/types";
-import { ArticleTitle, ScrollButton } from "../components";
+import { ArticleModal, ArticleTitle, ScrollButton } from "../components";
 import { fetchUserBookmarks } from "../utils/userBookmarksUtils";
 import { handleBookmarking } from "../utils/bookmarksUtils";
 import { BackButton } from "../components/back-button/BackButton";
@@ -24,7 +24,6 @@ const Page = () => {
 
   const handleCloseModal = () => {
     if (selectedArticle != null) {
-      setSelectedArticle(null);
       setIsModalOpen(false);
     }
   };
@@ -96,6 +95,7 @@ const Page = () => {
           </div>
         </>
       )}
+      {selectedArticle && <ArticleModal isVisible={isModalOpen} article={selectedArticle!} onClose={handleCloseModal} />}
     </main>
   );
 };

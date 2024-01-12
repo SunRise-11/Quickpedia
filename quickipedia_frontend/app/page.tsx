@@ -29,7 +29,6 @@ export default function Home() {
 
   const handleCloseModal = () => {
     if (selectedArticle != null) {
-      setSelectedArticle(null);
       setIsModalOpen(false);
     }
   };
@@ -100,7 +99,7 @@ export default function Home() {
           <TopicArticle topicOne={"Animals"} topicTwo={"Technology"} />
       </ol>
       </section>
-      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
+      {selectedArticle && <ArticleModal article={selectedArticle!} isVisible={isModalOpen} onClose={handleCloseModal} />}
     </main>
   );
 }

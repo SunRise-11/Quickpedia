@@ -26,7 +26,6 @@ const Page = () => {
 
   const handleCloseModal = () => {
     if (selectedArticle != null) {
-      setSelectedArticle(null);
       setIsModalOpen(false);
     }
   };
@@ -126,8 +125,7 @@ const Page = () => {
         </div>
       )}
       <NavFooter />
-      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
-    </main>
+      {selectedArticle && <ArticleModal isVisible={isModalOpen} article={selectedArticle!} onClose={handleCloseModal} />}    </main>
   );
 };
 

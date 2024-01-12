@@ -7,17 +7,20 @@ import ReactDOM from "react-dom";
 
 interface ArticleModalProps extends ArticleBody {
   onClose: () => void;
+  isVisible: boolean;
 }
 
-export const ArticleModal = ({ article, onClose }: ArticleModalProps) => {
+export const ArticleModal = ({ article, isVisible, onClose }: ArticleModalProps) => {
   const handleCloseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     onClose();
   };
 
+  const modalClass = isVisible ? 'animate-expand lg:animate-expand_high' : 'animate-shrink lg:animate-shrink_high';
+  console.log("Modal class: " + modalClass);
   const modalContent = (
     <>
-      <div className="border border-gray-200 bg-primaryB px-6 text-left text-secondary py-3 rounded-xl mb-3 animate-expand lg:animate-expand_high overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg">
+      <div className={`border border-gray-200 bg-primaryB px-6 text-left text-secondary py-3 rounded-xl mb-3 ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}>
         <div className="pb-2 flex justify-between">
           {<SpeechButton text={article.answer} />}
           {<button onClick={onClose}> close </button>}

@@ -34,7 +34,6 @@ const Page = ({ params }: DynamicUrl) => {
 
   const handleCloseModal = () => {
     if (selectedArticle != null) {
-      setSelectedArticle(null);
       setIsModalOpen(false);
     }
   };
@@ -113,7 +112,7 @@ const Page = ({ params }: DynamicUrl) => {
       </ol>
       </section>
       <NavFooter />
-      {isModalOpen && <ArticleModal article={selectedArticle!} onClose={handleCloseModal} />}
+      {selectedArticle && <ArticleModal isVisible={isModalOpen} article={selectedArticle!} onClose={handleCloseModal} />}
     </main>
   );
 };
