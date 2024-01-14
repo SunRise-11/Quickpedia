@@ -41,13 +41,13 @@ export const ArticleTitle = ({
   return (
     <>
       <article className="group/article p-4 text-left flex flex-col w-[100%] text-grey-900 rounded-xl mt-3 mb-3 bg-white text-secondary text-lg drop-shadow-xl sm:ml-0">
-        <div className="flex flex-row align-baseline justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 betterhover:group-hover/article:-translate-y-0.5 betterhover:group-hover/article:scale-105 duration-300 ...">
+        <div className="flex flex-row align-top justify-start p-2 rounded-lg text-left transition ease-in-out delay-150 betterhover:group-hover/article:-translate-y-0.5 betterhover:group-hover/article:scale-[103%] duration-300 ...">
           <button
             type="button"
             data-te-toggle="modal"
             data-te-target="default-modal"
             data-te-ripple-init
-            className="text-left w-full"
+            className="text-left w-full pr-5"
             onClick={() => handleOpenModal(article)}
             /* onClick={() => handleSelect({id, question, answer, topic, source, rank })} */
           >
