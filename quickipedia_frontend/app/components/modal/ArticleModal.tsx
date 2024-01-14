@@ -37,7 +37,7 @@ export const ArticleModal = ({
       <div
         className={`flex justify-around ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}
       >
-        <div className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[85%] md:w-[90%] lg:w-[70%]">
+        <div className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[90%] md:w-[75%] lg:w-[60%]">
           <div className="flex justify-end p-3">
             {
               <button onClick={onClose} className="group">
