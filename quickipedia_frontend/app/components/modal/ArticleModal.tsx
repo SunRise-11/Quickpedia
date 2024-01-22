@@ -72,10 +72,13 @@ export const ArticleModal = ({
             tabIndex={-1}
             aria-labelledby="exampleModalFullscreenLabel"
             aria-hidden="true"
-            className=" text-md mb-5"
+            className=" text-md mb-3"
           >
             {article.answer}
-          </p>
+            </p>
+            <p className="mb-5 text-gray-500">
+              Answer by Quickipedia
+            </p>
           <Link
             className="underline hover:text-ternary"
             target="_blank"
