@@ -37,10 +37,13 @@ export const ArticleModal = ({
       <div
         className={`flex justify-around ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}
       >
-        <div className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[90%] md:w-[75%] lg:w-[60%]">
+        <article className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[90%] md:w-[75%] lg:w-[60%]">
           <div className="flex justify-end p-2">
             {
-              <button onClick={onClose} className="p-1 rounded-xl group transition ease-in-out delay-150 betterhover:hover:bg-secondaryB-500">
+              <button
+                onClick={onClose}
+                className="p-1 rounded-xl group transition ease-in-out delay-150 betterhover:hover:bg-secondaryB-500"
+              >
                 <svg
                   className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover:text-secondaryB-100"
                   aria-hidden="true"
@@ -65,29 +68,29 @@ export const ArticleModal = ({
               <h1 className=" text-xl font-medium">{article.question}</h1>
               <SpeechButton text={article.answer} />
             </div>
-          
-          <p
-            data-te-modal-init
-            id="default-modal"
-            tabIndex={-1}
-            aria-labelledby="exampleModalFullscreenLabel"
-            aria-hidden="true"
-            className=" text-md mb-3"
-          >
-            {article.answer}
+
+            <p
+              data-te-modal-init
+              id="default-modal"
+              tabIndex={-1}
+              aria-labelledby="exampleModalFullscreenLabel"
+              aria-hidden="true"
+              className=" text-md mb-4"
+            >
+              {article.answer}
             </p>
-            <p className="mb-5 text-gray-500">
-              Answer by Quickipedia
-            </p>
-          <Link
-            className="underline hover:text-ternary"
-            target="_blank"
-            href={article.source}
-          >
-            {"Read more at " + article.source.split(".")[1]}
-          </Link>
-            </div>
-        </div>
+            <footer className="flex flex-wrap">
+              <p className="text-gray-500 mr-2">Answer by Quickipedia,</p>
+              <Link
+                className="underline hover:text-ternary"
+                target="_blank"
+                href={article.source}
+              >
+                {"Read more at " + article.source.split(".")[1]}
+              </Link>
+            </footer>
+          </div>
+        </article>
       </div>
     </>
   );
