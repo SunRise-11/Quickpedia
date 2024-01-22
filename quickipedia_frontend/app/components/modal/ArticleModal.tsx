@@ -60,9 +60,9 @@ export const ArticleModal = ({
               </button>
             }
           </div>
-          <div className="px-6 text-left text-secondary py-3">
-            <div className="flex flex-row space-x-3">
-              <h1 className="text-lg font-medium pb-2">{article.question}</h1>
+          <div className="px-5 text-left text-secondary pb-5">
+            <div className="flex flex-row align-middle space-x-3 mb-3">
+              <h1 className=" text-xl font-medium">{article.question}</h1>
               <SpeechButton text={article.answer} />
             </div>
           

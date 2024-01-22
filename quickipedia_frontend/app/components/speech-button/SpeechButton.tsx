@@ -8,7 +8,7 @@ export const SpeechButton = ({ text }: Props) => {
     <button
       type="button"
       className={
-        " group group flex align-top text-rose-700 hover:text-white font-medium rounded-lg text-sm"
+        " group group flex align-middle text-rose-700 hover:text-white font-medium rounded-lg text-sm"
       }
       onClick={() => speakFromText(text)}
     >
