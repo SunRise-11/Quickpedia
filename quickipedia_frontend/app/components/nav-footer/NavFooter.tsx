@@ -35,7 +35,7 @@ export const NavFooter = () => {
           href={"/articles/all"}
           data-tooltip-target="tooltip-new"
           type="button"
-          className="inline-flex flex-col items-center justify-center px-4 rounded-xl  text-2xl font-extrabold text-secondaryB hover:text-slate-950 hover:bg-rose-400/30 group"
+          className="inline-flex flex-col items-center justify-center px-4 rounded-xl  text-2xl font-extrabold text-gray-700 hover:text-rose-500 hover:bg-rose-400/30 group"
         >
           Q
         </Link>
