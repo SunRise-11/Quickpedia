@@ -38,11 +38,11 @@ export const ArticleModal = ({
         className={`flex justify-around ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}
       >
         <div className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[90%] md:w-[75%] lg:w-[60%]">
-          <div className="flex justify-end p-3">
+          <div className="flex justify-end p-2">
             {
-              <button onClick={onClose} className="group">
+              <button onClick={onClose} className="p-1 rounded-xl group transition ease-in-out delay-150 betterhover:hover:bg-secondaryB-500">
                 <svg
-                  className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover:text-secondaryB-500"
+                  className="w-6 h-6 text-secondary transition ease-in-out delay-150 betterhover:group-hover:text-secondaryB-100"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -50,7 +50,7 @@ export const ArticleModal = ({
                 >
                   <g
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
