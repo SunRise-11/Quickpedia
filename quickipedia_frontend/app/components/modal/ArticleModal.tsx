@@ -31,13 +31,15 @@ export const ArticleModal = ({
   const modalContent = (
     <>
       <div
+        style={{ zIndex: 9998 }}
         className={`fixed inset-0 bg-black/50 h-screen opacity-50 ${backdropClass}`}
         onClick={onClose}
       ></div>
       <div
-        className={`flex justify-around ${modalClass} overflow-hidden fixed top-20 left-0 right-0 mx-5 drop-shadow-lg`}
+        style={{ zIndex: 9999 }}
+        className={`flex justify-around ${modalClass} max-h-[82vh] overflow-hidden fixed top-14 left-0 right-0 mx-5 drop-shadow-lg`}
       >
-        <article className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[90%] md:w-[75%] lg:w-[60%]">
+        <article className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[95%] md:w-[75%] lg:w-[60%]">
           <div className="flex justify-end px-2 pt-2">
             {
               <button
@@ -65,7 +67,7 @@ export const ArticleModal = ({
           </div>
           <div className="px-5 text-left text-secondary pb-5">
             <div className="flex flex-row align-middle space-x-3 mb-3">
-              <h1 className=" text-xl font-medium">{article.question}</h1>
+              <h1 className=" text-lg md:text-xl font-medium">{article.question}</h1>
               <SpeechButton text={article.answer} />
             </div>
 
@@ -75,11 +77,11 @@ export const ArticleModal = ({
               tabIndex={-1}
               aria-labelledby="exampleModalFullscreenLabel"
               aria-hidden="true"
-              className=" text-md mb-4"
+              className="mb-6 max-h-[45vh] overflow-scroll"
             >
               {article.answer}
             </p>
-            <footer className="flex flex-wrap">
+            <footer className="flex flex-wrap justify-between">
               <p className="text-gray-500 mr-2">Answer by Quickipedia,</p>
               <Link
                 className="underline hover:text-ternary"
