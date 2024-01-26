@@ -40,7 +40,8 @@ export const ArticleModal = ({
         className={`flex justify-around ${modalClass} max-h-[82vh] overflow-hidden fixed top-14 left-0 right-0 mx-5 drop-shadow-lg`}
       >
         <article className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[95%] md:w-[75%] lg:w-[60%]">
-          <div className="flex justify-end px-2 pt-2">
+          <div className="flex justify-between px-2 pt-2">
+          <SpeechButton text={article.answer} />
             {
               <button
                 onClick={onClose}
@@ -68,7 +69,7 @@ export const ArticleModal = ({
           <div className="px-5 text-left text-secondary pb-5">
             <div className="flex flex-row align-middle space-x-3 mb-3">
               <h1 className=" text-lg md:text-xl font-medium">{article.question}</h1>
-              <SpeechButton text={article.answer} />
+              
             </div>
 
             <p
