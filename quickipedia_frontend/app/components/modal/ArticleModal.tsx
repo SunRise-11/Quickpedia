@@ -37,7 +37,7 @@ export const ArticleModal = ({
       ></div>
       <div
         style={{ zIndex: 9999 }}
-        className={`flex justify-around ${modalClass} max-h-[82vh] overflow-hidden fixed top-14 left-0 right-0 mx-5 drop-shadow-lg`}
+        className={`flex justify-around ${modalClass} max-h-[87vh] overflow-hidden fixed top-14 left-0 right-0 mx-5 drop-shadow-lg`}
       >
         <article className="border border-gray-200 bg-primaryB rounded-xl mb-3 w-[95%] md:w-[75%] lg:w-[60%]">
           <div className="flex justify-between px-2 pt-2">
@@ -78,7 +78,7 @@ export const ArticleModal = ({
               tabIndex={-1}
               aria-labelledby="exampleModalFullscreenLabel"
               aria-hidden="true"
-              className="mb-6 max-h-[45vh] overflow-scroll"
+              className="mb-6 max-h-[40vh] overflow-scroll scrollbar-hide"
             >
               {article.answer}
             </p>

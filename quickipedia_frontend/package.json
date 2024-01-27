@@ -17,6 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-web-share": "^2.0.2",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "tw-elements": "^1.0.0"
   },
   "devDependencies": {
