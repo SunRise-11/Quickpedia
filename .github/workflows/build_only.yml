@@ -42,4 +42,8 @@ jobs:
       - name: Run Tests
         run: mvn test -e
         working-directory: quickipedia_backend
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -f quickipedia_backend/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ComplotTeam_Quickipedia
       
