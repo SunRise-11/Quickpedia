@@ -36,19 +36,13 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Mvn Build
-        run: mvn package -e
-        working-directory: quickipedia_backend
-      - name: Run Tests
-        run: mvn test -e
-        working-directory: quickipedia_backend
-      - name: Build and analyze
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -f quickipedia_backend/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ComplotTeam_Quickipedia
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: quickipedia_frontend
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -f quickipedia_backend/pom.xml -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ComplotTeam_Quickipedia
