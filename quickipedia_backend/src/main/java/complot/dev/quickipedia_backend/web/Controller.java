@@ -16,8 +16,8 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 @CrossOrigin
+@RequestMapping("/api")
 public class Controller {
 
     private final ArticleService articleService;
