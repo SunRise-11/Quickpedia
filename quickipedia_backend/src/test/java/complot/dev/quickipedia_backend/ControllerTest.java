@@ -32,7 +32,9 @@ class ControllerTest {
         // Arrange
         String response = "Hello!";
         // Act
-        String url = this.restTemplate.getForObject("http://localhost:" + port + "/api/status", String.class);
+        String url = this.restTemplate
+                .withBasicAuth("admin", "password")
+                .getForObject("http://localhost:" + port + "/api/status", String.class);
         // Act & Assert
         assertThat(url).contains(response);
     }

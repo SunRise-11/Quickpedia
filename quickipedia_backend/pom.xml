@@ -58,10 +58,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- dependency for auth0 -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-		</dependency> -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>mvc-auth-commons</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

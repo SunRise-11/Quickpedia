@@ -19,16 +19,6 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     @Bean
-    InMemoryUserDetailsManager users() {
-        return new InMemoryUserDetailsManager(
-                User.withUsername("admin")
-                        .password("{noop}password")
-                        .roles("USER")
-                        .build()
-        );
-    }
-
-    @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .cors(Customizer.withDefaults())
@@ -37,6 +27,16 @@ public class SecurityConfig {
                 )
                 .httpBasic(Customizer.withDefaults())
                 .build();
+    }
+
+    @Bean // Placeholder
+    InMemoryUserDetailsManager users() {
+        return new InMemoryUserDetailsManager(
+                User.withUsername("admin")
+                        .password("{noop}password")
+                        .roles("USER")
+                        .build()
+        );
     }
 
     @Bean
