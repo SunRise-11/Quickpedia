@@ -23,7 +23,7 @@ public class SecurityConfig {
         return http
                 .cors(Customizer.withDefaults())
                 .authorizeRequests(auth -> auth
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults())
                 .build();
